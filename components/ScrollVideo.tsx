@@ -2,11 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react';
 import styles from './ScrollVideo.module.css';
+import Navbar from './Navbar';
 
 export default function ScrollVideo() {
     const videoRef = useRef<HTMLVideoElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [isVideoReady, setIsVideoReady] = useState(false);
+    const maxTimeRef = useRef(0); // stores how much of the video scroll will control
+
 
     useEffect(() => {
         const video = videoRef.current;
@@ -18,6 +21,10 @@ export default function ScrollVideo() {
         const handleCanPlay = () => {
             console.log('Video can play, duration:', video.duration);
             if (video.duration && video.duration !== Infinity) {
+
+                // CONTROL UP TO 5 SECONDS (but NOT beyond actual video length)
+                maxTimeRef.current = Math.min(video.duration, 8);
+                // maxTimeRef.current = video.duration;
                 setIsVideoReady(true);
                 updateVideoTime();
             }
@@ -31,18 +38,23 @@ export default function ScrollVideo() {
             const windowHeight = window.innerHeight;
 
             // Video plays through 300vh of scroll
-            const videoScrollHeight = windowHeight * 3;
+            const videoScrollHeight = windowHeight * 3.5;
 
             // Calculate scroll percentage
             const scrollPercent = Math.min(Math.max(scrollPosition / videoScrollHeight, 0), 1);
 
             // Map to 5 seconds of video
-            const maxVideoTime = 5;
+            const maxVideoTime =
+            maxTimeRef.current > 0 ? maxTimeRef.current : video.duration;
             const targetTime = scrollPercent * maxVideoTime;
 
+            // Smooth easing towards targetTime (removes lag)
+            const lerpFactor = 0.2;
+            const newTime = video.currentTime + (targetTime - video.currentTime) * lerpFactor;
+
             // Ultra-fine threshold for maximum smoothness
-            if (Math.abs(video.currentTime - targetTime) > 0.02) {
-                video.currentTime = targetTime;
+            if (Math.abs(video.currentTime - newTime) > 0.01) {
+                video.currentTime = newTime;
             }
         };
 
@@ -102,9 +114,9 @@ export default function ScrollVideo() {
                     </div>
                 </div>
             </div>
-
             {/* Spacer to enable scrolling */}
             <div className={styles.spacer} />
+            <Navbar/>
         </>
     );
 }
