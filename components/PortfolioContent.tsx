@@ -20,18 +20,46 @@ const staggerChildren = {
 export default function PortfolioContent() {
     return (
         <div className={styles.content}>
-            {/* Introduction Section */}
+            {/* About Section */}
             <motion.section
                 className={`${styles.section} ${styles.intro}`}
                 {...fadeInUp}
             >
-                <h2 className={styles.sectionTitle}>About the Studio</h2>
-                <p className={styles.introText}>
-                    At <span className={styles.highlight}>Vish Design Studio</span>, we believe that architecture is more than just buildings—it's about creating spaces that inspire, function seamlessly, and stand the test of time.
-                </p>
-                <p className={styles.introText}>
-                    With a focus on <span className={styles.highlight}>sustainable design</span> and <span className={styles.highlight}>innovative solutions</span>, we transform visions into architectural masterpieces that resonate with their environment and purpose.
-                </p>
+                <h2 className={styles.sectionTitle}>Vish Design Studio</h2>
+                <div className={styles.introContainer}>
+                    <div className={styles.introTextContent}>
+                        <p className={styles.introText}>
+                            Based in Chennai, <span className={styles.highlight}>Vish Design Studio</span> embraces a global design philosophy. We transform spaces into captivating environments by blending traditional Indian craftsmanship with contemporary global design principles, creating distinctive interiors that are both deeply personal and universally appealing.
+                        </p>
+                        <p className={styles.introText}>
+                            Since 2023, we've delivered comprehensive, end-to-end solutions for luxury residential and commercial spaces throughout India and American Cities. From custom furniture to sustainable materials, every element is meticulously curated to create cohesive and inspiring environments.
+                        </p>
+                    </div>
+                    <motion.div className={styles.introLogo} {...fadeInUp}>
+                        <img src="/logo.png" alt="Vish Design Studio Logo" />
+                    </motion.div>
+                </div>
+            </motion.section>
+
+            {/* Founder Section */}
+            <motion.section
+                className={`${styles.section} ${styles.founder}`}
+                {...fadeInUp}
+            >
+                <h2 className={styles.sectionTitle}>Founder & Principal Designer</h2>
+                <div className={styles.founderContent}>
+                    <motion.div className={styles.founderImage} {...fadeInUp}>
+                        <img src="/founder pic.JPEG" alt="Gayathri Vish - Founder & Principal Designer" />
+                    </motion.div>
+                    <motion.div className={styles.founderText} {...fadeInUp}>
+                        <p className={styles.introText}>
+                            <span className={styles.highlight}>Gayathri Vish</span> leads Vish Design Studio with a unique blend of academic excellence and hands-on expertise. With degrees in Sociology and International Studies from Stella Maris College, plus professional certifications from Harvard University Graduate School of Design and the London School of Trends, she brings a holistic understanding of global dynamics and design.
+                        </p>
+                        <p className={styles.introText}>
+                            Before founding the studio, Gayathri managed over 50 diverse projects across India for five years. Her approach combines global foresight with local soul, drawing inspiration from India's vibrant culture while exploring international trends to craft interiors that feel both authentically rooted and refreshingly modern.
+                        </p>
+                    </motion.div>
+                </div>
             </motion.section>
 
             {/* Featured Projects */}
@@ -45,49 +73,62 @@ export default function PortfolioContent() {
                 <h2 className={styles.sectionTitle}>Featured Projects</h2>
                 <div className={styles.projectsGrid}>
                     <motion.div className={styles.projectCard} variants={fadeInUp}>
-                        <div className={styles.projectNumber}>01</div>
-                        <h3 className={styles.projectTitle}>Modern Residential Complex</h3>
-                        <p className={styles.projectDescription}>
-                            A contemporary living space that harmonizes luxury with sustainability, featuring cutting-edge green technologies and breathtaking aesthetics.
-                        </p>
-                    </motion.div>
-
-                    <motion.div className={styles.projectCard} variants={fadeInUp}>
-                        <div className={styles.projectNumber}>02</div>
-                        <h3 className={styles.projectTitle}>Urban Cultural Center</h3>
-                        <p className={styles.projectDescription}>
-                            An iconic landmark that serves as a hub for community engagement, blending traditional architectural elements with modern design principles.
-                        </p>
-                    </motion.div>
-
-                    <motion.div className={styles.projectCard} variants={fadeInUp}>
-                        <div className={styles.projectNumber}>03</div>
-                        <h3 className={styles.projectTitle}>Sustainable Office Campus</h3>
-                        <p className={styles.projectDescription}>
-                            A workspace designed for the future, maximizing natural light, promoting wellness, and achieving net-zero energy consumption.
-                        </p>
+                        <div className={styles.projectImageWrapper}>
+                            <img
+                                src="/project title pic.jpg"
+                                alt="Featured Interior Design Project"
+                                className={styles.projectImage}
+                            />
+                        </div>
                     </motion.div>
                 </div>
             </motion.section>
 
-            {/* Stats Section */}
+            {/* Design Process Section */}
             <motion.section
-                className={`${styles.section} ${styles.about}`}
+                className={`${styles.section} ${styles.designProcess}`}
                 {...fadeInUp}
             >
-                <h2 className={styles.sectionTitle}>Our Impact</h2>
-                <div className={styles.aboutContent}>
-                    <motion.div className={styles.stat} {...fadeInUp}>
-                        <span className={styles.statNumber}>50+</span>
-                        <span className={styles.statLabel}>Projects Completed</span>
+                <h2 className={styles.sectionTitle}>The Design Process</h2>
+                <div className={styles.processTimeline}>
+                    <motion.div className={styles.processStep} {...fadeInUp}>
+                        <div className={styles.stepNumber}>01</div>
+                        <h3 className={styles.stepTitle}>Choose Your Package</h3>
+                        <p className={styles.stepDescription}>
+                            After your purchase, you'll receive a Client Questionnaire and Measurement Guide. Once you send that back, your design timeline will start.
+                        </p>
                     </motion.div>
-                    <motion.div className={styles.stat} {...fadeInUp}>
-                        <span className={styles.statNumber}>15+</span>
-                        <span className={styles.statLabel}>Years Experience</span>
+
+                    <motion.div className={styles.processStep} {...fadeInUp}>
+                        <div className={styles.stepNumber}>02</div>
+                        <h3 className={styles.stepTitle}>Measurement & Inspiration</h3>
+                        <p className={styles.stepDescription}>
+                            Complete your online questionnaire and attach inspiration photos. This is where we'll get to know you and your dream space before diving into the planning stage.
+                        </p>
                     </motion.div>
-                    <motion.div className={styles.stat} {...fadeInUp}>
-                        <span className={styles.statNumber}>12</span>
-                        <span className={styles.statLabel}>Awards Won</span>
+
+                    <motion.div className={styles.processStep} {...fadeInUp}>
+                        <div className={styles.stepNumber}>03</div>
+                        <h3 className={styles.stepTitle}>Concept & Development</h3>
+                        <p className={styles.stepDescription}>
+                            I'll create 2 mood boards for different design concepts, giving you an idea of your space's potential and bringing your vision to life.
+                        </p>
+                    </motion.div>
+
+                    <motion.div className={styles.processStep} {...fadeInUp}>
+                        <div className={styles.stepNumber}>04</div>
+                        <h3 className={styles.stepTitle}>Selection & Placement</h3>
+                        <p className={styles.stepDescription}>
+                            Once you've selected a concept, I'll finalize 2D & 3D floor plans, choose finishes and furnishings, and provide detailed drawings and specifications.
+                        </p>
+                    </motion.div>
+
+                    <motion.div className={styles.processStep} {...fadeInUp}>
+                        <div className={styles.stepNumber}>05</div>
+                        <h3 className={styles.stepTitle}>Final Design</h3>
+                        <p className={styles.stepDescription}>
+                            When your design is finalized, you'll receive a comprehensive shopping list detailing all furnishings and materials for easy purchasing.
+                        </p>
                     </motion.div>
                 </div>
             </motion.section>
