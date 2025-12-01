@@ -9,10 +9,13 @@
     justify-content: space-between;
     align-items: center;
 
-    background: transparent; /* Transparent navbar */
-    z-index: 999; /* Stays above the video */
+    background: transparent;
 
-    backdrop-filter: blur(3px); /* Optional soft blur for elegance */
+    z-index: 999;
+
+
+    backdrop-filter: blur(10px);
+
 }
 
 .logo {
