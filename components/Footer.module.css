@@ -1,0 +1,201 @@
+.footer {
+    background-color: #e5e5e5;
+    color: #333;
+    padding: 1.5rem 1.5rem 1rem;  /* MUCH smaller */
+    border-top: 1px solid #cfcfcf;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+}
+
+.inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.brandSection {
+    max-width: 360px;
+}
+
+.brandRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brandTextBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logoTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.04em;
+}
+
+.logoImage {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.tagline {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555555;
+}
+
+.navSection {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+}
+
+.navColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.navTitle {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #000000;
+    margin-bottom: 0.4rem;
+}
+
+.navLink {
+    font-size: 0.95rem;
+    color: #444444;
+    text-decoration: none;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.navLink:hover {
+    color: #000000;
+    transform: translateY(-1px);
+}
+
+.contactSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: flex-start;
+}
+
+.emailLink {
+    font-size: 0.95rem;
+    color: #000000;
+    text-decoration: none;
+    border-bottom: 1px solid #00000033;
+    padding-bottom: 0.1rem;
+    transition: border-color 0.15s ease, color 0.15s ease;
+    word-break: break-all;
+}
+
+.emailLink:hover {
+    border-color: #00000088;
+}
+
+.socialRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+.socialLink {
+    font-size: 1.25rem;
+    color: #444444;
+    transition: color 0.15s ease, transform 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialLink:hover {
+    color: #000000;
+    transform: translateY(-1px);
+}
+
+.bottomBar {
+    max-width: 1200px;
+    margin: 1rem auto 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid #cfcfcf;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottomText {
+    font-size: 0.8rem;
+    color: #555555;
+}
+
+.bottomLinks {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+}
+
+.bottomLink {
+    color: #444444;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.bottomLink:hover {
+    color: #000000;
+}
+
+.separator {
+    color: #888888;
+}
+
+@media (max-width: 900px) {
+    .inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .brandSection {
+        grid-column: 1 / -1;
+    }
+
+    .navSection {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer {
+        padding: 2.25rem 1.5rem 1.75rem;
+    }
+
+    .inner {
+        grid-template-columns: 1fr;
+    }
+
+    .navSection {
+        margin-top: 0.75rem;
+    }
+
+    .bottomBar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
