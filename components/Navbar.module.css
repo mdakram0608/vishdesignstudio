@@ -13,9 +13,7 @@
 
     z-index: 999;
 
-
     backdrop-filter: blur(10px);
-
 }
 
 .logo {
@@ -23,6 +21,19 @@
     font-weight: 600;
     letter-spacing: 0.5px;
     color: rgb(16, 16, 16);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logoImage {
+    height: auto;
+    object-fit: contain;
 }
 
 .navLinks {
@@ -36,9 +47,57 @@
     font-size: 1rem;
     color: rgb(16, 15, 15);
     font-weight: 500;
-    transition: opacity 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+/* Animated underline on hover */
+.navLinks a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent), #d4a574);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navLinks a:hover::after {
+    width: 100%;
 }
 
 .navLinks a:hover {
-    opacity: 0.7;
+    color: var(--color-accent);
+}
+
+/* Active link styles */
+.navLinks a.active {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.navLinks a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent), #d4a574);
+    box-shadow: 0 2px 8px rgba(201, 168, 106, 0.4);
+    animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 100%;
+        opacity: 1;
+    }
 }

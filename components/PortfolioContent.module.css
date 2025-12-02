@@ -297,3 +297,180 @@
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(201, 168, 106, 0.3);
 }
+
+/* Services Section */
+.services {
+    background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+    padding: 6rem 2rem;
+}
+
+.servicesIntro {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--color-muted);
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.serviceCard {
+    background: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+}
+
+.serviceCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.serviceIcon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.serviceIcon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.serviceCard h3 {
+    font-size: 1.4rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.serviceCard p {
+    font-size: 1rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+}
+
+/* Featured Projects Section */
+.featuredProjects {
+    padding: 6rem 2rem;
+}
+
+.projectsIntro {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--color-muted);
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projectCard {
+    overflow: hidden;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.projectImage {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.projectImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.projectCard:hover .projectImage img {
+    transform: scale(1.1);
+}
+
+.projectOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    padding: 2rem;
+    color: #ffffff;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.projectCard:hover .projectOverlay {
+    transform: translateY(0);
+}
+
+.projectOverlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.projectOverlay p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.viewAllButton {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* Gallery Section */
+.gallery {
+    background: #f8f8f8;
+    padding: 6rem 2rem;
+}
+
+.galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.galleryItem {
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease;
+}
+
+.galleryItem:hover {
+    transform: scale(1.03);
+}
+
+.galleryItem img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+
+    .servicesGrid,
+    .projectsGrid,
+    .galleryGrid {
+        grid-template-columns: 1fr;
+    }
+}
