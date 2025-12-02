@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import styles from './PortfolioContent.module.css';
 
 const fadeInUp = {
@@ -133,15 +134,89 @@ export default function PortfolioContent() {
                 </div>
             </motion.section>
 
+            {/* Services Overview Section */}
+            <motion.section
+                className={`${styles.section} ${styles.services}`}
+                {...fadeInUp}
+            >
+                <h2 className={styles.sectionTitle}>Our Services</h2>
+                <p className={styles.servicesIntro}>
+                    From concept to completion, we offer comprehensive interior design solutions tailored to your vision.
+                </p>
+                <div className={styles.servicesGrid}>
+                    <motion.div className={styles.serviceCard} {...fadeInUp}>
+                        <div className={styles.serviceIcon}>
+                            <img src="/icons/residential.png" alt="Residential Design" />
+                        </div>
+                        <h3>Residential Design</h3>
+                        <p>Living rooms, bedrooms, kitchens, bathrooms, and complete home transformations</p>
+                    </motion.div>
+                    <motion.div className={styles.serviceCard} {...fadeInUp}>
+                        <div className={styles.serviceIcon}>
+                            <img src="/icons/commercial.png" alt="Commercial Spaces" />
+                        </div>
+                        <h3>Commercial Spaces</h3>
+                        <p>Offices, shops, restaurants, hotels, salons, and retail environments</p>
+                    </motion.div>
+                    <motion.div className={styles.serviceCard} {...fadeInUp}>
+                        <div className={styles.serviceIcon}>
+                            <img src="/icons/renovation.png" alt="Renovations" />
+                        </div>
+                        <h3>Renovations & Remodeling</h3>
+                        <p>Transform existing spaces with expert renovation and remodeling services</p>
+                    </motion.div>
+                    <motion.div className={styles.serviceCard} {...fadeInUp}>
+                        <div className={styles.serviceIcon}>
+                            <img src="/icons/turnkey.png" alt="Turnkey Solutions" />
+                        </div>
+                        <h3>Turnkey Solutions</h3>
+                        <p>Complete end-to-end services including furniture, lighting, materials, and installation</p>
+                    </motion.div>
+                    <motion.div className={styles.serviceCard} {...fadeInUp}>
+                        <div className={styles.serviceIcon}>
+                            <img src="/icons/landscape.png" alt="Landscape" />
+                        </div>
+                        <h3>Outdoor & Landscape</h3>
+                        <p>Beautiful outdoor spaces, landscaping, and water features</p>
+                    </motion.div>
+                    <motion.div className={styles.serviceCard} {...fadeInUp}>
+                        <div className={styles.serviceIcon}>
+                            <img src="/icons/virtual.png" alt="Virtual Consultation" />
+                        </div>
+                        <h3>Virtual Consultation</h3>
+                        <p>In-person and remote design consultations with 3D renders and E-Design</p>
+                    </motion.div>
+                </div>
+            </motion.section>
+
+            {/* Image Gallery Section */}
+            <motion.section
+                className={`${styles.section} ${styles.gallery}`}
+                {...fadeInUp}
+            >
+                <h2 className={styles.sectionTitle}>Our Work</h2>
+                <div className={styles.galleryGrid}>
+                    <motion.div className={styles.galleryItem} {...fadeInUp}>
+                        <img src="/project 1/kitchen/IMG_3270.jpg" alt="Gallery 1" />
+                    </motion.div>
+                    <motion.div className={styles.galleryItem} {...fadeInUp}>
+                        <img src="/project 1/bathroom/IMG_3276.jpg" alt="Gallery 2" />
+                    </motion.div>
+                    <motion.div className={styles.galleryItem} {...fadeInUp}>
+                        <img src="/project 1/laundry.jpg" alt="Gallery 3" />
+                    </motion.div>
+                </div>
+            </motion.section>
+
             {/* Call to Action */}
             <motion.section
                 className={`${styles.section} ${styles.cta}`}
                 {...fadeInUp}
             >
                 <h2 className={styles.ctaTitle}>Let's Build Something Extraordinary</h2>
-                <a href="#contact" className={styles.ctaButton}>
+                <Link href="/contact" className={styles.ctaButton}>
                     Get in Touch
-                </a>
+                </Link>
             </motion.section>
         </div>
     );
