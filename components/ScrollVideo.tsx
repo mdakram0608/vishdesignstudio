@@ -7,7 +7,6 @@ import Navbar from './Navbar';
 
 const FRAME_COUNT = 192;
 
-
 const getFrameSrc = (index: number) => `/videos/Images/${index}.webp`;
 
 export default function ScrollVideo() {
@@ -15,25 +14,41 @@ export default function ScrollVideo() {
     const imagesRef = useRef<HTMLImageElement[]>([]);
     const containerRef = useRef<HTMLDivElement>(null);
 
-
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start start", "end start"]
+        offset: ['start start', 'end start'],
     });
 
-
+    // HD-aware render: match canvas resolution to layout size * devicePixelRatio
     const render = useCallback((index: number) => {
         const canvas = canvasRef.current;
-        const ctx = canvas?.getContext('2d');
         const image = imagesRef.current[index - 1];
 
-        if (!canvas || !ctx || !image) return;
+        if (!canvas || !image) return;
 
-        const { width, height } = canvas;
-        ctx.clearRect(0, 0, width, height);
-        ctx.drawImage(image, 0, 0, width, height);
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        // Logical size (CSS size) of the canvas in the layout
+        const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+
+        // Set internal pixel size based on device pixel ratio
+        const targetWidth = rect.width * dpr;
+        const targetHeight = rect.height * dpr;
+
+        if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
+            canvas.width = targetWidth;
+            canvas.height = targetHeight;
+        }
+
+        // Reset transform then scale once for DPR
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        // Clear and draw using CSS pixel coordinates
+        ctx.clearRect(0, 0, rect.width, rect.height);
+        ctx.drawImage(image, 0, 0, rect.width, rect.height);
     }, []);
-
 
     useEffect(() => {
         const loaded: HTMLImageElement[] = [];
@@ -56,12 +71,11 @@ export default function ScrollVideo() {
         }
     }, [render]);
 
-    // 4) MAP SCROLL 0→1 TO FRAME 1→192
+    // Map scroll 0→1 to frame 1→192
     const currentIndex = useTransform(scrollYProgress, [0, 1], [1, FRAME_COUNT]);
 
-
-    const textOpacity = useTransform(scrollYProgress, [0, 0.15, 0.30], [0, 1, 1]);
-    const textY = useTransform(scrollYProgress, [0, 0.15, 0.30], [100, 0, 0]);
+    const textOpacity = useTransform(scrollYProgress, [0, 0.15, 0.3], [0, 1, 1]);
+    const textY = useTransform(scrollYProgress, [0, 0.15, 0.3], [100, 0, 0]);
 
     useMotionValueEvent(currentIndex, 'change', (latest) => {
         const frame = Math.min(Math.max(Math.round(latest), 1), FRAME_COUNT);
@@ -76,8 +90,8 @@ export default function ScrollVideo() {
                     <canvas
                         ref={canvasRef}
                         className={styles.video}
-                        width={1920}   // set to your frame width
-                        height={1080}  // set to your frame height
+                        width={1920}   // base resolution; internal pixels overridden by DPR logic
+                        height={1080}
                     />
 
                     <div className={styles.overlay}>
@@ -85,7 +99,7 @@ export default function ScrollVideo() {
                             className={styles.textContent}
                             style={{
                                 opacity: textOpacity,
-                                y: textY
+                                y: textY,
                             }}
                         >
                             <h1>Vish Design Studio</h1>
