@@ -106,12 +106,17 @@ export default function Footer() {
                     viewport={{ once: false, amount: 0.4 }}
                     transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
                 >
+                    {/* Column 1 */}
                     <div className={styles.navColumn}>
                         <span className={styles.navTitle}>Explore</span>
 
-                        {["Home", "About", "Contact"].map((label, index) => (
+                        {[
+                            { label: "Home", href: "/" },
+                            { label: "About", href: "/about" },
+                            { label: "Contact", href: "/contact" },
+                        ].map((item, index) => (
                             <motion.div
-                                key={label}
+                                key={item.label}
                                 variants={lineFade}
                                 initial="hidden"
                                 whileInView="visible"
@@ -122,29 +127,21 @@ export default function Footer() {
                                     delay: 0.15 + index * 0.05,
                                 }}
                             >
-                                <Link
-                                    href={
-                                        label === "Home"
-                                            ? "#Home"
-                                                : label === "About"
-                                                    ? "#about"
-                                                    : "#contact"
-                                    }
-                                    className={styles.navLink}
-                                >
-                                    {label}
+                                <Link href={item.href} className={styles.navLink}>
+                                    {item.label}
                                 </Link>
                             </motion.div>
                         ))}
                     </div>
 
+                    {/* Column 2 */}
                     <div className={styles.navColumn}>
                         <span className={styles.navTitle}>More</span>
 
                         {[
-                            { label: "Design Process", href: "#Designprocess" },
-                            { label: "Projects", href: "#Projects" },
-                            { label: "Blog", href: "#Blog" },
+                            { label: "Design Process", href: "/design-process" },
+                            { label: "Projects", href: "/projects" },
+                            { label: "Blog", href: "/blog" },
                         ].map((item, index) => (
                             <motion.div
                                 key={item.label}
@@ -175,13 +172,11 @@ export default function Footer() {
                     viewport={{ once: false, amount: 0.4 }}
                     transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
                 >
-                    {/* "Let's connect" – word by word */}
                     <AnimatedWords
                         text="Let’s connect"
                         className={styles.navTitle}
                     />
 
-                    {/* Email – fades in + words stagger inside */}
                     <motion.a
                         href="mailto:hello@vishdesignstudio.com"
                         className={styles.emailLink}
@@ -194,15 +189,20 @@ export default function Footer() {
                             delayChildren: 0.25,
                         }}
                     >
-                        {`hello@vishdesignstudio.com`.split(" ").map((word, index) => (
-                            <motion.span
-                                key={index}
-                                variants={wordItem}
-                                style={{ display: "inline-block", marginRight: "0.25em" }}
-                            >
-                                {word}
-                            </motion.span>
-                        ))}
+                        {`hello@vishdesignstudio.com`
+                            .split(" ")
+                            .map((word, index) => (
+                                <motion.span
+                                    key={index}
+                                    variants={wordItem}
+                                    style={{
+                                        display: "inline-block",
+                                        marginRight: "0.25em",
+                                    }}
+                                >
+                                    {word}
+                                </motion.span>
+                            ))}
                     </motion.a>
 
                     <div className={styles.socialRow}>
@@ -264,6 +264,7 @@ export default function Footer() {
                     text={`© ${currentYear} Vish Design Studio. All rights reserved.`}
                     className={styles.bottomText}
                 />
+
                 <div className={styles.bottomLinks}>
                     <Link href="/privacy" className={styles.bottomLink}>
                         Privacy

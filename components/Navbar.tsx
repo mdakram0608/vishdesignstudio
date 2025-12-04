@@ -17,7 +17,7 @@ export default function Navbar() {
     return (
         <nav className={styles.navbar}>
             <Link href="/" className={styles.logo}>
-                Vish Design Studio
+                <span className={styles.logoText}>Vish Design Studio</span>
             </Link>
 
             <ul className={styles.navLinks}>

@@ -25,7 +25,7 @@
 }
 
 .backLink:hover {
-    background: rgba(201, 168, 106, 0.15);
+    background: #c2c0bf;
     transform: translateX(-5px);
 }
 
@@ -102,6 +102,7 @@
     font-weight: 600;
     position: relative;
     display: inline-block;
+
 }
 
 .sectionHeading::after {

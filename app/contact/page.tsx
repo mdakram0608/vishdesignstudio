@@ -6,6 +6,7 @@ import { useState, useRef, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from './contact.module.css';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const fadeInUp = {
     initial: { opacity: 0, y: 50 },
@@ -358,6 +359,7 @@ export default function ContactPage() {
                     </motion.div>
                 </motion.div>
             )}
+            <Footer/>
         </main>
     );
 }
