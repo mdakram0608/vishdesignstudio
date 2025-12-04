@@ -10,10 +10,9 @@ import { useCallback, useEffect, useRef } from 'react';
 import styles from './ScrollVideo.module.css';
 import Navbar from './Navbar';
 
-const FRAME_COUNT = 300; // 000001.webp ... 000300.webp
-const MAX_DPR = 1.25;    // limit internal resolution
+const FRAME_COUNT = 300;
+const MAX_DPR = 1.5;
 
-// /public/9mb/000001.webp ... /public/9mb/000300.webp
 const getFrameSrc = (index: number) => {
   const frameNumber = index.toString().padStart(6, '0');
   return `/9mb/${frameNumber}.webp`;
@@ -24,21 +23,16 @@ export default function ScrollVideo() {
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const lastFrameRef = useRef<number | null>(null);
 
-  // container for the scroll region that controls the animation
+  // container controls scroll progress tied to animation
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  // scroll progress of the container (0 → 1)
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    // 0 when top of container hits top of viewport,
-    // 1 when bottom of container hits top of viewport.
-    offset: ['start start', 'end start'],
+    offset: ['start start', 'end start'], // end of animation aligns with top
   });
 
-  // map scroll 0–1 → frame 1–300
-  const currentIndex = useTransform(scrollYProgress, [0, 1], [1, FRAME_COUNT]);
+  const currentIndex = useTransform(scrollYProgress, [0, 1], [1, FRAME_COUNT *1.6]);
 
-  // text animation based on same scroll
   const textOpacity = useTransform(scrollYProgress, [0, 0.15, 0.3], [0, 1, 1]);
   const textY = useTransform(scrollYProgress, [0, 0.15, 0.3], [100, 0, 0]);
 
@@ -67,7 +61,6 @@ export default function ScrollVideo() {
     ctx.drawImage(image, 0, 0, rect.width, rect.height);
   }, []);
 
-  // preload all frames once
   useEffect(() => {
     const imgs: HTMLImageElement[] = [];
     for (let i = 1; i <= FRAME_COUNT; i++) {
@@ -87,7 +80,6 @@ export default function ScrollVideo() {
     }
   }, [render]);
 
-  // render on scroll, forward and backward, synced with scrollbar
   useMotionValueEvent(currentIndex, 'change', (latest) => {
     const frame = Math.min(
       Math.max(Math.round(latest), 1),
@@ -99,13 +91,12 @@ export default function ScrollVideo() {
     render(frame);
   });
 
-  // initial draw
   useEffect(() => {
     render(1);
   }, [render]);
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} className={styles.scrollContainer}>
       <section className={styles.heroSection}>
         <div className={styles.videoContainer}>
           <canvas
@@ -120,19 +111,17 @@ export default function ScrollVideo() {
               style={{ opacity: textOpacity, y: textY }}
             >
               <h1>Vish Design Studio</h1>
-              <p>Crafting Architectural Excellence Through Vision &amp; Innovation</p>
+              <p>Crafting Architectural Excellence Through Vision & Innovation</p>
             </motion.div>
             <div className={styles.scrollIndicator}>Scroll to Explore</div>
           </div>
         </div>
       </section>
 
-      {/* this spacer defines how long you scroll while the video plays
-          before the below content starts to appear */}
-      <div className={styles.spacer} />
-
-      <Navbar />
-      {/* rest of your page below */}
+      {/* Scrollspace to push next content AFTER animation completes */}
+      <div className={styles.afterVideoSpace}>
+        <Navbar />
+      </div>
     </div>
   );
 }
