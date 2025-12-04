@@ -31,7 +31,7 @@ export default function ScrollVideo() {
     offset: ['start start', 'end start'], // end of animation aligns with top
   });
 
-  const currentIndex = useTransform(scrollYProgress, [0, 1], [1, FRAME_COUNT *1.6]);
+  const currentIndex = useTransform(scrollYProgress, [0, 1], [1, FRAME_COUNT *1.2]);
 
   const textOpacity = useTransform(scrollYProgress, [0, 0.15, 0.3], [0, 1, 1]);
   const textY = useTransform(scrollYProgress, [0, 0.15, 0.3], [100, 0, 0]);
