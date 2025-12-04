@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from './project-detail.module.css';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -269,6 +270,7 @@ export default function ProjectDetailPage() {
                     </div>
                 </motion.div>
             </div>
+            <Footer/>                       
         </main>
     );
 }

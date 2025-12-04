@@ -28,7 +28,7 @@
 }
 
 .backLink:hover {
-    background: rgba(201, 168, 106, 0.15);
+    background: #c2c0bf;
     transform: translateX(-5px);
 }
 
@@ -170,7 +170,7 @@
 .stepsOverviewSection {
     text-align: center;
     margin-bottom: 8rem;
-    padding: 4rem 0;
+    padding: 1rem 0;
 }
 
 .stepsOverviewLabel {
@@ -253,7 +253,7 @@
 
 .stepSection {
     margin-bottom: 7rem;
-    padding: 4rem 0;
+    padding: 2rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -420,7 +420,7 @@
 }
 
 .philosophyAccentCard {
-    background: linear-gradient(135deg, var(--color-accent) 0%, #b59460 100%);
+    background: linear-gradient(135deg, var(--color-accent) 0%, #42413f 100%);
     padding: 3rem;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(201, 168, 106, 0.25);

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import styles from './about.module.css';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -131,6 +132,8 @@ export default function AboutPage() {
                     </div>
                 </motion.section>
             </div>
+            <Footer/>
         </main>
+        
     );
 }

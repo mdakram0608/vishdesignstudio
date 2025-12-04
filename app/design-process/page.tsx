@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import styles from './design-process.module.css';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 const fadeInUp = {
     initial: { opacity: 0, y: 50 },
@@ -306,6 +307,7 @@ export default function DesignProcessPage() {
                     </div>
                 </motion.section>
             </div>
+            <Footer/>
         </main>
     );
 }

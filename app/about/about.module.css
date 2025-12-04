@@ -10,7 +10,7 @@
 }
 
 .section {
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
 }
 
 .mainTitle {
@@ -79,7 +79,7 @@
 
 .founderImage {
     position: sticky;
-    top: 2rem;
+    top: 6rem;
 }
 
 .founderImage img {

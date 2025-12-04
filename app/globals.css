@@ -9,7 +9,7 @@
 :root {
   --color-bg: #ffffff;
   --color-text: #0a0a0a;
-  --color-accent: #c9a86a;
+  --color-accent: rgba(100, 100, 100, 0.55);
   --color-muted: #666666;
 
   --font-serif: 'Cormorant Garamond', serif;
@@ -84,5 +84,5 @@ p {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b89654;
+  background: rgba(140, 140, 140, 0.35);
 }

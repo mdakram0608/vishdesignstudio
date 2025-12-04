@@ -195,16 +195,27 @@ export default function PortfolioContent() {
                 {...fadeInUp}
             >
                 <h2 className={styles.sectionTitle}>Our Work</h2>
+
                 <div className={styles.galleryGrid}>
-                    <motion.div className={styles.galleryItem} {...fadeInUp}>
-                        <img src="/project 1/kitchen/IMG_3270.jpg" alt="Gallery 1" />
-                    </motion.div>
-                    <motion.div className={styles.galleryItem} {...fadeInUp}>
-                        <img src="/project 1/bathroom/IMG_3276.jpg" alt="Gallery 2" />
-                    </motion.div>
-                    <motion.div className={styles.galleryItem} {...fadeInUp}>
-                        <img src="/project 1/laundry.jpg" alt="Gallery 3" />
-                    </motion.div>
+
+                    <Link href="/projects/california-usa-2024">
+                        <motion.div className={styles.galleryItem} {...fadeInUp}>
+                            <img src="/project 1/kitchen/IMG_3270.jpg" alt="Gallery 1" />
+                        </motion.div>
+                    </Link>
+
+                    <Link href="/projects/california-usa-2024">
+                        <motion.div className={styles.galleryItem} {...fadeInUp}>
+                            <img src="/project 1/bathroom/IMG_3276.jpg" alt="Gallery 2" />
+                        </motion.div>
+                    </Link>
+
+                    <Link href="/projects/california-usa-2024">
+                        <motion.div className={styles.galleryItem} {...fadeInUp}>
+                            <img src="/project 1/laundry.jpg" alt="Gallery 3" />
+                        </motion.div>
+                    </Link>
+
                 </div>
             </motion.section>
 
