@@ -1,14 +1,19 @@
 'use client';
 
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from 'framer-motion';
 import { useCallback, useEffect, useRef } from 'react';
 import styles from './ScrollVideo.module.css';
 import Navbar from './Navbar';
 
 const FRAME_COUNT = 300; // 000001.webp ... 000300.webp
-const MAX_DPR = 1.25;   
+const MAX_DPR = 1.25;    // limit internal resolution
 
-// /public/9mb/000001.webp ... 000300.webp
+// /public/9mb/000001.webp ... /public/9mb/000300.webp
 const getFrameSrc = (index: number) => {
   const frameNumber = index.toString().padStart(6, '0');
   return `/9mb/${frameNumber}.webp`;
@@ -19,33 +24,23 @@ export default function ScrollVideo() {
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const lastFrameRef = useRef<number | null>(null);
 
-  // our own scroll progress (0 → 1) not tied to page scroll
-  const progressRef = useRef(0);
-  const scrollProgress = useMotionValue(0);
+  // container for the scroll region that controls the animation
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
-  // text animation based on this virtual progress
-  const textOpacity = useTransform(scrollProgress, [0, 0.15, 0.3], [0, 1, 1]);
-  const textY = useTransform(scrollProgress, [0, 0.15, 0.3], [100, 0, 0]);
+  // scroll progress of the container (0 → 1)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    // 0 when top of container hits top of viewport,
+    // 1 when bottom of container hits top of viewport.
+    offset: ['start start', 'end start'],
+  });
 
-  // ensure canvas size matches viewport & DPR
-  useEffect(() => {
-    const resize = () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      const rawDpr = window.devicePixelRatio || 1;
-      const dpr = Math.min(rawDpr, MAX_DPR);
-      const targetWidth = rect.width * dpr;
-      const targetHeight = rect.height * dpr;
-      if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
-        canvas.width = targetWidth;
-        canvas.height = targetHeight;
-      }
-    };
-    resize();
-    window.addEventListener('resize', resize);
-    return () => window.removeEventListener('resize', resize);
-  }, []);
+  // map scroll 0–1 → frame 1–300
+  const currentIndex = useTransform(scrollYProgress, [0, 1], [1, FRAME_COUNT]);
+
+  // text animation based on same scroll
+  const textOpacity = useTransform(scrollYProgress, [0, 0.15, 0.3], [0, 1, 1]);
+  const textY = useTransform(scrollYProgress, [0, 0.15, 0.3], [100, 0, 0]);
 
   const render = useCallback((index: number) => {
     const canvas = canvasRef.current;
@@ -59,12 +54,20 @@ export default function ScrollVideo() {
     const rawDpr = window.devicePixelRatio || 1;
     const dpr = Math.min(rawDpr, MAX_DPR);
 
+    const targetWidth = rect.width * dpr;
+    const targetHeight = rect.height * dpr;
+
+    if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
+    }
+
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, rect.width, rect.height);
     ctx.drawImage(image, 0, 0, rect.width, rect.height);
   }, []);
 
-  // preload 000001.webp → 000300.webp
+  // preload all frames once
   useEffect(() => {
     const imgs: HTMLImageElement[] = [];
     for (let i = 1; i <= FRAME_COUNT; i++) {
@@ -84,41 +87,25 @@ export default function ScrollVideo() {
     }
   }, [render]);
 
-  // wheel-based virtual scrolling:
-  //   - while progress < 1: prevent page scroll & update frames
-  //   - after progress hits 1: allow normal scroll
+  // render on scroll, forward and backward, synced with scrollbar
+  useMotionValueEvent(currentIndex, 'change', (latest) => {
+    const frame = Math.min(
+      Math.max(Math.round(latest), 1),
+      FRAME_COUNT
+    );
+
+    if (frame === lastFrameRef.current) return;
+    lastFrameRef.current = frame;
+    render(frame);
+  });
+
+  // initial draw
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      const current = progressRef.current;
-
-      // video phase: consume scroll and do not move the page
-      if (current < 1) {
-        e.preventDefault();
-
-        const speed = 0.0015; // increase/decrease to tune sensitivity
-        const delta = e.deltaY;
-        let next = current + delta * speed;
-        if (next < 0) next = 0;
-        if (next > 1) next = 1;
-
-        progressRef.current = next;
-        scrollProgress.set(next);
-
-        const frame = Math.round(1 + next * (FRAME_COUNT - 1));
-        if (frame !== lastFrameRef.current) {
-          lastFrameRef.current = frame;
-          render(frame);
-        }
-      }
-      // once current >= 1, we do nothing special → page scrolls normally
-    };
-
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    return () => window.removeEventListener('wheel', handleWheel as any);
-  }, [render, scrollProgress]);
+    render(1);
+  }, [render]);
 
   return (
-    <div>
+    <div ref={containerRef}>
       <section className={styles.heroSection}>
         <div className={styles.videoContainer}>
           <canvas
@@ -140,8 +127,12 @@ export default function ScrollVideo() {
         </div>
       </section>
 
-      <Navbar />
+      {/* this spacer defines how long you scroll while the video plays
+          before the below content starts to appear */}
       <div className={styles.spacer} />
+
+      <Navbar />
+      {/* rest of your page below */}
     </div>
   );
 }
