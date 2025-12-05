@@ -121,7 +121,7 @@
     background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
     padding: 3rem;
     border-radius: 20px;
-    border: 1px solid rgba(201, 168, 106, 0.15);
+    border: 1px solid  #423f3f2c;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
 
@@ -176,7 +176,7 @@
 .stepsOverviewLabel {
     display: inline-block;
     padding: 0.5rem 1.5rem;
-    background: rgba(201, 168, 106, 0.1);
+    background: #423f3f2c;
     color: var(--color-accent);
     border-radius: 50px;
     font-size: 0.875rem;
@@ -216,7 +216,7 @@
     gap: 0.75rem;
     padding: 1rem 1.75rem;
     background: #ffffff;
-    border: 2px solid rgba(201, 168, 106, 0.2);
+    border: 2px solid #423f3f2c;
     border-radius: 50px;
     font-size: 0.95rem;
     font-weight: 500;
@@ -229,7 +229,7 @@
     border-color: var(--color-accent);
     background: var(--color-accent);
     color: #ffffff;
-    box-shadow: 0 5px 20px rgba(201, 168, 106, 0.3);
+    box-shadow: 0 5px 20px #423f3f2c;
 }
 
 .stepPillNumber {
@@ -264,7 +264,7 @@
 .stepLabel {
     display: inline-block;
     padding: 0.5rem 1.25rem;
-    background: rgba(201, 168, 106, 0.1);
+    background: #423f3f2c;
     color: var(--color-accent);
     border-radius: 50px;
     font-size: 0.75rem;
@@ -284,7 +284,7 @@
 .stepNumber {
     font-size: clamp(4rem, 6vw, 6rem);
     font-weight: 700;
-    color: rgba(201, 168, 106, 0.15);
+    color: #423f3f2c;
     line-height: 1;
     font-family: serif;
 }
@@ -343,7 +343,7 @@
 
 .stepImageContainer:hover {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
-        0 10px 30px rgba(201, 168, 106, 0.15);
+        0 10px 30px#423f3f2c;
 }
 
 .stepImage {
@@ -423,7 +423,7 @@
     background: linear-gradient(135deg, var(--color-accent) 0%, #42413f 100%);
     padding: 3rem;
     border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(201, 168, 106, 0.25);
+    box-shadow: 0 20px 60px #423f3f2c;
 }
 
 .philosophyAccentLabel {

@@ -183,8 +183,8 @@
 .projectCard:hover {
     transform: translateY(-12px);
     border-color: var(--color-accent);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15),
-        0 15px 35px rgba(201, 168, 106, 0.2);
+    box-shadow: 0 25px 50px rgba(159, 153, 153, 0.335),
+        0 15px 35px #423f3f2c;
 }
 
 .projectImageWrapper {
@@ -462,8 +462,8 @@
 
 .galleryItem:hover {
     transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15),
-        0 15px 35px rgba(201, 168, 106, 0.2);
+    box-shadow: 0 25px 50px rgba(159, 153, 153, 0.335),
+        0 15px 35px #423f3f2c;
 }
 
 .galleryItem img {
@@ -487,4 +487,85 @@
     .galleryGrid {
         grid-template-columns: 1fr;
     }
+}
+.sleekButton {
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 25px;
+    padding: 0.45rem 1.2rem;
+    margin-top: -30px;
+    margin-left: 260px;
+    font-size: 0.5rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    background: transparent;
+    border: 1.5px solid var(--color-accent);
+    border-radius: 40px; /* Makes the oval shape */
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sleekButton:hover {
+    background: var(--color-accent);
+    color: white;
+    transform: translateY(-2px);
+}
+.sleekButton2 {
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 25px;
+    padding: 0.45rem 1.2rem;
+    margin-top: -30px;
+    margin-left: 260px;
+    font-size: 0.5rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    background: transparent;
+    border: 1.5px solid var(--color-accent);
+    border-radius: 40px; /* Makes the oval shape */
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sleekButton2:hover {
+    background: var(--color-accent);
+    color: white;
+    transform: translateY(-2px);
+}
+.sleekButton3 {
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 25px;
+    padding: 0.45rem 1.2rem;
+    /* margin-top: -30px; */
+    margin-left: 500px;
+    font-size: 0.5rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    background: transparent;
+    border: 1.5px solid var(--color-accent);
+    border-radius: 40px; /* Makes the oval shape */
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sleekButton3:hover {
+    background: var(--color-accent);
+    color: white;
+    transform: translateY(-2px);
 }
