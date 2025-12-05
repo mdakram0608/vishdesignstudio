@@ -27,7 +27,7 @@ export default function Navbar() {
     return (
         <nav className={styles.navbar}>
             <Link href="/" className={styles.logo}>
-                <span className={styles.logoText}>Vish Design Studio</span>
+                 <img src="/logo2.png" alt="Logo" className={styles.logoImage} />
             </Link>
 
             {/* Hamburger Menu Button */}

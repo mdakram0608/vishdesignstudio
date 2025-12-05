@@ -72,17 +72,19 @@ export default function PortfolioContent() {
                 variants={staggerChildren}
             >
                 <h2 className={styles.sectionTitle}>Featured Projects</h2>
-                <div className={styles.projectsGrid}>
-                    <motion.div className={styles.projectCard} variants={fadeInUp}>
-                        <div className={styles.projectImageWrapper}>
-                            <img
-                                src="/project title pic.jpg"
-                                alt="Featured Interior Design Project"
-                                className={styles.projectImage}
-                            />
-                        </div>
-                    </motion.div>
-                </div>
+                <Link href="/projects/california-usa-2024">
+                    <div className={styles.projectsGrid}>
+                        <motion.div className={styles.projectCard} variants={fadeInUp}>
+                            <div className={styles.projectImageWrapper}>
+                                <img
+                                    src="/project title pic.jpg"
+                                    alt="Featured Interior Design Project"
+                                    className={styles.projectImage}
+                                />
+                            </div>
+                        </motion.div>
+                    </div>
+                </Link>
             </motion.section>
 
             {/* Design Process Section */}
