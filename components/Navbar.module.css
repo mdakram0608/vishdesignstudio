@@ -5,21 +5,21 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1.5rem 3rem;
+    padding: 1.75rem 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #ffffff;
     border-bottom: 1px solid var(--color-border);
     z-index: 999;
-    transition: all 0.3s ease;
+    transition: all 0.4s var(--ease-luxury);
 }
 
 /* Transparent navbar for homepage */
 .navbarTransparent {
-    background: transparent;
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(42, 42, 42, 0.15);
 }
 
 .logo {
@@ -40,16 +40,18 @@
 }
 
 .logoText {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: #0a0a0a;
-    transition: all 0.3s ease;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--color-text);
+    text-transform: uppercase;
+    transition: all 0.3s var(--ease-luxury);
 }
 
 .logoText:hover {
     color: var(--color-accent);
+    transform: translateY(-2px);
 }
 
 .navLinks {
@@ -60,25 +62,26 @@
 
 .navLinks a {
     text-decoration: none;
-    font-size: 0.95rem;
-    color: var(--color-muted);
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.875rem;
+    color: var(--color-grey-medium);
+    font-weight: 600;
+    transition: all 0.3s var(--ease-luxury);
     position: relative;
     padding-bottom: 0.5rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
 }
 
 .navLinks a::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
-    height: 1px;
-    background: #0a0a0a;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 2px;
+    background: var(--gradient-gold);
+    transition: width 0.4s var(--ease-luxury);
 }
 
 .navLinks a:hover::after {
@@ -86,23 +89,25 @@
 }
 
 .navLinks a:hover {
-    color: #0a0a0a;
+    color: var(--color-accent);
 }
 
 .navLinks a.active {
-    color: #0a0a0a;
-    font-weight: 600;
+    color: var(--color-text);
+    font-weight: 700;
 }
 
 .navLinks a.active::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
     height: 2px;
-    background: #0a0a0a;
-    animation: slideIn 0.4s ease-out;
+    background: var(--gradient-gold);
+    box-shadow: var(--shadow-accent);
+    animation: slideIn 0.5s var(--ease-luxury);
 }
 
 @keyframes slideIn {

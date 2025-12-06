@@ -80,7 +80,13 @@ export default function Navbar() {
                     </Link>
                 </li>
                 <li>
-                    <a href="#blog" onClick={closeMenu}>Blog</a>
+                    <Link
+                        href="/blog"
+                        className={isActive('/blog') ? styles.active : ''}
+                        onClick={closeMenu}
+                    >
+                        Blog
+                    </Link>
                 </li>
                 <li>
                     <Link
