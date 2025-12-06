@@ -234,6 +234,62 @@ export default function PortfolioContent() {
                 </div>
             </motion.section>
 
+            {/* Latest Insights - Blog Section */}
+            <motion.section
+                className={`${styles.section} ${styles.blogSection}`}
+                {...fadeInUp}
+            >
+                <h2 className={styles.sectionTitle}>Latest Insights</h2>
+                <p className={styles.servicesIntro}>
+                    Exploring the art and science of interior design through our curated collection of design stories
+                </p>
+                <div className={styles.blogPreviewGrid}>
+                    <Link href="/blog/walk-in-wardrobe">
+                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
+                            <div className={styles.blogImageWrapper}>
+                                <img src="/blog/blog1/walk_in_wadrobe_view_0.effectsResult.jpg" alt="Walk in Wardrobe" />
+                            </div>
+                            <div className={styles.blogPreviewContent}>
+                                <span className={styles.blogCategory}>Interior Design</span>
+                                <h3>Walk in Wardrobe</h3>
+                                <p>A Serene Sanctuary: Designing a Modern Walk-In Wardrobe</p>
+                            </div>
+                        </motion.div>
+                    </Link>
+
+                    <Link href="/blog/french-style-bedroom">
+                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
+                            <div className={styles.blogImageWrapper}>
+                                <img src="/blog/blog2/11.jpg" alt="French Style Bedroom" />
+                            </div>
+                            <div className={styles.blogPreviewContent}>
+                                <span className={styles.blogCategory}>Bedroom Design</span>
+                                <h3>From Paris, With Love</h3>
+                                <p>Timeless Elegance: Designing Your Dream French-Style Bedroom</p>
+                            </div>
+                        </motion.div>
+                    </Link>
+
+                    <Link href="/blog/modern-monochrome-bathroom">
+                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
+                            <div className={styles.blogImageWrapper}>
+                                <img src="/blog/blog3/bathroom_view_1.effectsResult.jpg" alt="Modern Monochrome Bathroom" />
+                            </div>
+                            <div className={styles.blogPreviewContent}>
+                                <span className={styles.blogCategory}>Bathroom Design</span>
+                                <h3>Black, White, and Intent</h3>
+                                <p>The Monolithic Geometry of Modern Luxury</p>
+                            </div>
+                        </motion.div>
+                    </Link>
+                </div>
+                <div className={styles.viewAllButton}>
+                    <Link href="/blog" className={styles.sleekButton2}>
+                        View All Articles
+                    </Link>
+                </div>
+            </motion.section>
+
             {/* Call to Action */}
             <motion.section
                 className={`${styles.section} ${styles.cta}`}
