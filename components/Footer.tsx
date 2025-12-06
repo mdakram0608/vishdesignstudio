@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "./Footer.module.css";
-import { FaInstagram, FaLinkedinIn, FaYoutube, FaFacebookF } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaYoutube, FaFacebookF, FaPinterestP } from "react-icons/fa";
 
 // Container for word-by-word animation
 const wordContainer = {
@@ -177,19 +177,11 @@ export default function Footer() {
                         className={styles.navTitle}
                     />
 
-                    <motion.a
-                        href="mailto:hello@vishdesignstudio.com"
+                    <Link
+                        href="/contact"
                         className={styles.emailLink}
-                        variants={wordContainer}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: false, amount: 0.5 }}
-                        transition={{
-                            staggerChildren: 0.06,
-                            delayChildren: 0.25,
-                        }}
                     >
-                        {`hello@vishdesignstudio.com`
+                        {` info@vishdesignstudio.com`
                             .split(" ")
                             .map((word, index) => (
                                 <motion.span
@@ -203,29 +195,35 @@ export default function Footer() {
                                     {word}
                                 </motion.span>
                             ))}
-                    </motion.a>
+                    </Link>
+
 
                     <div className={styles.socialRow}>
                         {[
                             {
                                 name: "Instagram",
-                                href: "https://www.instagram.com",
+                                href: "https://www.instagram.com/vishdesignstudio/",
                                 icon: <FaInstagram />,
                             },
                             {
+                                name: "Facebook",
+                                href: "https://www.facebook.com/WallsandDetails?mibextid=wwXIfr&rdid=uhHwLfb1Ltyfd1X7&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CAAJebiWL%2F%3Fmibextid%3DwwXIfr",
+                                icon: <FaFacebookF />,
+                            },
+                            {
                                 name: "LinkedIn",
-                                href: "https://www.linkedin.com",
+                                href: "https://www.linkedin.com/company/vish-design-studio/",
                                 icon: <FaLinkedinIn />,
                             },
                             {
                                 name: "YouTube",
-                                href: "https://www.youtube.com",
+                                href: "https://www.youtube.com/@vishdesignstudio",
                                 icon: <FaYoutube />,
                             },
                             {
-                                name: "Facebook",
-                                href: "https://www.facebook.com",
-                                icon: <FaFacebookF />,
+                                name: "Pinterest",
+                                href: "https://www.pinterest.com/vishdesignstudio/?invite_code=1b79164728cf43b48515607727a04f21&sender=601301125156728962",
+                                icon: <FaPinterestP />,
                             },
                         ].map((item, index) => (
                             <motion.a

@@ -59,6 +59,9 @@ export default function PortfolioContent() {
                         <p className={styles.introText}>
                             Before founding the studio, Gayathri managed over 50 diverse projects across India for five years. Her approach combines global foresight with local soul, drawing inspiration from India's vibrant culture while exploring international trends to craft interiors that feel both authentically rooted and refreshingly modern.
                         </p>
+                        <Link href="/about" className={styles.sleekButton}>
+                            Know More
+                        </Link>
                     </motion.div>
                 </div>
             </motion.section>
@@ -85,6 +88,11 @@ export default function PortfolioContent() {
                         </motion.div>
                     </div>
                 </Link>
+                <div className={styles.viewAllButton}>
+                    <Link href="/projects" className={styles.sleekButton2}>
+                        View All Projects
+                    </Link>
+                </div>
             </motion.section>
 
             {/* Design Process Section */}
@@ -134,6 +142,11 @@ export default function PortfolioContent() {
                         </p>
                     </motion.div>
                 </div>
+                <div style={{ textAlign: "center", marginTop: "2rem" }}>
+                    <Link href="/process" className={styles.sleekButton3}>
+                        Learn the Full Process
+                    </Link>
+                </div>
             </motion.section>
 
             {/* Services Overview Section */}
@@ -169,7 +182,7 @@ export default function PortfolioContent() {
                     </motion.div>
                     <motion.div className={styles.serviceCard} {...fadeInUp}>
                         <div className={styles.serviceIcon}>
-                            <img src="/icons/turnkey.png" alt="Turnkey Solutions" />
+                            <img src="/icons/frame_B_Darker.png" alt="Turnkey Solutions" />
                         </div>
                         <h3>Turnkey Solutions</h3>
                         <p>Complete end-to-end services including furniture, lighting, materials, and installation</p>

@@ -297,7 +297,7 @@ a.contactValue:hover {
     gap: 0.75rem;
     padding: 1.25rem 2.5rem;
     font-size: 1.125rem;
-    font-weight: 500;
+    font-weight: 550;
     color: #ffffff;
     background: linear-gradient(135deg, var(--color-accent) 0%, #42413f 100%);
     border: none;

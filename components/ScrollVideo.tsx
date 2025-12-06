@@ -23,6 +23,10 @@ export default function ScrollVideo() {
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const lastFrameRef = useRef<number | null>(null);
 
+  // current animated frame and target frame from scroll
+  const currentFrameRef = useRef(1);
+  const targetFrameRef = useRef(1);
+
   // container controls scroll progress tied to animation
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -31,7 +35,8 @@ export default function ScrollVideo() {
     offset: ['start start', 'end start'], // end of animation aligns with top
   });
 
-  const currentIndex = useTransform(scrollYProgress, [0, 1], [1, FRAME_COUNT *1.2]);
+  // keep same overall distance: 0 → 1 scroll = frame 1 → FRAME_COUNT
+  const currentIndex = useTransform(scrollYProgress, [0, 1], [1, FRAME_COUNT]);
 
   const textOpacity = useTransform(scrollYProgress, [0, 0.15, 0.3], [0, 1, 1]);
   const textY = useTransform(scrollYProgress, [0, 0.15, 0.3], [100, 0, 0]);
@@ -61,6 +66,7 @@ export default function ScrollVideo() {
     ctx.drawImage(image, 0, 0, rect.width, rect.height);
   }, []);
 
+  // preload all frames
   useEffect(() => {
     const imgs: HTMLImageElement[] = [];
     for (let i = 1; i <= FRAME_COUNT; i++) {
@@ -80,17 +86,42 @@ export default function ScrollVideo() {
     }
   }, [render]);
 
+  // scroll sets only the target frame
   useMotionValueEvent(currentIndex, 'change', (latest) => {
-    const frame = Math.min(
-      Math.max(Math.round(latest), 1),
-      FRAME_COUNT
-    );
-
-    if (frame === lastFrameRef.current) return;
-    lastFrameRef.current = frame;
-    render(frame);
+    const frame = Math.min(Math.max(Math.round(latest), 1), FRAME_COUNT);
+    targetFrameRef.current = frame;
   });
 
+  // rAF loop animates current frame toward target (controls "speed" feel)
+  useEffect(() => {
+    let frameId: number;
+    const SPEED = 0.35; // 0.2 = slower, 0.35 = medium-fast, 0.5 = very fast
+
+    const step = () => {
+      const current = currentFrameRef.current;
+      const target = targetFrameRef.current;
+
+      if (current !== target) {
+        const diff = target - current;
+        const stepAmount = Math.max(1, Math.round(Math.abs(diff) * SPEED));
+        const next = current + Math.sign(diff) * stepAmount;
+
+        currentFrameRef.current = next;
+
+        if (next !== lastFrameRef.current) {
+          lastFrameRef.current = next;
+          render(next);
+        }
+      }
+
+      frameId = requestAnimationFrame(step);
+    };
+
+    frameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frameId);
+  }, [render]);
+
+  // ensure first frame is rendered
   useEffect(() => {
     render(1);
   }, [render]);
@@ -111,7 +142,7 @@ export default function ScrollVideo() {
               style={{ opacity: textOpacity, y: textY }}
             >
               <h1>Vish Design Studio</h1>
-              <p>Crafting Architectural Excellence Through Vision & Innovation</p>
+              <p>Crafting Architectural Excellence Through Vision &amp; Innovation</p>
             </motion.div>
             <div className={styles.scrollIndicator}>Scroll to Explore</div>
           </div>
