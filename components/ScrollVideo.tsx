@@ -11,7 +11,7 @@ import styles from './ScrollVideo.module.css';
 import Navbar from './Navbar';
 
 const FRAME_COUNT = 300;
-const MAX_DPR = 1.5;
+const MAX_DPR = 1;
 
 const getFrameSrc = (index: number) => {
   const frameNumber = index.toString().padStart(6, '0');
@@ -141,8 +141,11 @@ export default function ScrollVideo() {
               className={styles.textContent}
               style={{ opacity: textOpacity, y: textY }}
             >
-              <h1>Vish Design Studio</h1>
-              <p>Crafting Architectural Excellence Through Vision &amp; Innovation</p>
+              <img
+                src="/logo2.png"
+                alt="Vish Design Studio"
+                className={styles.logo}
+              />
             </motion.div>
             <div className={styles.scrollIndicator}>Scroll to Explore</div>
           </div>

@@ -6,7 +6,7 @@
 }
 
 .section {
-    padding: 2.5rem 2rem;
+    padding: 5rem 2rem;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -14,24 +14,27 @@
 .sectionTitle {
     font-size: clamp(2.5rem, 5vw, 4rem);
     color: var(--color-text);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
+    font-weight: 400;
 }
 
 .sectionTitle::after {
     content: '';
     position: absolute;
-    bottom: -0.5rem;
+    bottom: -0.75rem;
     left: 0;
-    width: 60px;
-    height: 2px;
+    width: 80px;
+    height: 1px;
     background: var(--color-accent);
 }
 
+/* INTRO SECTION */
 .intro {
-    background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
-    border-top: 1px solid rgba(201, 168, 106, 0.3);
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+    padding-top: 3rem;
 }
 
 .introContainer {
@@ -44,25 +47,20 @@
 .introTextContent {
     display: flex;
     flex-direction: column;
-    margin-top: -4rem;
 }
 
 .introText {
     max-width: 800px;
     font-size: clamp(1.125rem, 1.5vw, 1.3rem);
-    line-height: 1.8;
+    line-height: 1.9;
     color: var(--color-muted);
     margin-bottom: 2rem;
-    /* margin-top: -2rem; */
 }
 
 .introLogo {
     display: flex;
     justify-content: center;
     align-items: center;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    margin-top: -1rem;
 }
 
 .introLogo img {
@@ -70,19 +68,14 @@
     max-width: 300px;
     height: auto;
     object-fit: contain;
-    border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
-        0 10px 30px rgba(201, 168, 106, 0.1);
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    transform: translateZ(0) rotateX(0deg) rotateY(0deg);
-    will-change: transform;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .introLogo:hover img {
-    transform: translateZ(20px) rotateX(-2deg) rotateY(5deg) scale(1.02);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25),
-        0 15px 40px rgba(201, 168, 106, 0.2),
-        0 5px 15px rgba(201, 168, 106, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 968px) {
@@ -92,18 +85,19 @@
     }
 
     .introLogo img {
-        max-width: 300px;
+        max-width: 250px;
     }
 }
 
 .highlight {
-    color: var(--color-accent);
+    color: var(--color-text);
     font-weight: 600;
 }
 
+/* FOUNDER SECTION */
 .founder {
-    background: #ffffff;
-    border-top: 1px solid rgba(201, 168, 106, 0.3);
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
 }
 
 .founderContent {
@@ -117,28 +111,21 @@
 .founderImage {
     position: sticky;
     top: 2rem;
-    perspective: 1000px;
-    transform-style: preserve-3d;
 }
 
 .founderImage img {
     width: 100%;
     max-width: 350px;
-    height: 390px; /* fixed height to create oval */
+    height: 390px;
     object-fit: cover;
-    border-radius: 60% / 60%;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
-        0 10px 30px rgba(201, 168, 106, 0.1);
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    transform: translateZ(0) rotateX(0deg) rotateY(0deg);
-    will-change: transform;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .founderImage:hover img {
-    transform: translateZ(20px) rotateX(-2deg) rotateY(5deg) scale(1.02);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25),
-        0 15px 40px rgba(201, 168, 106, 0.2),
-        0 5px 15px rgba(201, 168, 106, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
 .founderText {
@@ -161,6 +148,7 @@
     }
 }
 
+/* FEATURED PROJECTS */
 .projectsGrid {
     display: flex;
     justify-content: center;
@@ -168,13 +156,12 @@
 }
 
 .projectCard {
-    background: #fafafa;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
-    perspective: 1000px;
     max-width: 600px;
     width: 100%;
     margin-top: 1rem;
@@ -183,8 +170,7 @@
 .projectCard:hover {
     transform: translateY(-12px);
     border-color: var(--color-accent);
-    box-shadow: 0 25px 50px rgba(159, 153, 153, 0.335),
-        0 15px 35px #423f3f2c;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
 }
 
 .projectImageWrapper {
@@ -192,7 +178,7 @@
     height: 400px;
     overflow: hidden;
     position: relative;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    background: var(--color-bg-tertiary);
 }
 
 .projectImage {
@@ -200,14 +186,14 @@
     height: 100%;
     object-fit: cover;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    transform: scale(1) translateZ(0);
-    /* margin-top: 2renm; */
+    transform: scale(1);
 }
 
 .projectCard:hover .projectImage {
-    transform: scale(1.08) translateZ(10px);
+    transform: scale(1.08);
 }
 
+/* DESIGN PROCESS */
 .designProcess {
     background: #ffffff;
 }
@@ -220,9 +206,11 @@
 }
 
 .processStep {
-    padding: 2rem;
-    border-left: 3px solid var(--color-accent);
+    padding: 2.5rem;
+    border-left: 2px solid var(--color-border);
     transition: all 0.3s ease;
+    background: var(--color-bg-secondary);
+    border-radius: 0 8px 8px 0;
 }
 
 .processStep:nth-child(5) {
@@ -233,14 +221,14 @@
 
 .processStep:hover {
     border-left-color: var(--color-accent);
-    background: rgba(201, 168, 106, 0.03);
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .stepNumber {
     font-family: var(--font-serif);
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--color-accent);
-    opacity: 2;
     margin-bottom: 1rem;
     font-weight: 300;
 }
@@ -249,12 +237,12 @@
     font-size: clamp(1.25rem, 2vw, 1.5rem);
     color: var(--color-text);
     margin-bottom: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .stepDescription {
     color: var(--color-muted);
-    line-height: 1.7;
+    line-height: 1.8;
     font-size: 0.95rem;
 }
 
@@ -268,43 +256,47 @@
     }
 }
 
+/* CTA SECTION */
 .cta {
-    background: linear-gradient(135deg, #f5f5f5 0%, #f0f0f0 100%);
+    background: var(--color-bg-secondary);
     text-align: center;
-    border-top: 1px solid rgba(201, 168, 106, 0.3);
+    border-top: 1px solid var(--color-border);
 }
 
 .ctaTitle {
     font-size: clamp(2rem, 4vw, 3.5rem);
     color: var(--color-text);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
 }
 
 .ctaButton {
     display: inline-block;
     padding: 1.25rem 3rem;
     background: transparent;
-    color: var(--color-accent);
+    color: var(--color-text);
     border: 2px solid var(--color-accent);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     cursor: pointer;
     transition: all 0.3s var(--ease-smooth);
     text-decoration: none;
+    border-radius: 0;
 }
 
 .ctaButton:hover {
-    background: var(--color-accent);
+    background: var(--color-text);
     color: #ffffff;
+    border-color: var(--color-text);
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(201, 168, 106, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Services Section */
+/* SERVICES SECTION */
 .services {
-    background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+    background: #ffffff;
     padding: 6rem 2rem;
 }
 
@@ -325,17 +317,19 @@
 }
 
 .serviceCard {
-    background: #ffffff;
+    background: var(--color-bg-secondary);
     padding: 2.5rem 2rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
 }
 
 .serviceCard:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    background: #ffffff;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--color-accent);
 }
 
 .serviceIcon {
@@ -347,10 +341,16 @@
     width: 64px;
     height: 64px;
     object-fit: contain;
+    filter: grayscale(100%) brightness(0.3);
+    transition: filter 0.3s ease;
+}
+
+.serviceCard:hover .serviceIcon img {
+    filter: grayscale(100%) brightness(0.1);
 }
 
 .serviceCard h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--color-text);
     margin-bottom: 1rem;
     font-weight: 600;
@@ -359,10 +359,10 @@
 .serviceCard p {
     font-size: 1rem;
     color: var(--color-muted);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
-/* Featured Projects Section */
+/* FEATURED PROJECTS SECTION */
 .featuredProjects {
     padding: 6rem 2rem;
 }
@@ -373,38 +373,6 @@
     color: var(--color-muted);
     max-width: 700px;
     margin: 0 auto 4rem;
-}
-
-.projectsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.projectCard {
-    overflow: hidden;
-    border-radius: 16px;
-    cursor: pointer;
-}
-
-.projectImage {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-}
-
-.projectImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.projectCard:hover .projectImage img {
-    transform: scale(1.1);
 }
 
 .projectOverlay {
@@ -438,9 +406,9 @@
     margin-top: 3rem;
 }
 
-/* Gallery Section */
+/* GALLERY SECTION */
 .gallery {
-    background: #f8f8f8;
+    background: var(--color-bg-secondary);
     padding: 6rem 2rem;
 }
 
@@ -454,16 +422,17 @@
 
 .galleryItem {
     overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.4s ease;
     margin-top: 1.5rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
 }
 
 .galleryItem:hover {
     transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(159, 153, 153, 0.335),
-        0 15px 35px #423f3f2c;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
 }
 
 .galleryItem img {
@@ -472,12 +441,10 @@
     object-fit: cover;
     display: block;
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    transform: scale(1) translateZ(0);
-    will-change: transform;
 }
 
 .galleryItem:hover img {
-    transform: scale(1.08) translateZ(10px);
+    transform: scale(1.08);
 }
 
 @media (max-width: 768px) {
@@ -488,84 +455,83 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* BUTTON STYLES */
 .sleekButton {
-    display: inline-block;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 120px;
-    height: 25px;
-    padding: 0.45rem 1.2rem;
-    margin-top: -30px;
-    margin-left: 260px;
-    font-size: 0.5rem;
+    padding: 0.75rem 2rem;
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-text);
     background: transparent;
     border: 1.5px solid var(--color-accent);
-    border-radius: 40px; /* Makes the oval shape */
+    border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .sleekButton:hover {
-    background: var(--color-accent);
-    color: white;
+    background: var(--color-text);
+    color: #ffffff;
+    border-color: var(--color-text);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
+
 .sleekButton2 {
-    display: inline-block;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 150px;
-    height: 25px;
-    padding: 0.45rem 1.2rem;
-    margin-top: -30px;
-    margin-left: 260px;
-    font-size: 0.5rem;
+    padding: 0.75rem 2.25rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-text);
     background: transparent;
     border: 1.5px solid var(--color-accent);
-    border-radius: 40px; /* Makes the oval shape */
+    border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .sleekButton2:hover {
-    background: var(--color-accent);
-    color: white;
+    background: var(--color-text);
+    color: #ffffff;
+    border-color: var(--color-text);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
+
 .sleekButton3 {
-    display: inline-block;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 150px;
-    height: 25px;
-    padding: 0.45rem 1.2rem;
-    /* margin-top: -30px; */
-    margin-left: 500px;
-    font-size: 0.5rem;
+    padding: 0.75rem 2.25rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-text);
     background: transparent;
     border: 1.5px solid var(--color-accent);
-    border-radius: 40px; /* Makes the oval shape */
+    border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .sleekButton3:hover {
-    background: var(--color-accent);
-    color: white;
+    background: var(--color-text);
+    color: #ffffff;
+    border-color: var(--color-text);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
