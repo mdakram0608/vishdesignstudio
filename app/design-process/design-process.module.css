@@ -121,7 +121,7 @@
     background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
     padding: 3rem;
     border-radius: 20px;
-    border: 1px solid  #423f3f2c;
+    border: 1px solid #423f3f2c;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
 
@@ -286,7 +286,7 @@
     font-weight: 700;
     color: #423f3f2c;
     line-height: 1;
-    font-family: serif;
+    font-family: var(--font-serif);
 }
 
 .stepTitle {
