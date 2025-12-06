@@ -5,13 +5,21 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1.2rem 2.5rem;
+    padding: 1.5rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: transparent;
-    backdrop-filter: blur(10px);
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
     z-index: 999;
+    transition: all 0.3s ease;
+}
+
+/* Transparent navbar for homepage */
+.navbarTransparent {
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
@@ -19,24 +27,29 @@
     display: flex;
     align-items: center;
 }
+
 .logoImage {
-    height: 60px;      /* Keeps navbar height same */
+    height: 60px;
+    /* Keeps navbar height same */
     width: auto;
     object-fit: contain;
-    transform: scale(2.0);   /* Adjust 1.2 / 1.5 / 2.0 */
-    transform-origin: left center; /* So it grows right, not down */
+    transform: scale(2.0);
+    /* Adjust 1.2 / 1.5 / 2.0 */
+    transform-origin: left center;
+    /* So it grows right, not down */
 }
+
 .logoText {
     font-family: "Cormorant Garamond", serif;
     font-size: 1.8rem;
-    font-weight: 800;
-    letter-spacing: 0.6px;
-    color: rgb(16, 16, 16);
-    transition: transform 0.3s ease;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #0a0a0a;
+    transition: all 0.3s ease;
 }
 
 .logoText:hover {
-    transform: scale(1.05);
+    color: var(--color-accent);
 }
 
 .navLinks {
@@ -47,12 +60,14 @@
 
 .navLinks a {
     text-decoration: none;
-    font-size: 1rem;
-    color: rgb(16, 15, 15);
+    font-size: 0.95rem;
+    color: var(--color-muted);
     font-weight: 500;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .navLinks a::after {
@@ -61,8 +76,8 @@
     bottom: 0;
     left: 0;
     width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--color-accent), #0a0a0a);
+    height: 1px;
+    background: #0a0a0a;
     transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -86,8 +101,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, var(--color-accent),#0a0a0a);
-    box-shadow: 0 2px 8px#0a0a0a;
+    background: #0a0a0a;
     animation: slideIn 0.4s ease-out;
 }
 
@@ -118,8 +132,8 @@
 
 .hamburger span {
     width: 25px;
-    height: 3px;
-    background-color: rgb(16, 16, 16);
+    height: 2px;
+    background-color: #0a0a0a;
     border-radius: 2px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: center;
@@ -200,7 +214,7 @@
         flex-direction: column;
         gap: 0;
         background: #ffffff;
-        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+        box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
         padding: 5rem 2rem 2rem;
         z-index: 999;
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -214,7 +228,7 @@
 
     .navLinks li {
         width: 100%;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid var(--color-border);
     }
 
     .navLinks li:last-child {
@@ -232,7 +246,7 @@
 
     .navLinks a:hover {
         padding-left: 0.5rem;
-        color: var(--color-accent);
+        color: #0a0a0a;
     }
 
     .navLinks a::after {
@@ -240,9 +254,9 @@
     }
 
     .navLinks a.active {
-        color: var(--color-accent);
+        color: #0a0a0a;
         font-weight: 600;
-        border-left: 3px solid var(--color-accent);
+        border-left: 3px solid #0a0a0a;
         padding-left: 0.75rem;
     }
 
