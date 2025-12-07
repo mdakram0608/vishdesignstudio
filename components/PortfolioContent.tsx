@@ -203,17 +203,10 @@ export default function PortfolioContent() {
                         <div className={styles.serviceOverlay}>
                             <h3>Residential Spaces</h3>
                             <div className={styles.overlayContent}>
-                                <p className={styles.overlayDescription}>Transform your home into a personalized sanctuary</p>
-                                <ul className={styles.serviceList}>
-                                    <li>Living Room & Dining Areas</li>
-                                    <li>Modular Kitchens</li>
-                                    <li>Master & Guest Bedrooms</li>
-                                    <li>Luxury Bathrooms & Spa Areas</li>
-                                    <li>Kids Rooms & Play Areas</li>
-                                    <li>Home Theaters & Entertainment Rooms</li>
-                                    <li>Prayer Rooms & Meditation Spaces</li>
-                                    <li>Home Gym & Wellness Areas</li>
-                                </ul>
+                                <p className={styles.overlayDescription}>Transform your home into a personalized sanctuary with our comprehensive residential design services.</p>
+                                <p className={styles.serviceDetails}>
+                                    We specialize in creating stunning living room and dining areas that serve as the heart of your home, along with modular kitchens designed for both functionality and aesthetics. Our expertise extends to master and guest bedrooms, luxury bathrooms with spa-like features, and vibrant kids rooms with dedicated play areas. We also design sophisticated home theaters and entertainment rooms, serene prayer and meditation spaces, and well-equipped home gym and wellness areas tailored to your lifestyle.
+                                </p>
                             </div>
                         </div>
                     </motion.div>
@@ -233,17 +226,10 @@ export default function PortfolioContent() {
                         <div className={styles.serviceOverlay}>
                             <h3>Commercial Interiors</h3>
                             <div className={styles.overlayContent}>
-                                <p className={styles.overlayDescription}>Professional spaces that inspire productivity and growth</p>
-                                <ul className={styles.serviceList}>
-                                    <li>Corporate Workspaces & Offices</li>
-                                    <li>Retail Shops & Showrooms</li>
-                                    <li>Cafes & Restaurants</li>
-                                    <li>Hotels & Hospitality Spaces</li>
-                                    <li>Convention Centers & Halls</li>
-                                    <li>Salons & Spa Centers</li>
-                                    <li>Clinics & Medical Facilities</li>
-                                    <li>Educational Institutions</li>
-                                </ul>
+                                <p className={styles.overlayDescription}>Professional spaces that inspire productivity and growth through thoughtful design.</p>
+                                <p className={styles.serviceDetails}>
+                                    Our commercial design portfolio includes modern corporate workspaces and offices that enhance collaboration, eye-catching retail shops and showrooms that attract customers, and inviting cafes and restaurants that create memorable dining experiences. We design luxurious hotels and hospitality spaces, versatile convention centers and halls, relaxing salons and spa centers, as well as efficient clinics and medical facilities. Our expertise also extends to educational institutions where learning environments are optimized for success.
+                                </p>
                             </div>
                         </div>
                     </motion.div>
@@ -263,17 +249,10 @@ export default function PortfolioContent() {
                         <div className={styles.serviceOverlay}>
                             <h3>Renovation Services</h3>
                             <div className={styles.overlayContent}>
-                                <p className={styles.overlayDescription}>Breathe new life into your existing spaces</p>
-                                <ul className={styles.serviceList}>
-                                    <li>Complete Space Remodeling</li>
-                                    <li>Structural Modifications</li>
-                                    <li>Facade Design & Updates</li>
-                                    <li>Flooring Replacement & Upgrades</li>
-                                    <li>Kitchen & Bathroom Renovations</li>
-                                    <li>Ceiling & Wall Treatments</li>
-                                    <li>Refurbishing Existing Elements</li>
-                                    <li>Restoration & Preservation</li>
-                                </ul>
+                                <p className={styles.overlayDescription}>Breathe new life into your existing spaces with expert renovation and remodeling.</p>
+                                <p className={styles.serviceDetails}>
+                                    Whether you need complete space remodeling or selective updates, we handle everything from structural modifications to facade design and updates. Our renovation services include flooring replacement and upgrades, specialized kitchen and bathroom renovations, and creative ceiling and wall treatments. We excel at refurbishing existing elements to preserve character while modernizing functionality, and we're skilled in restoration and preservation projects that honor architectural heritage.
+                                </p>
                             </div>
                         </div>
                     </motion.div>
@@ -293,19 +272,10 @@ export default function PortfolioContent() {
                         <div className={styles.serviceOverlay}>
                             <h3>Complete Design Services</h3>
                             <div className={styles.overlayContent}>
-                                <p className={styles.overlayDescription}>Comprehensive solutions from concept to completion</p>
-                                <ul className={styles.serviceList}>
-                                    <li>Space Planning & Layout Design</li>
-                                    <li>Custom Furniture Design & Build</li>
-                                    <li>Flooring, Ceiling & Wall Design</li>
-                                    <li>Lighting Design & Installation</li>
-                                    <li>Window Treatments (Curtains, Blinds)</li>
-                                    <li>Paint, Wallpaper & Texture Selection</li>
-                                    <li>Artwork & Accessories Styling</li>
-                                    <li>Sanitary & Electrical Fittings</li>
-                                    <li>Home Automation & Smart Systems</li>
-                                    <li>Complete Project Management</li>
-                                </ul>
+                                <p className={styles.overlayDescription}>Comprehensive solutions from concept to completion with our turnkey approach.</p>
+                                <p className={styles.serviceDetails}>
+                                    Our complete design services cover every detail including space planning and layout design, custom furniture design and build, and sophisticated flooring, ceiling, and wall design. We provide expert lighting design and installation, elegant window treatments including curtains and blinds, and carefully curated paint, wallpaper, and texture selection. The service extends to artwork and accessories styling, specification of sanitary and electrical fittings, integration of home automation and smart systems, plus complete project management to ensure seamless execution from start to finish.
+                                </p>
                             </div>
                         </div>
                     </motion.div>
@@ -325,20 +295,10 @@ export default function PortfolioContent() {
                         <div className={styles.serviceOverlay}>
                             <h3>Landscape Design</h3>
                             <div className={styles.overlayContent}>
-                                <p className={styles.overlayDescription}>Creating stunning outdoor environments</p>
-                                <ul className={styles.serviceList}>
-                                    <li>Landscape Design & Planning</li>
-                                    <li>Garden & Lawn Installation</li>
-                                    <li>Swimming Pools & Water Features</li>
-                                    <li>Outdoor Kitchens & Seating</li>
-                                    <li>Walkways & Paver Installation</li>
-                                    <li>Pergolas & Outdoor Structures</li>
-                                    <li>Irrigation & Sprinkler Systems</li>
-                                    <li>Drought-Tolerant Plantings</li>
-                                    <li>Exterior Lighting Design</li>
-                                    <li>Hardscaping & Stone Work</li>
-                                    <li>Maintenance & Lawn Care</li>
-                                </ul>
+                                <p className={styles.overlayDescription}>Creating stunning outdoor environments that extend your living space.</p>
+                                <p className={styles.serviceDetails}>
+                                    Our landscape design and planning services transform outdoor areas with beautiful garden and lawn installation, luxurious swimming pools and water features, and functional outdoor kitchens and seating areas. We create inviting walkways with professional paver installation, build pergolas and outdoor structures for shade and style, and install efficient irrigation and sprinkler systems. Our approach includes sustainable drought-tolerant plantings, artistic exterior lighting design, expert hardscaping and stone work, plus ongoing maintenance and lawn care services to keep your outdoor spaces pristine.
+                                </p>
                             </div>
                         </div>
                     </motion.div>
@@ -358,18 +318,10 @@ export default function PortfolioContent() {
                         <div className={styles.serviceOverlay}>
                             <h3>E-Design & Consultation</h3>
                             <div className={styles.overlayContent}>
-                                <p className={styles.overlayDescription}>Professional design services from anywhere</p>
-                                <ul className={styles.serviceList}>
-                                    <li>Virtual Design Consultations</li>
-                                    <li>2D Floor Plans & Elevations</li>
-                                    <li>3D Renders & Visualizations</li>
-                                    <li>Mood Boards & Concept Design</li>
-                                    <li>Material & Finish Selection</li>
-                                    <li>Furniture Layout Planning</li>
-                                    <li>Shopping Lists & Sourcing</li>
-                                    <li>Custom Soft Furnishings</li>
-                                    <li>Color Scheme Development</li>
-                                </ul>
+                                <p className={styles.overlayDescription}>Professional design services delivered from anywhere in the world.</p>
+                                <p className={styles.serviceDetails}>
+                                    Experience the convenience of our virtual design consultations combined with detailed 2D floor plans and elevations. We create stunning 3D renders and visualizations that bring your vision to life, develop inspiring mood boards for concept design, and provide expert guidance on material and finish selection. Our e-design services include comprehensive furniture layout planning, detailed shopping lists with sourcing assistance, custom soft furnishings design, and sophisticated color scheme development tailored to your preferences and space.
+                                </p>
                             </div>
                         </div>
                     </motion.div>
