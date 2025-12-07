@@ -163,27 +163,65 @@
     margin-bottom: 8rem;
 }
 
-.sectionSubtext {
-    font-size: clamp(1rem, 1.25vw, 1.125rem);
-    color: var(--color-muted);
-    margin-bottom: 3rem;
-    max-width: 600px;
+.floorPlanGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 3rem;
 }
 
-.floorPlanCard {
+.floorPlanImageWrapper {
     background: #ffffff;
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
-    display: flex;
-    justify-content: center;
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .floorPlanImage {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     border-radius: 12px;
+    display: block;
+}
+
+.floorPlanContent {
+    padding: 2rem 0;
+}
+
+.floorPlanTitle {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.floorPlanText {
+    font-size: clamp(1rem, 1.25vw, 1.125rem);
+    color: var(--color-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.floorPlanHighlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.planHighlight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.planHighlight .highlightIcon {
+    color: var(--color-accent);
+    font-size: 1.2rem;
 }
 
 .categorySection {
@@ -394,6 +432,11 @@
 
 @media (max-width: 1024px) {
     .overviewGrid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .floorPlanGrid {
         grid-template-columns: 1fr;
         gap: 3rem;
     }

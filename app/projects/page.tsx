@@ -46,7 +46,17 @@ export default function ProjectsPage() {
                                         className={styles.projectImage}
                                     />
                                     <div className={styles.projectOverlay}>
-                                        <h3 className={styles.projectTitle}>{project.title}</h3>
+                                        <div className={styles.projectInfo}>
+                                            <span className={styles.projectCategory}>Residential Design</span>
+                                            <h3 className={styles.projectTitle}>{project.title}</h3>
+                                            <p className={styles.projectDescription}>
+                                                Modern minimalist residential design featuring pristine spaces and elegant finishes
+                                            </p>
+                                        </div>
+                                        <button className={styles.viewButton}>
+                                            View Project
+                                            <span className={styles.arrow}>→</span>
+                                        </button>
                                     </div>
                                 </motion.div>
                             </Link>
@@ -54,7 +64,7 @@ export default function ProjectsPage() {
                     </div>
                 </motion.section>
             </div>
-            <Footer/>
+            <Footer />
         </main>
     );
 }

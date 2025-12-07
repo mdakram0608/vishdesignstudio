@@ -131,15 +131,41 @@ export default function ProjectDetailPage() {
                 {/* Floor Plan Section */}
                 <motion.div className={styles.floorPlanSection} {...fadeInUp}>
                     <h2 className={styles.sectionHeading}>Layout & Flow</h2>
-                    <p className={styles.sectionSubtext}>
-                        A thoughtfully designed layout optimizing spatial efficiency and circulation
-                    </p>
-                    <div className={styles.floorPlanCard}>
-                        <img
-                            src="/project 1/floor plan.jpeg"
-                            alt="California Project Floor Plan"
-                            className={styles.floorPlanImage}
-                        />
+                    <div className={styles.floorPlanGrid}>
+                        <div className={styles.floorPlanImageWrapper}>
+                            <img
+                                src="/project 1/floor plan.jpeg"
+                                alt="California Project Floor Plan"
+                                className={styles.floorPlanImage}
+                            />
+                        </div>
+                        <div className={styles.floorPlanContent}>
+                            <h3 className={styles.floorPlanTitle}>Spatial Excellence</h3>
+                            <p className={styles.floorPlanText}>
+                                The floor plan embodies a carefully considered approach to residential design, where every square foot serves a purpose. The layout maximizes natural light penetration while maintaining clear circulation paths throughout the home.
+                            </p>
+                            <p className={styles.floorPlanText}>
+                                Open-concept living areas flow seamlessly into private zones, creating distinct spaces for entertainment and relaxation. Strategic placement of windows and doors ensures optimal cross-ventilation and creates visual connections between interior and exterior spaces.
+                            </p>
+                            <div className={styles.floorPlanHighlights}>
+                                <div className={styles.planHighlight}>
+                                    <span className={styles.highlightIcon}>◆</span>
+                                    <span>Optimized traffic flow patterns</span>
+                                </div>
+                                <div className={styles.planHighlight}>
+                                    <span className={styles.highlightIcon}>◆</span>
+                                    <span>Maximum natural light exposure</span>
+                                </div>
+                                <div className={styles.planHighlight}>
+                                    <span className={styles.highlightIcon}>◆</span>
+                                    <span>Efficient space utilization</span>
+                                </div>
+                                <div className={styles.planHighlight}>
+                                    <span className={styles.highlightIcon}>◆</span>
+                                    <span>Seamless indoor-outdoor connection</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </motion.div>
 
@@ -270,7 +296,7 @@ export default function ProjectDetailPage() {
                     </div>
                 </motion.div>
             </div>
-            <Footer/>                       
+            <Footer />
         </main>
     );
 }
