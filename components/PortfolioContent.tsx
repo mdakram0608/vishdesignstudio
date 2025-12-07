@@ -101,48 +101,77 @@ export default function PortfolioContent() {
                 {...fadeInUp}
             >
                 <h2 className={styles.sectionTitle}>The Design Process</h2>
+                <p className={styles.servicesIntro}>
+                    A streamlined journey from concept to completion, ensuring every detail reflects your vision.
+                </p>
+
                 <div className={styles.processTimeline}>
                     <motion.div className={styles.processStep} {...fadeInUp}>
                         <div className={styles.stepNumber}>01</div>
-                        <h3 className={styles.stepTitle}>Choose Your Package</h3>
+                        <h3 className={styles.stepTitle}>Discovery & Consultation</h3>
                         <p className={styles.stepDescription}>
-                            After your purchase, you'll receive a Client Questionnaire and Measurement Guide. Once you send that back, your design timeline will start.
+                            We start with an in-depth conversation to understand your vision, lifestyle, and space requirements. After agreement, we formalize our partnership with a design contract.
                         </p>
                     </motion.div>
 
                     <motion.div className={styles.processStep} {...fadeInUp}>
                         <div className={styles.stepNumber}>02</div>
-                        <h3 className={styles.stepTitle}>Measurement & Inspiration</h3>
+                        <h3 className={styles.stepTitle}>Research & Site Analysis</h3>
                         <p className={styles.stepDescription}>
-                            Complete your online questionnaire and attach inspiration photos. This is where we'll get to know you and your dream space before diving into the planning stage.
+                            Comprehensive site surveys and research help us understand your space's potential. We develop initial budget estimates and preliminary layouts.
                         </p>
                     </motion.div>
 
                     <motion.div className={styles.processStep} {...fadeInUp}>
                         <div className={styles.stepNumber}>03</div>
-                        <h3 className={styles.stepTitle}>Concept & Development</h3>
+                        <h3 className={styles.stepTitle}>Concept Development</h3>
                         <p className={styles.stepDescription}>
-                            I'll create 2 mood boards for different design concepts, giving you an idea of your space's potential and bringing your vision to life.
+                            We create mood boards and design concepts showcasing materials, colors, and styles. This gives you a clear vision of your space's transformation.
                         </p>
                     </motion.div>
 
                     <motion.div className={styles.processStep} {...fadeInUp}>
                         <div className={styles.stepNumber}>04</div>
-                        <h3 className={styles.stepTitle}>Selection & Placement</h3>
+                        <h3 className={styles.stepTitle}>Design & Specifications</h3>
                         <p className={styles.stepDescription}>
-                            Once you've selected a concept, I'll finalize 2D & 3D floor plans, choose finishes and furnishings, and provide detailed drawings and specifications.
+                            Detailed 2D and 3D floor plans, elevations, and specifications are created. We source materials and furnishings that align with your approved concept.
                         </p>
                     </motion.div>
 
                     <motion.div className={styles.processStep} {...fadeInUp}>
                         <div className={styles.stepNumber}>05</div>
-                        <h3 className={styles.stepTitle}>Final Design</h3>
+                        <h3 className={styles.stepTitle}>Final Design & Approvals</h3>
                         <p className={styles.stepDescription}>
-                            When your design is finalized, you'll receive a comprehensive shopping list detailing all furnishings and materials for easy purchasing.
+                            You receive complete construction documents and a comprehensive shopping list. Final adjustments are made before moving to the procurement phase.
+                        </p>
+                    </motion.div>
+
+                    <motion.div className={styles.processStep} {...fadeInUp}>
+                        <div className={styles.stepNumber}>06</div>
+                        <h3 className={styles.stepTitle}>Procurement & Coordination</h3>
+                        <p className={styles.stepDescription}>
+                            We coordinate construction bids, place orders for all furnishings, and manage deliveries. Every piece is carefully selected and scheduled.
+                        </p>
+                    </motion.div>
+
+                    <motion.div className={styles.processStep} {...fadeInUp}>
+                        <div className={styles.stepNumber}>07</div>
+                        <h3 className={styles.stepTitle}>Construction Oversight</h3>
+                        <p className={styles.stepDescription}>
+                            Regular site visits ensure construction aligns with design plans. We guide execution and resolve any issues to maintain quality standards.
+                        </p>
+                    </motion.div>
+
+                    <motion.div className={styles.processStep} {...fadeInUp}>
+                        <div className={styles.stepNumber}>08</div>
+                        <h3 className={styles.stepTitle}>Installation & Final Styling</h3>
+                        <p className={styles.stepDescription}>
+                            We oversee furniture installation and add finishing touches with curated accessories. Your space is photographed, and we conduct a final walkthrough to ensure your complete satisfaction.
                         </p>
                     </motion.div>
                 </div>
-                <div style={{ textAlign: "center", marginTop: "2rem" }}>
+
+                <div style={{ textAlign: "center", marginTop: "3rem" }}>
                     <Link href="/process" className={styles.sleekButton3}>
                         Learn the Full Process
                     </Link>
@@ -159,47 +188,190 @@ export default function PortfolioContent() {
                     From concept to completion, we offer comprehensive interior design solutions tailored to your vision.
                 </p>
                 <div className={styles.servicesGrid}>
+                    {/* Residential Design */}
                     <motion.div className={styles.serviceCard} {...fadeInUp}>
-                        <div className={styles.serviceIcon}>
-                            <img src="/icons/residential.png" alt="Residential Design" />
+                        <div className={styles.serviceImageContainer}>
+                            <img src="/services/residential_design_service_1765127427557.png" alt="Residential Design" />
                         </div>
-                        <h3>Residential Design</h3>
-                        <p>Living rooms, bedrooms, kitchens, bathrooms, and complete home transformations</p>
+                        <div className={styles.serviceContent}>
+                            <div className={styles.serviceIcon}>
+                                <img src="/icons/residential.png" alt="Residential Design" />
+                            </div>
+                            <h3>Residential Design</h3>
+                            <p>Living rooms, bedrooms, kitchens, bathrooms, and complete home transformations</p>
+                        </div>
+                        <div className={styles.serviceOverlay}>
+                            <h3>Residential Spaces</h3>
+                            <div className={styles.overlayContent}>
+                                <p className={styles.overlayDescription}>Transform your home into a personalized sanctuary</p>
+                                <ul className={styles.serviceList}>
+                                    <li>Living Room & Dining Areas</li>
+                                    <li>Modular Kitchens</li>
+                                    <li>Master & Guest Bedrooms</li>
+                                    <li>Luxury Bathrooms & Spa Areas</li>
+                                    <li>Kids Rooms & Play Areas</li>
+                                    <li>Home Theaters & Entertainment Rooms</li>
+                                    <li>Prayer Rooms & Meditation Spaces</li>
+                                    <li>Home Gym & Wellness Areas</li>
+                                </ul>
+                            </div>
+                        </div>
                     </motion.div>
+
+                    {/* Commercial Spaces */}
                     <motion.div className={styles.serviceCard} {...fadeInUp}>
-                        <div className={styles.serviceIcon}>
-                            <img src="/icons/commercial.png" alt="Commercial Spaces" />
+                        <div className={styles.serviceImageContainer}>
+                            <img src="/services/commercial_spaces_service_1765127444505.png" alt="Commercial Spaces" />
                         </div>
-                        <h3>Commercial Spaces</h3>
-                        <p>Offices, shops, restaurants, hotels, salons, and retail environments</p>
+                        <div className={styles.serviceContent}>
+                            <div className={styles.serviceIcon}>
+                                <img src="/icons/commercial.png" alt="Commercial Spaces" />
+                            </div>
+                            <h3>Commercial Spaces</h3>
+                            <p>Offices, shops, restaurants, hotels, salons, and retail environments</p>
+                        </div>
+                        <div className={styles.serviceOverlay}>
+                            <h3>Commercial Interiors</h3>
+                            <div className={styles.overlayContent}>
+                                <p className={styles.overlayDescription}>Professional spaces that inspire productivity and growth</p>
+                                <ul className={styles.serviceList}>
+                                    <li>Corporate Workspaces & Offices</li>
+                                    <li>Retail Shops & Showrooms</li>
+                                    <li>Cafes & Restaurants</li>
+                                    <li>Hotels & Hospitality Spaces</li>
+                                    <li>Convention Centers & Halls</li>
+                                    <li>Salons & Spa Centers</li>
+                                    <li>Clinics & Medical Facilities</li>
+                                    <li>Educational Institutions</li>
+                                </ul>
+                            </div>
+                        </div>
                     </motion.div>
+
+                    {/* Renovations & Remodeling */}
                     <motion.div className={styles.serviceCard} {...fadeInUp}>
-                        <div className={styles.serviceIcon}>
-                            <img src="/icons/renovation.png" alt="Renovations" />
+                        <div className={styles.serviceImageContainer}>
+                            <img src="/services/renovations_remodeling_service_1765127463662.png" alt="Renovations & Remodeling" />
                         </div>
-                        <h3>Renovations & Remodeling</h3>
-                        <p>Transform existing spaces with expert renovation and remodeling services</p>
+                        <div className={styles.serviceContent}>
+                            <div className={styles.serviceIcon}>
+                                <img src="/icons/renovation.png" alt="Renovations" />
+                            </div>
+                            <h3>Renovations & Remodeling</h3>
+                            <p>Transform existing spaces with expert renovation and remodeling services</p>
+                        </div>
+                        <div className={styles.serviceOverlay}>
+                            <h3>Renovation Services</h3>
+                            <div className={styles.overlayContent}>
+                                <p className={styles.overlayDescription}>Breathe new life into your existing spaces</p>
+                                <ul className={styles.serviceList}>
+                                    <li>Complete Space Remodeling</li>
+                                    <li>Structural Modifications</li>
+                                    <li>Facade Design & Updates</li>
+                                    <li>Flooring Replacement & Upgrades</li>
+                                    <li>Kitchen & Bathroom Renovations</li>
+                                    <li>Ceiling & Wall Treatments</li>
+                                    <li>Refurbishing Existing Elements</li>
+                                    <li>Restoration & Preservation</li>
+                                </ul>
+                            </div>
+                        </div>
                     </motion.div>
+
+                    {/* Turnkey Solutions */}
                     <motion.div className={styles.serviceCard} {...fadeInUp}>
-                        <div className={styles.serviceIcon}>
-                            <img src="/icons/frame_B_Darker.png" alt="Turnkey Solutions" />
+                        <div className={styles.serviceImageContainer}>
+                            <img src="/services/turnkey_solutions_service_1765127487097.png" alt="Turnkey Solutions" />
                         </div>
-                        <h3>Turnkey Solutions</h3>
-                        <p>Complete end-to-end services including furniture, lighting, materials, and installation</p>
+                        <div className={styles.serviceContent}>
+                            <div className={styles.serviceIcon}>
+                                <img src="/icons/frame_B_Darker.png" alt="Turnkey Solutions" />
+                            </div>
+                            <h3>Turnkey Solutions</h3>
+                            <p>Complete end-to-end services including furniture, lighting, materials, and installation</p>
+                        </div>
+                        <div className={styles.serviceOverlay}>
+                            <h3>Complete Design Services</h3>
+                            <div className={styles.overlayContent}>
+                                <p className={styles.overlayDescription}>Comprehensive solutions from concept to completion</p>
+                                <ul className={styles.serviceList}>
+                                    <li>Space Planning & Layout Design</li>
+                                    <li>Custom Furniture Design & Build</li>
+                                    <li>Flooring, Ceiling & Wall Design</li>
+                                    <li>Lighting Design & Installation</li>
+                                    <li>Window Treatments (Curtains, Blinds)</li>
+                                    <li>Paint, Wallpaper & Texture Selection</li>
+                                    <li>Artwork & Accessories Styling</li>
+                                    <li>Sanitary & Electrical Fittings</li>
+                                    <li>Home Automation & Smart Systems</li>
+                                    <li>Complete Project Management</li>
+                                </ul>
+                            </div>
+                        </div>
                     </motion.div>
+
+                    {/* Outdoor & Landscape */}
                     <motion.div className={styles.serviceCard} {...fadeInUp}>
-                        <div className={styles.serviceIcon}>
-                            <img src="/icons/landscape.png" alt="Landscape" />
+                        <div className={styles.serviceImageContainer}>
+                            <img src="/services/outdoor_landscape_service_1765127505672.png" alt="Outdoor & Landscape" />
                         </div>
-                        <h3>Outdoor & Landscape</h3>
-                        <p>Beautiful outdoor spaces, landscaping, and water features</p>
+                        <div className={styles.serviceContent}>
+                            <div className={styles.serviceIcon}>
+                                <img src="/icons/landscape.png" alt="Landscape" />
+                            </div>
+                            <h3>Outdoor & Landscape</h3>
+                            <p>Beautiful outdoor spaces, landscaping, and water features</p>
+                        </div>
+                        <div className={styles.serviceOverlay}>
+                            <h3>Landscape Design</h3>
+                            <div className={styles.overlayContent}>
+                                <p className={styles.overlayDescription}>Creating stunning outdoor environments</p>
+                                <ul className={styles.serviceList}>
+                                    <li>Landscape Design & Planning</li>
+                                    <li>Garden & Lawn Installation</li>
+                                    <li>Swimming Pools & Water Features</li>
+                                    <li>Outdoor Kitchens & Seating</li>
+                                    <li>Walkways & Paver Installation</li>
+                                    <li>Pergolas & Outdoor Structures</li>
+                                    <li>Irrigation & Sprinkler Systems</li>
+                                    <li>Drought-Tolerant Plantings</li>
+                                    <li>Exterior Lighting Design</li>
+                                    <li>Hardscaping & Stone Work</li>
+                                    <li>Maintenance & Lawn Care</li>
+                                </ul>
+                            </div>
+                        </div>
                     </motion.div>
+
+                    {/* Virtual Consultation */}
                     <motion.div className={styles.serviceCard} {...fadeInUp}>
-                        <div className={styles.serviceIcon}>
-                            <img src="/icons/virtual.png" alt="Virtual Consultation" />
+                        <div className={styles.serviceImageContainer}>
+                            <img src="/services/virtual_consultation_service_1765127521958.png" alt="Virtual Consultation" />
                         </div>
-                        <h3>Virtual Consultation</h3>
-                        <p>In-person and remote design consultations with 3D renders and E-Design</p>
+                        <div className={styles.serviceContent}>
+                            <div className={styles.serviceIcon}>
+                                <img src="/icons/virtual.png" alt="Virtual Consultation" />
+                            </div>
+                            <h3>Virtual Consultation</h3>
+                            <p>In-person and remote design consultations with 3D renders and E-Design</p>
+                        </div>
+                        <div className={styles.serviceOverlay}>
+                            <h3>E-Design & Consultation</h3>
+                            <div className={styles.overlayContent}>
+                                <p className={styles.overlayDescription}>Professional design services from anywhere</p>
+                                <ul className={styles.serviceList}>
+                                    <li>Virtual Design Consultations</li>
+                                    <li>2D Floor Plans & Elevations</li>
+                                    <li>3D Renders & Visualizations</li>
+                                    <li>Mood Boards & Concept Design</li>
+                                    <li>Material & Finish Selection</li>
+                                    <li>Furniture Layout Planning</li>
+                                    <li>Shopping Lists & Sourcing</li>
+                                    <li>Custom Soft Furnishings</li>
+                                    <li>Color Scheme Development</li>
+                                </ul>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </motion.section>
