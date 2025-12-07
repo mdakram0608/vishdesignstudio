@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "./Footer.module.css";
 import { FaInstagram, FaLinkedinIn, FaYoutube, FaFacebookF, FaPinterestP } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 // Container for word-by-word animation
 const wordContainer = {
@@ -58,6 +59,7 @@ const AnimatedWords = ({
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const pathname = usePathname();
 
     return (
         <footer className={styles.footer}>
@@ -127,7 +129,10 @@ export default function Footer() {
                                     delay: 0.15 + index * 0.05,
                                 }}
                             >
-                                <Link href={item.href} className={styles.navLink}>
+                                <Link
+                                    href={item.href}
+                                    className={`${styles.navLink} ${pathname === item.href ? styles.navLinkActive : ""}`}
+                                >
                                     {item.label}
                                 </Link>
                             </motion.div>
@@ -155,7 +160,10 @@ export default function Footer() {
                                     delay: 0.2 + index * 0.05,
                                 }}
                             >
-                                <Link href={item.href} className={styles.navLink}>
+                                <Link
+                                    href={item.href}
+                                    className={`${styles.navLink} ${pathname === item.href ? styles.navLinkActive : ""}`}
+                                >
                                     {item.label}
                                 </Link>
                             </motion.div>
@@ -263,15 +271,7 @@ export default function Footer() {
                     className={styles.bottomText}
                 />
 
-                <div className={styles.bottomLinks}>
-                    <Link href="/privacy" className={styles.bottomLink}>
-                        Privacy
-                    </Link>
-                    <span className={styles.separator}>•</span>
-                    <Link href="/terms" className={styles.bottomLink}>
-                        Terms
-                    </Link>
-                </div>
+                
             </motion.div>
         </footer>
     );
