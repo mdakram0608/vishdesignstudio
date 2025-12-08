@@ -251,7 +251,7 @@ export default function PortfolioContent() {
                             <div className={styles.overlayContent}>
                                 <p className={styles.overlayDescription}>Breathe new life into your existing spaces with expert renovation and remodeling.</p>
                                 <p className={styles.serviceDetails}>
-                                    Whether you need complete space remodeling or selective updates, we handle everything from structural modifications to facade design and updates. Our renovation services include flooring replacement and upgrades, specialized kitchen and bathroom renovations, and creative ceiling and wall treatments. We excel at refurbishing existing elements to preserve character while modernizing functionality, and we're skilled in restoration and preservation projects that honor architectural heritage.
+                                    Whether you need complete space remodeling or selective updates, we handle everything from structural modifications to facade design and updates. Our renovation services include flooring replacement and upgrades, specialized kitchen and bathroom renovations, and creative ceiling and wall treatments. We excel at refurbishing existing elements to preserve character while modernizing functionality, and we&apos;re skilled in restoration and preservation projects that honor architectural heritage.
                                 </p>
                             </div>
                         </div>
@@ -419,7 +419,7 @@ export default function PortfolioContent() {
                 className={`${styles.section} ${styles.cta}`}
                 {...fadeInUp}
             >
-                <h2 className={styles.ctaTitle}>Let's Build Something Extraordinary</h2>
+                <h2 className={styles.ctaTitle}>Let&apos;s Build Something Extraordinary</h2>
                 <Link href="/contact" className={styles.ctaButton}>
                     Get in Touch
                 </Link>
