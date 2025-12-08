@@ -6,22 +6,28 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './ScrollVideo.module.css';
 import Navbar from './Navbar';
 
+interface ScrollVideoProps {
+  onLoadingProgress?: (progress: number, isComplete: boolean) => void;
+}
+
 const FRAME_COUNT = 300;
 const MAX_DPR = 1;
+const PRELOAD_FRAMES = 100; // Load first 100 frames for faster initial display
 
 const getFrameSrc = (index: number) => {
   const frameNumber = index.toString().padStart(6, '0');
   return `/9mb/${frameNumber}.webp`;
 };
 
-export default function ScrollVideo() {
+export default function ScrollVideo({ onLoadingProgress }: ScrollVideoProps = {}) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const lastFrameRef = useRef<number | null>(null);
+  const [loadedCount, setLoadedCount] = useState(0);
 
   // current animated frame and target frame from scroll
   const currentFrameRef = useRef(1);
@@ -66,25 +72,48 @@ export default function ScrollVideo() {
     ctx.drawImage(image, 0, 0, rect.width, rect.height);
   }, []);
 
-  // preload all frames
+  // preload frames with progress tracking
   useEffect(() => {
     const imgs: HTMLImageElement[] = [];
+    let loaded = 0;
+
+    const updateProgress = () => {
+      loaded++;
+      setLoadedCount(loaded);
+
+      const progress = (loaded / PRELOAD_FRAMES) * 100;
+      const isComplete = loaded >= PRELOAD_FRAMES;
+
+      if (onLoadingProgress) {
+        onLoadingProgress(progress, isComplete);
+      }
+
+      // Render first frame once it's loaded
+      if (loaded === 1) {
+        render(1);
+      }
+    };
+
+    // Load first PRELOAD_FRAMES frames with progress tracking
     for (let i = 1; i <= FRAME_COUNT; i++) {
       const img = new Image();
       img.src = getFrameSrc(i);
+
+      // Track loading for first N frames
+      if (i <= PRELOAD_FRAMES) {
+        if (img.complete) {
+          updateProgress();
+        } else {
+          img.onload = updateProgress;
+          img.onerror = updateProgress; // Count errors as "loaded" to avoid blocking
+        }
+      }
+
       imgs.push(img);
     }
-    imagesRef.current = imgs;
 
-    const first = imgs[0];
-    if (first) {
-      if (first.complete) {
-        render(1);
-      } else {
-        first.onload = () => render(1);
-      }
-    }
-  }, [render]);
+    imagesRef.current = imgs;
+  }, [render, onLoadingProgress]);
 
   // scroll sets only the target frame
   useMotionValueEvent(currentIndex, 'change', (latest) => {
