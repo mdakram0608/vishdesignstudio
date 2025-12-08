@@ -12,7 +12,7 @@ const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     whileInView: { opacity: 1, y: 0 },
     transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] },
-    viewport: { once: true, margin: "0px 0px -10% 0px", amount: 0.1 }
+    viewport: { once: true, margin: '0px 0px -10% 0px', amount: 0.1 },
 };
 
 interface BlogPostClientProps {
@@ -26,12 +26,21 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
 
     const { scrollYProgress } = useScroll({
         target: headerRef,
-        offset: ["start start", "end start"]
+        offset: ['start start', 'end start'],
     });
 
-    const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+    const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
     const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
     const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.3, 0.7]);
+
+    const allImages = post.images || [];
+    const sections = post.content.sections;
+
+    // Any images beyond section count go to a bottom gallery
+    const extraImages =
+        allImages.length > sections.length
+            ? allImages.slice(sections.length)
+            : [];
 
     return (
         <>
@@ -67,7 +76,7 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
                                     {new Date(post.date).toLocaleDateString('en-US', {
                                         year: 'numeric',
                                         month: 'long',
-                                        day: 'numeric'
+                                        day: 'numeric',
                                     })}
                                 </span>
                             </div>
@@ -79,10 +88,7 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
 
                 {/* Content */}
                 <div className={styles.contentWrapper}>
-                    <motion.div
-                        className={styles.content}
-                        {...fadeInUp}
-                    >
+                    <motion.div className={styles.content} {...fadeInUp}>
                         {/* Introduction */}
                         {post.content.introduction.map((paragraph, index) => (
                             <motion.p
@@ -94,77 +100,140 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
                             </motion.p>
                         ))}
 
-                        {/* Sections */}
-                        {post.content.sections.map((section, sectionIndex) => (
-                            <motion.section
-                                key={sectionIndex}
-                                className={styles.section}
-                                {...fadeInUp}
-                            >
-                                <h2 className={styles.sectionTitle}>{section.title}</h2>
+                        {/* Sections – one sticky image per section (if available) */}
+                        {sections.map((section, sectionIndex) => {
+                            // One image per section by index
+                            const sectionImage =
+                                allImages[sectionIndex] || null;
 
-                                {section.content.map((paragraph, pIndex) => (
-                                    <p key={pIndex} className={styles.paragraph}>
-                                        {paragraph}
-                                    </p>
-                                ))}
-
-                                {section.subsections && (
-                                    <div className={styles.subsections}>
-                                        {section.subsections.map((subsection, subIndex) => (
-                                            <div key={subIndex} className={styles.subsection}>
-                                                <h3 className={styles.subsectionTitle}>{subsection.title}</h3>
-
-                                                {subsection.content && subsection.content.map((paragraph, pIndex) => (
-                                                    <p key={pIndex} className={styles.paragraph}>
-                                                        {paragraph}
-                                                    </p>
-                                                ))}
-
-                                                {subsection.items && (
-                                                    <ul className={styles.list}>
-                                                        {subsection.items.map((item, itemIndex) => (
-                                                            <li key={itemIndex}>{item}</li>
-                                                        ))}
-                                                    </ul>
-                                                )}
-                                            </div>
-                                        ))}
+                            return (
+                                <motion.section
+                                    key={sectionIndex}
+                                    className={styles.section}
+                                    {...fadeInUp}
+                                >
+                                    <div className={styles.sectionHeader}>
+                                        <h2 className={styles.sectionTitle}>
+                                            {section.title}
+                                        </h2>
                                     </div>
-                                )}
-                            </motion.section>
-                        ))}
 
-                        {/* Conclusion */}
-                        {post.content.conclusion && post.content.conclusion.map((paragraph, index) => (
-                            <motion.p
-                                key={index}
-                                className={styles.conclusion}
+                                    <div className={styles.sectionLayout}>
+                                        {/* Text column */}
+                                        <div className={styles.sectionText}>
+                                            {section.content.map((paragraph, pIndex) => (
+                                                <p
+                                                    key={pIndex}
+                                                    className={styles.paragraph}
+                                                >
+                                                    {paragraph}
+                                                </p>
+                                            ))}
+
+                                            {section.subsections && (
+                                                <div className={styles.subsections}>
+                                                    {section.subsections.map(
+                                                        (subsection, subIndex) => (
+                                                            <div
+                                                                key={subIndex}
+                                                                className={styles.subsection}
+                                                            >
+                                                                <h3
+                                                                    className={
+                                                                        styles.subsectionTitle
+                                                                    }
+                                                                >
+                                                                    {subsection.title}
+                                                                </h3>
+
+                                                                {subsection.content &&
+                                                                    subsection.content.map(
+                                                                        (
+                                                                            paragraph,
+                                                                            pIndex,
+                                                                        ) => (
+                                                                            <p
+                                                                                key={pIndex}
+                                                                                className={
+                                                                                    styles.paragraph
+                                                                                }
+                                                                            >
+                                                                                {paragraph}
+                                                                            </p>
+                                                                        ),
+                                                                    )}
+
+                                                                {subsection.items && (
+                                                                    <ul
+                                                                        className={styles.list}
+                                                                    >
+                                                                        {subsection.items.map(
+                                                                            (
+                                                                                item,
+                                                                                itemIndex,
+                                                                            ) => (
+                                                                                <li
+                                                                                    key={
+                                                                                        itemIndex
+                                                                                    }
+                                                                                >
+                                                                                    {item}
+                                                                                </li>
+                                                                            ),
+                                                                        )}
+                                                                    </ul>
+                                                                )}
+                                                            </div>
+                                                        ),
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        {/* Sticky image column – only ONE image per section */}
+                                        {sectionImage && (
+                                            <div className={styles.sectionImageColumn}>
+                                                <div className={styles.sectionImageSticky}>
+                                                    <ParallaxImage
+                                                        src={sectionImage}
+                                                        alt={`${post.title} - Image ${
+                                                            sectionIndex + 1
+                                                        }`}
+                                                    />
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </motion.section>
+                            );
+                        })}
+
+                        {/* Extra images gallery (if more images than sections) */}
+                        {extraImages.length > 0 && (
+                            <motion.div
+                                className={styles.gallery}
                                 {...fadeInUp}
                             >
-                                {paragraph}
-                            </motion.p>
-                        ))}
-                    </motion.div>
-
-                    {/* Image Gallery with Parallax */}
-                    <motion.div
-                        className={styles.gallery}
-                        {...fadeInUp}
-                    >
-                        <h2 className={styles.galleryTitle}>Project Gallery</h2>
-                        <div className={styles.galleryGrid}>
-                            {post.images.map((image, index) => (
-                                <ParallaxImage key={index} src={image} alt={`${post.title} - Image ${index + 1}`} />
-                            ))}
-                        </div>
+                                <h2 className={styles.galleryTitle}>
+                                    More from this project
+                                </h2>
+                                <div className={styles.galleryGrid}>
+                                    {extraImages.map((imgSrc, index) => (
+                                        <ParallaxImage
+                                            key={`extra-${index}`}
+                                            src={imgSrc}
+                                            alt={`${post.title} - Extra Image ${
+                                                sections.length + index + 1
+                                            }`}
+                                        />
+                                    ))}
+                                </div>
+                            </motion.div>
+                        )}
                     </motion.div>
 
                     {/* Navigation */}
-                    <motion.div
-                        className={styles.navigation}
-                        {...fadeInUp}
-                    >
+                    <motion.div className={styles.navigation} {...fadeInUp}>
                         {prevPost && (
                             <Link href={`/blog/${prevPost.slug}`} className={styles.navLink}>
                                 <span className={styles.navLabel}>Previous</span>
@@ -175,7 +244,10 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
                             All Articles
                         </Link>
                         {nextPost && (
-                            <Link href={`/blog/${nextPost.slug}`} className={`${styles.navLink} ${styles.navLinkNext}`}>
+                            <Link
+                                href={`/blog/${nextPost.slug}`}
+                                className={`${styles.navLink} ${styles.navLinkNext}`}
+                            >
                                 <span className={styles.navLabel}>Next</span>
                                 <span className={styles.navTitle}>{nextPost.title}</span>
                             </Link>
@@ -193,10 +265,10 @@ function ParallaxImage({ src, alt }: { src: string; alt: string }) {
 
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start end", "end start"]
+        offset: ['start end', 'end start'],
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
+    const y = useTransform(scrollYProgress, [0, 1], ['10%', '-10%']);
 
     return (
         <motion.div
@@ -205,7 +277,7 @@ function ParallaxImage({ src, alt }: { src: string; alt: string }) {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, margin: '-50px' }}
         >
             <div className={styles.galleryImageWrapper}>
                 <motion.img

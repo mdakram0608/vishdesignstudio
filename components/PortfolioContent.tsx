@@ -42,59 +42,6 @@ export default function PortfolioContent() {
                 </div>
             </motion.section>
 
-            {/* Founder Section */}
-            <motion.section
-                className={`${styles.section} ${styles.founder}`}
-                {...fadeInUp}
-            >
-                <h2 className={styles.sectionTitle}>Founder & Principal Designer</h2>
-                <div className={styles.founderContent}>
-                    <motion.div className={styles.founderImage} {...fadeInUp}>
-                        <img src="/founder pic.JPEG" alt="Gayathri Vish - Founder & Principal Designer" />
-                    </motion.div>
-                    <motion.div className={styles.founderText} {...fadeInUp}>
-                        <p className={styles.introText}>
-                            <span className={styles.highlight}>Gayathri Vish</span> leads Vish Design Studio with a unique blend of academic excellence and hands-on expertise. With degrees in Sociology and International Studies from Stella Maris College, plus professional certifications from Harvard University Graduate School of Design and the London School of Trends, she brings a holistic understanding of global dynamics and design.
-                        </p>
-                        <p className={styles.introText}>
-                            Before founding the studio, Gayathri managed over 50 diverse projects across India for five years. Her approach combines global foresight with local soul, drawing inspiration from India's vibrant culture while exploring international trends to craft interiors that feel both authentically rooted and refreshingly modern.
-                        </p>
-                        <Link href="/about" className={styles.sleekButton}>
-                            Know More
-                        </Link>
-                    </motion.div>
-                </div>
-            </motion.section>
-
-            {/* Featured Projects */}
-            <motion.section
-                className={styles.section}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true }}
-                variants={staggerChildren}
-            >
-                <h2 className={styles.sectionTitle}>Featured Projects</h2>
-                <Link href="/projects/california-usa-2024">
-                    <div className={styles.projectsGrid}>
-                        <motion.div className={styles.projectCard} variants={fadeInUp}>
-                            <div className={styles.projectImageWrapper}>
-                                <img
-                                    src="/project title pic.jpg"
-                                    alt="Featured Interior Design Project"
-                                    className={styles.projectImage}
-                                />
-                            </div>
-                        </motion.div>
-                    </div>
-                </Link>
-                <div className={styles.viewAllButton}>
-                    <Link href="/projects" className={styles.sleekButton2}>
-                        View All Projects
-                    </Link>
-                </div>
-            </motion.section>
-
             {/* Design Process Section */}
             <motion.section
                 className={`${styles.section} ${styles.designProcess}`}
@@ -327,6 +274,63 @@ export default function PortfolioContent() {
                     </motion.div>
                 </div>
             </motion.section>
+
+            {/* Founder Section */}
+            <motion.section
+                className={`${styles.section} ${styles.founder}`}
+                {...fadeInUp}
+            >
+                <h2 className={styles.sectionTitle}>Founder & Principal Designer</h2>
+                <div className={styles.founderContent}>
+                    <motion.div className={styles.founderImage} {...fadeInUp}>
+                        <img src="/founder pic.JPEG" alt="Gayathri Vish - Founder & Principal Designer" />
+                    </motion.div>
+                    <motion.div className={styles.founderText} {...fadeInUp}>
+                        <p className={styles.introText}>
+                            <span className={styles.highlight}>Gayathri Vish</span> leads Vish Design Studio with a unique blend of academic excellence and hands-on expertise. With degrees in Sociology and International Studies from Stella Maris College, plus professional certifications from Harvard University Graduate School of Design and the London School of Trends, she brings a holistic understanding of global dynamics and design.
+                        </p>
+                        <p className={styles.introText}>
+                            Before founding the studio, Gayathri managed over 50 diverse projects across India for five years. Her approach combines global foresight with local soul, drawing inspiration from India's vibrant culture while exploring international trends to craft interiors that feel both authentically rooted and refreshingly modern.
+                        </p>
+                        <Link href="/about" className={styles.sleekButton}>
+                            Know More
+                        </Link>
+                    </motion.div>
+                </div>
+            </motion.section>
+
+            {/* Featured Projects */}
+            <motion.section
+                className={styles.section}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                variants={staggerChildren}
+            >
+                <h2 className={styles.sectionTitle}>Featured Projects</h2>
+                <Link href="/projects/california-usa-2024">
+                    <div className={styles.projectsGrid}>
+                        <motion.div className={styles.projectCard} variants={fadeInUp}>
+                            <div className={styles.projectImageWrapper}>
+                                <img
+                                    src="/project title pic.jpg"
+                                    alt="Featured Interior Design Project"
+                                    className={styles.projectImage}
+                                />
+                            </div>
+                        </motion.div>
+                    </div>
+                </Link>
+                <div className={styles.viewAllButton}>
+                    <Link href="/projects" className={styles.sleekButton2}>
+                        View All Projects
+                    </Link>
+                </div>
+            </motion.section>
+
+
+
+            
 
             {/* Image Gallery Section */}
             <motion.section

@@ -65,6 +65,7 @@ const PROJECT_TYPES = [
     { value: 'commercial', label: 'Commercial Design' },
     { value: 'renovation', label: 'Renovation' },
     { value: 'consultation', label: 'Consultation' },
+    { value: 'Internship/Job Opportunities', label: 'Internship/Job Opportunities' },
     { value: 'other', label: 'Other' },
 ];
 
