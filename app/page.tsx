@@ -7,11 +7,19 @@ import Footer from '@/components/Footer';
 import LoadingScreen from '@/components/LoadingScreen';
 
 export default function Home() {
-    const [loadingProgress, setLoadingProgress] = useState(0);
-    const [isLoadingComplete, setIsLoadingComplete] = useState(false);
-    const [showContent, setShowContent] = useState(false);
 
-    // Prevent scrolling while loading
+    const [hasSeenLoading, setHasSeenLoading] = useState(() => {
+        if (typeof window !== 'undefined') {
+            return sessionStorage.getItem('hasSeenLoading') === 'true';
+        }
+        return false;
+    });
+
+    const [loadingProgress, setLoadingProgress] = useState(0);
+    const [isLoadingComplete, setIsLoadingComplete] = useState(hasSeenLoading);
+    const [showContent, setShowContent] = useState(hasSeenLoading);
+
+
     useEffect(() => {
         if (!showContent) {
             document.body.style.overflow = 'hidden';
@@ -19,7 +27,7 @@ export default function Home() {
             document.body.style.overflow = '';
         }
 
-        // Cleanup - restore scrolling when component unmounts
+
         return () => {
             document.body.style.overflow = '';
         };
@@ -34,6 +42,11 @@ export default function Home() {
 
     const handleLoadingComplete = () => {
         setShowContent(true);
+
+        if (typeof window !== 'undefined') {
+            sessionStorage.setItem('hasSeenLoading', 'true');
+            setHasSeenLoading(true);
+        }
     };
 
     return (
