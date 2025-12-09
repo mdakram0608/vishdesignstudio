@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState, useRef, useEffect, FormEvent } from 'react';
-import emailjs from '@emailjs/browser';
 import styles from './contact.module.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -120,9 +119,8 @@ function ProjectTypeDropdown({ value, onChange, disabled }: ProjectTypeDropdownP
                     {PROJECT_TYPES.map((option) => (
                         <li
                             key={option.value || 'empty'}
-                            className={`${styles.dropdownOption} ${
-                                option.value === value ? styles.dropdownOptionActive : ''
-                            }`}
+                            className={`${styles.dropdownOption} ${option.value === value ? styles.dropdownOptionActive : ''
+                                }`}
                             onClick={() => handleSelect(option.value)}
                         >
                             {option.label}
@@ -136,9 +134,52 @@ function ProjectTypeDropdown({ value, onChange, disabled }: ProjectTypeDropdownP
 
 export default function ContactPage() {
     const formRef = useRef<HTMLFormElement>(null);
+    const fileInputRef = useRef<HTMLInputElement>(null);
     const [isLoading, setIsLoading] = useState(false);
     const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [projectType, setProjectType] = useState<string>('');
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [isDragging, setIsDragging] = useState(false);
+
+    const handleFileSelect = (file: File | null) => {
+        if (file) {
+            // Validate file size (10MB)
+            if (file.size > 10 * 1024 * 1024) {
+                alert('File size must be less than 10MB');
+                return;
+            }
+            setSelectedFile(file);
+        }
+    };
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0] || null;
+        handleFileSelect(file);
+    };
+
+    const handleDragOver = (e: React.DragEvent) => {
+        e.preventDefault();
+        setIsDragging(true);
+    };
+
+    const handleDragLeave = (e: React.DragEvent) => {
+        e.preventDefault();
+        setIsDragging(false);
+    };
+
+    const handleDrop = (e: React.DragEvent) => {
+        e.preventDefault();
+        setIsDragging(false);
+        const file = e.dataTransfer.files?.[0] || null;
+        handleFileSelect(file);
+    };
+
+    const removeFile = () => {
+        setSelectedFile(null);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
+    };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -146,19 +187,30 @@ export default function ContactPage() {
         setFormStatus('idle');
 
         try {
-            const result = await emailjs.sendForm(
-                'service_d0xn6qc',
-                'template_rnjwxti',
-                formRef.current!,
-                '-oY7ac0HtEF3r5nZW'
-            );
+            const formData = new FormData(formRef.current!);
 
-            console.log('SUCCESS!', result.text);
-            setFormStatus('success');
-            formRef.current?.reset();
-            setProjectType('');
+            // Add file if selected
+            if (selectedFile) {
+                formData.append('file', selectedFile);
+            }
+
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                setFormStatus('success');
+                formRef.current?.reset();
+                setProjectType('');
+                setSelectedFile(null);
+            } else {
+                const data = await response.json();
+                console.error('Error:', data.error);
+                setFormStatus('error');
+            }
         } catch (error) {
-            console.error('FAILED.', error);
+            console.error('FAILED:', error);
             setFormStatus('error');
         } finally {
             setIsLoading(false);
@@ -335,7 +387,7 @@ export default function ContactPage() {
                                 <input
                                     type="text"
                                     id="name"
-                                    name="from_name"
+                                    name="name"
                                     className={styles.formInput}
                                     placeholder="John Doe"
                                     required
@@ -350,7 +402,7 @@ export default function ContactPage() {
                                 <input
                                     type="email"
                                     id="email"
-                                    name="reply_to"
+                                    name="email"
                                     className={styles.formInput}
                                     placeholder="john@example.com"
                                     required
@@ -417,6 +469,109 @@ export default function ContactPage() {
                                     required
                                     disabled={isLoading}
                                 ></textarea>
+                            </div>
+
+                            {/* File Upload Section */}
+                            <div className={styles.formGroup}>
+                                <label htmlFor="file" className={styles.formLabel}>
+                                    Attach File (Optional)
+                                </label>
+                                <p style={{ fontSize: '0.875rem', color: '#666', marginBottom: '0.5rem' }}>
+                                    Max size: 10MB. Supported formats: PDF, DOC, DOCX, JPG, PNG
+                                </p>
+
+                                <div
+                                    className={`${styles.fileUploadArea} ${isDragging ? styles.dragging : ''}`}
+                                    onDragOver={handleDragOver}
+                                    onDragLeave={handleDragLeave}
+                                    onDrop={handleDrop}
+                                    onClick={() => fileInputRef.current?.click()}
+                                    style={{
+                                        border: '2px dashed #ccc',
+                                        borderRadius: '8px',
+                                        padding: '2rem',
+                                        textAlign: 'center',
+                                        cursor: 'pointer',
+                                        transition: 'all 0.3s ease',
+                                        backgroundColor: isDragging ? '#f0f0f0' : 'transparent',
+                                    }}
+                                >
+                                    {selectedFile ? (
+                                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="24"
+                                                height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            >
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                                <polyline points="14 2 14 8 20 8" />
+                                            </svg>
+                                            <span style={{ fontWeight: '500' }}>{selectedFile.name}</span>
+                                            <span style={{ fontSize: '0.875rem', color: '#666' }}>
+                                                ({(selectedFile.size / 1024 / 1024).toFixed(2)} MB)
+                                            </span>
+                                            <button
+                                                type="button"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    removeFile();
+                                                }}
+                                                style={{
+                                                    background: '#ff4444',
+                                                    color: 'white',
+                                                    border: 'none',
+                                                    borderRadius: '4px',
+                                                    padding: '0.5rem 1rem',
+                                                    cursor: 'pointer',
+                                                }}
+                                            >
+                                                Remove
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="48"
+                                                height="48"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                style={{ margin: '0 auto 1rem' }}
+                                            >
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                                <polyline points="17 8 12 3 7 8" />
+                                                <line x1="12" y1="3" x2="12" y2="15" />
+                                            </svg>
+                                            <p style={{ margin: '0', fontWeight: '500' }}>
+                                                Drag & drop your file here
+                                            </p>
+                                            <p style={{ margin: '0.5rem 0 0', fontSize: '0.875rem', color: '#666' }}>
+                                                or click to browse
+                                            </p>
+                                        </>
+                                    )}
+                                </div>
+
+                                <input
+                                    ref={fileInputRef}
+                                    type="file"
+                                    id="file"
+                                    name="file"
+                                    onChange={handleFileChange}
+                                    style={{ display: 'none' }}
+                                    accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif"
+                                    disabled={isLoading}
+                                />
                             </div>
 
                             <motion.button
@@ -488,7 +643,7 @@ export default function ContactPage() {
                                         </svg>
                                     </div>
                                     <h3 className={styles.modalTitle}>
-                                        Message Sent Successfully!
+                                        Message Received!
                                     </h3>
                                     <p className={styles.modalText}>
                                         Thank you for reaching out. We'll get back to you

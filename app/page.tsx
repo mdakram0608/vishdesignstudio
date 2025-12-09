@@ -7,18 +7,23 @@ import Footer from '@/components/Footer';
 import LoadingScreen from '@/components/LoadingScreen';
 
 export default function Home() {
-
-    const [hasSeenLoading, setHasSeenLoading] = useState(() => {
-        if (typeof window !== 'undefined') {
-            return sessionStorage.getItem('hasSeenLoading') === 'true';
-        }
-        return false;
-    });
-
+    // Always initialize to false on server to prevent hydration mismatch
+    const [hasSeenLoading, setHasSeenLoading] = useState(false);
     const [loadingProgress, setLoadingProgress] = useState(0);
-    const [isLoadingComplete, setIsLoadingComplete] = useState(hasSeenLoading);
-    const [showContent, setShowContent] = useState(hasSeenLoading);
+    const [isLoadingComplete, setIsLoadingComplete] = useState(false);
+    const [showContent, setShowContent] = useState(false);
 
+    // Check sessionStorage on client mount
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const hasSeenBefore = sessionStorage.getItem('hasSeenLoading') === 'true';
+            if (hasSeenBefore) {
+                setHasSeenLoading(true);
+                setIsLoadingComplete(true);
+                setShowContent(true);
+            }
+        }
+    }, []);
 
     useEffect(() => {
         if (!showContent) {
@@ -26,7 +31,6 @@ export default function Home() {
         } else {
             document.body.style.overflow = '';
         }
-
 
         return () => {
             document.body.style.overflow = '';
@@ -55,6 +59,7 @@ export default function Home() {
                 progress={loadingProgress}
                 isComplete={isLoadingComplete}
                 onLoadingComplete={handleLoadingComplete}
+                skip={hasSeenLoading}
             />
             <main style={{ opacity: showContent ? 1 : 0, transition: 'opacity 0.5s ease-in' }}>
                 <ScrollVideo onLoadingProgress={handleLoadingProgress} />
