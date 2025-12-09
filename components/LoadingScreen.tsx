@@ -8,14 +8,16 @@ interface LoadingScreenProps {
     progress: number;
     isComplete: boolean;
     onLoadingComplete: () => void;
+    skip?: boolean; // Skip loading screen entirely
 }
 
 export default function LoadingScreen({
     progress,
     isComplete,
     onLoadingComplete,
+    skip = false,
 }: LoadingScreenProps) {
-    const [shouldRender, setShouldRender] = useState(true);
+    const [shouldRender, setShouldRender] = useState(!skip);
     const [canHide, setCanHide] = useState(false);
     const mountTimeRef = useRef<number>(Date.now());
     const MIN_DISPLAY_TIME = 1500; // Minimum 1.5 seconds display
