@@ -66,29 +66,25 @@ export const blogPosts: BlogPost[] = [
                                 'Vanity Task Lighting: At the dual vanity stations, elegant vertical LED strip lights or sleek pendant lights flank the mirrors. These provide excellent, shadow-free task lighting for makeup application and grooming, making the getting-ready process effortless.',
                                 'Accent Lighting: Integrated LED strip lights within wardrobe sections or under shelves could be added for a touch of luxury and to highlight specific items.'
                             ]
-                        },
-                        {
-                            title: 'Materials & Finishes',
-                            items: [
-                                'Cabinetry: High-quality MDF or plywood with a durable laminate or PU paint finish was chosen for all built-in units. This offers excellent resistance to wear and is easy to clean and maintain.',
-                                'Hardware: Sleek, minimalist handles (or push-to-open mechanisms) on drawers and doors ensure a clean look and smooth operation.',
-                                'Vanity Countertops: The gray vanity countertops could be made from a durable, non-porous engineered quartz or a high-quality solid surface material.'
-                            ]
-                        },
-                        {
-                            title: 'Flooring',
-                            content: [
-                                'The textured gray flooring could be achieved with large-format ceramic or porcelain tiles with a subtle pattern. The material is extremely durable and easy to clean. The abstract pattern introduces texture without visual clutter.'
-                            ]
-                        },
-                        {
-                            title: 'Functionality & Storage',
-                            items: [
-                                'Integrated Vanity Stations: The dual setup is not just about aesthetics; it\'s about efficient use of space, allowing two people to get ready simultaneously.',
-                                'Smart Storage Solutions: A diverse mix of open shelving for display, closed drawers for discreet storage, and dedicated hanging space caters to all garment types.',
-                                'Adjustable Shelving: Incorporating adjustable shelving allows for future flexibility as wardrobe needs change.'
-                            ]
                         }
+                    ]
+                },
+                {
+                    title: 'Flooring',
+                    content: [
+                        'The textured gray flooring could be achieved with large-format ceramic or porcelain tiles with a subtle pattern. The material is extremely durable and easy to clean. The abstract pattern introduces texture without visual clutter.'
+                    ]
+                },
+                {
+                    title: 'Functionality & Storage',
+                    content: [
+                        'Integrated Vanity Stations: The dual setup is not just about aesthetics; it\'s about efficient use of space, allowing two people to get ready simultaneously.Smart Storage Solutions: A diverse mix of open shelving for display, closed drawers for discreet storage, and dedicated hanging space caters to all garment types.Adjustable Shelving: Incorporating adjustable shelving allows for future flexibility as wardrobe needs change.'
+                    ]
+                },
+                {
+                    title: 'Materials & Finishes',
+                    content: [
+                        'Cabinetry: High-quality MDF or plywood with a durable laminate or PU paint finish was chosen for all built-in units. This offers excellent resistance to wear and is easy to clean and maintain.Hardware: Sleek, minimalist handles (or push-to-open mechanisms) on drawers and doors ensure a clean look and smooth operation.Vanity Countertops: The gray vanity countertops could be made from a durable, non-porous engineered quartz or a high-quality solid surface material.'
                     ]
                 },
                 {
