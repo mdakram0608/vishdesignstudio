@@ -56,10 +56,12 @@ export default function ProjectDetailPage() {
                 </motion.div>
 
                 {/* Hero Section */}
+                {/* Collage Banner */}
                 <motion.section
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
+                    className={styles.bannerCollageSection}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
                 >
                     <motion.h1
                         className={styles.projectTitle}
@@ -69,31 +71,34 @@ export default function ProjectDetailPage() {
                     >
                         California USA 2024
                     </motion.h1>
-                    <motion.p
-                        className={styles.projectSubtitle}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3, duration: 0.8 }}
-                    >
-                        Modern Minimalist Residential Design
-                    </motion.p>
-
-                    <motion.div
-                        className={styles.projectHero}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.4, duration: 1 }}
-                    >
-                        <img
-                            src="/project title pic.jpg"
-                            alt="California USA 2024 Project"
-                            className={styles.heroImage}
-                        />
-                        <div className={styles.heroOverlay}>
-                            <span className={styles.heroTag}>Featured Project</span>
+                    <div className={styles.bannerCollageWrapper}>
+                        <div className={styles.bannerCollageImages}>
+                            <div className={`${styles.bannerImage} ${styles.watermarkedImageWrapper}`}>
+                                <img
+                                    src="/project 1/bathroom/IMG_3283.jpg"
+                                    alt="Bathroom vanity"
+                                />
+                            </div>
+                            <div className={`${styles.bannerImage} ${styles.watermarkedImageWrapper}`}>
+                                <img
+                                    src="/project 1/kitchen/IMG_3261.jpg"
+                                    alt="Kitchen island"
+                                />
+                            </div>
+                            <div className={`${styles.bannerImage} ${styles.watermarkedImageWrapper}`}>
+                                <img
+                                    src="/project 1/bathroom/IMG_3276.jpg"
+                                    alt="Shower detail"
+                                />
+                            </div>
                         </div>
-                    </motion.div>
+
+                        <div className={styles.bannerCollageCaption}>
+                            THE MODERN MINIMALIST
+                        </div>
+                    </div>
                 </motion.section>
+
 
                 {/* Project Overview with Split Layout */}
                 <motion.div className={styles.overviewSection} {...fadeInUp}>
@@ -132,7 +137,7 @@ export default function ProjectDetailPage() {
                 <motion.div className={styles.floorPlanSection} {...fadeInUp}>
                     <h2 className={styles.sectionHeading}>Layout & Flow</h2>
                     <div className={styles.floorPlanGrid}>
-                        <div className={styles.floorPlanImageWrapper}>
+                        <div className={styles.floorPlanImageWrapper} >
                             <img
                                 src="/project 1/floor plan.jpeg"
                                 alt="California Project Floor Plan"
@@ -150,19 +155,19 @@ export default function ProjectDetailPage() {
                             <div className={styles.floorPlanHighlights}>
                                 <div className={styles.planHighlight}>
                                     <span className={styles.highlightIcon}>◆</span>
-                                    <span>Optimized traffic flow patterns</span>
+                                    <span className={styles.highlighticontext}>Optimized traffic flow patterns</span>
                                 </div>
                                 <div className={styles.planHighlight}>
                                     <span className={styles.highlightIcon}>◆</span>
-                                    <span>Maximum natural light exposure</span>
+                                    <span className={styles.highlighticontext}>Maximum natural light exposure</span>
                                 </div>
                                 <div className={styles.planHighlight}>
                                     <span className={styles.highlightIcon}>◆</span>
-                                    <span>Efficient space utilization</span>
+                                    <span className={styles.highlighticontext}>Efficient space utilization</span>
                                 </div>
                                 <div className={styles.planHighlight}>
                                     <span className={styles.highlightIcon}>◆</span>
-                                    <span>Seamless indoor-outdoor connection</span>
+                                    <span className={styles.highlighticontext}>Seamless indoor-outdoor connection</span>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +200,7 @@ export default function ProjectDetailPage() {
                                 whileHover={{ y: -10 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <div className={styles.imageContainer}>
+                                <div className={`${styles.imageContainer} ${styles.watermarkedImageWrapper}`}>
                                     <img
                                         src={image.src}
                                         alt={image.title}
@@ -237,11 +242,11 @@ export default function ProjectDetailPage() {
                                 whileHover={{ y: -10 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <div className={styles.imageContainer}>
+                                <div className={`${styles.imageContainer}  ${styles.watermarkedImageWrapper}`}>
                                     <img
                                         src={image.src}
                                         alt={image.title}
-                                        className={styles.galleryImage}
+                                        className={styles.galleryImage} 
                                     />
                                     <div className={styles.imageOverlay}>
                                         <span className={styles.imageNumber}>0{index + 1}</span>
@@ -256,7 +261,7 @@ export default function ProjectDetailPage() {
                 {/* Laundry Feature */}
                 <motion.div className={styles.featureSection} {...fadeInUp}>
                     <div className={styles.featureGrid}>
-                        <div className={styles.featureImage}>
+                        <div className={`${styles.featureImage}  ${styles.watermarkedImageWrapper}`}>
                             <img src="/project 1/laundry.jpg" alt="Efficient Laundry Design" />
                         </div>
                         <div className={styles.featureContent}>

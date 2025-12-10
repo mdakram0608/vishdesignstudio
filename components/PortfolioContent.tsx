@@ -311,7 +311,7 @@ export default function PortfolioContent() {
                 <Link href="/projects/california-usa-2024">
                     <div className={styles.projectsGrid}>
                         <motion.div className={styles.projectCard} variants={fadeInUp}>
-                            <div className={styles.projectImageWrapper}>
+                            <div className={`${styles.projectImageWrapper} ${styles.watermarkedImageWrapper}`}>
                                 <img
                                     src="/project title pic.jpg"
                                     alt="Featured Interior Design Project"
@@ -333,7 +333,7 @@ export default function PortfolioContent() {
             
 
             {/* Image Gallery Section */}
-            <motion.section
+            {/* <motion.section
                 className={`${styles.section} ${styles.gallery}`}
                 {...fadeInUp}
             >
@@ -360,7 +360,7 @@ export default function PortfolioContent() {
                     </Link>
 
                 </div>
-            </motion.section>
+            </motion.section> */}
 
             {/* Latest Insights - Blog Section */}
             <motion.section
