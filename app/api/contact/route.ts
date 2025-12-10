@@ -85,17 +85,20 @@ ${message}
             ];
         }
 
-        // 🚀 Send email asynchronously (fire-and-forget)
-        // This allows us to respond immediately while email sends in background
-        transporter.sendMail(mailOptions).then(() => {
-            console.log('✅ Email sent successfully to:', process.env.EMAIL_TO);
-        }).catch((error) => {
-            console.error('❌ Error sending email:', error);
-            // Email failed but user already got success message
-            // Consider implementing a retry mechanism or notification system
-        });
+        // Validate environment variables
+        if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
+            console.error('❌ Missing EMAIL_USER or EMAIL_PASSWORD environment variables');
+            return NextResponse.json(
+                { error: 'Email service not configured. Please contact the administrator.' },
+                { status: 500 }
+            );
+        }
 
-        // ✅ Respond immediately to user (don't wait for email to send)
+        // Send email (must await in serverless functions or email won't send!)
+        console.log('📧 Attempting to send email...');
+        await transporter.sendMail(mailOptions);
+        console.log('✅ Email sent successfully to:', process.env.EMAIL_TO);
+
         return NextResponse.json(
             { message: 'Message received! We\'ll get back to you within 24 hours.' },
             { status: 200 }
