@@ -192,13 +192,12 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
 
                                         {/* Sticky image column – only ONE image per section */}
                                         {sectionImage && (
-                                            <div className={styles.sectionImageColumn}>
+                                            <div className={`${styles.sectionImageColumn} ${styles.watermarkedImageWrapper}`}>
                                                 <div className={styles.sectionImageSticky}>
                                                     <ParallaxImage
                                                         src={sectionImage}
-                                                        alt={`${post.title} - Image ${
-                                                            sectionIndex + 1
-                                                        }`}
+                                                        alt={`${post.title} - Image ${sectionIndex + 1
+                                                            }`}
                                                     />
                                                 </div>
                                             </div>
@@ -219,13 +218,15 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
                                 </h2>
                                 <div className={styles.galleryGrid}>
                                     {extraImages.map((imgSrc, index) => (
-                                        <ParallaxImage
-                                            key={`extra-${index}`}
-                                            src={imgSrc}
-                                            alt={`${post.title} - Extra Image ${
-                                                sections.length + index + 1
-                                            }`}
-                                        />
+                                        <div className={styles.watermarkedImageWrapper}
+                                        key={`extra-${index}`}>
+                                            
+                                            <ParallaxImage 
+                                                src={imgSrc}
+                                                alt={`${post.title} - Extra Image ${sections.length + index + 1
+                                                    }`}
+                                            />
+                                        </div>
                                     ))}
                                 </div>
                             </motion.div>

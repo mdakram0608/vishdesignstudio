@@ -32,7 +32,7 @@
 .projectTitle {
     font-size: clamp(3rem, 6vw, 5.5rem);
     color: var(--color-text);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     font-weight: 600;
     letter-spacing: -0.02em;
 }
@@ -44,44 +44,51 @@
     font-weight: 300;
 }
 
-.projectHero {
-    position: relative;
-    width: 100%;
-    height: 700px;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 6rem;
-    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.12),
-        0 10px 30px rgba(0, 0, 0, 0.06);
+.bannerCollageSection {
+    margin: 1rem 1rem;
 }
 
-.heroImage {
+.bannerCollageWrapper {
+    border-radius: 24px;
+    overflow: hidden;
+    background: #f3f3f3;
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.10),
+        0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+
+.bannerCollageImages {
+    display: flex;
+    width: 100%;
+    height: 420px;
+}
+
+.bannerImage {
+    flex: 1;
+}
+
+.bannerImage img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
-.heroOverlay {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-}
 
-.heroTag {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-accent);
+.bannerCollageCaption {
+    background: #cfcece;
+    padding: 1.75rem 1rem;
+    text-align: center;
+    font-size: 1.4rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    color: var(--color-text);
 }
 
 .overviewSection {
     margin-bottom: 8rem;
+    margin-top: 8rem;
 }
 
 .overviewGrid {
@@ -222,6 +229,9 @@
 .planHighlight .highlightIcon {
     color: var(--color-accent);
     font-size: 1.2rem;
+}
+.highlighticontext{
+    margin-top: -1.4rem;
 }
 
 .categorySection {
@@ -429,6 +439,24 @@
     color: var(--color-muted);
     line-height: 1.6;
 }
+.watermarkedImageWrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.watermarkedImageWrapper::after {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    right: -18px;
+    width: 50px;                /* adjust size here */
+    height: 50px;               /* adjust size here */
+    background-image: url("/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.6;              /* make watermark softer */
+    pointer-events: none;      /* prevent click blocking */
+}
 
 @media (max-width: 1024px) {
     .overviewGrid {
@@ -474,5 +502,16 @@
 
     .highlightsGrid {
         grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px) {
+    .bannerCollageImages {
+        height: 260px;
+    }
+
+    .bannerCollageCaption {
+        font-size: 1.05rem;
+        letter-spacing: 0.12em;
+        padding: 1.25rem 0.75rem;
     }
 }

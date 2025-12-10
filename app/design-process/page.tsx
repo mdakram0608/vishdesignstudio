@@ -31,7 +31,7 @@ const scaleIn = {
 };
 
 const step1Images = [
-    { src: '/design-process/step1.png', title: 'Client briefing & inspiration gathering' },
+    { src: '/design-process/sideSofa.png', title: 'Client briefing & inspiration gathering' },
 ];
 
 const step2Images = [
@@ -50,15 +50,15 @@ const step4Images = [
 ];
 
 const step5Images = [
-    { src: '/design-process/step5.png', title: 'Furniture, rugs and lighting logistics' },
+    { src: '/design-process/whiteSofa.png', title: 'Furniture, rugs and lighting logistics' },
 ];
 
 const step6Images = [
-    { src: '/design-process/step6.png', title: 'On-site coordination & progress reviews' },
+    { src: '/design-process/yellowHelmet.png', title: 'On-site coordination & progress reviews' },
 ];
 
 const step7Images = [
-    { src: '/design-process/step7.png', title: 'Final styling & handover' },
+    { src: '/design-process/keyOnTable.png', title: 'Final styling & handover' },
 ];
 
 export default function DesignProcessPage() {
@@ -128,7 +128,7 @@ export default function DesignProcessPage() {
 
                         <motion.div className={styles.introImageWrapper} variants={scaleIn}>
                             <img
-                                src="/design-process/roleinourdesignprocess.png"
+                                src="/design-process/ArchitectTable.png"
                                 alt="Our Role in Your Design Process"
                                 className={styles.introImage}
                             />

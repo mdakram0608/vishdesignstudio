@@ -156,7 +156,7 @@
     font-family: var(--font-sans);
     font-size: clamp(1rem, 1.5vw, 1.125rem);
     line-height: 1.8;
-    color: var(--color-grey-medium);
+    color: var(--color-grey-dark);
     margin-bottom: 1.5rem;
 }
 
@@ -347,6 +347,25 @@
 .backToAll:hover {
     background: var(--color-charcoal);
     transform: translateY(-2px);
+}
+
+.watermarkedImageWrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.watermarkedImageWrapper::after {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    right: -18px;
+    width: 70px;                /* adjust size here */
+    height: 70px;               /* adjust size here */
+    background-image: url("/logo2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 20;              /* make watermark softer */
+    pointer-events: none;     
 }
 
 /* Responsive Design */

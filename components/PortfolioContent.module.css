@@ -705,3 +705,22 @@
         padding: 1.5rem 1.25rem;
     }
 }
+
+.watermarkedImageWrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.watermarkedImageWrapper::after {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    right: -18px;
+    width: 50px;                /* adjust size here */
+    height: 50px;               /* adjust size here */
+    background-image: url("/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.6;              /* make watermark softer */
+    pointer-events: none;     
+}

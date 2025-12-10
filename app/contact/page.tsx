@@ -140,6 +140,7 @@ export default function ContactPage() {
     const [projectType, setProjectType] = useState<string>('');
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [isDragging, setIsDragging] = useState(false);
+    const [isLinkedinModalOpen, setIsLinkedinModalOpen] = useState(false);
 
     const handleFileSelect = (file: File | null) => {
         if (file) {
@@ -297,22 +298,37 @@ export default function ContactPage() {
                             <div className={styles.contactDetails}>
                                 <h3 className={styles.contactLabel}>Email Us</h3>
                                 <a
-                                    href="mailto:info@vishdesignstudio.com"
-                                    className={styles.contactValue}
-                                >
-                                    info@vishdesignstudio.com
-                                </a>
-                                <a
                                     href="mailto:designstudio.vish@gmail.com"
                                     className={styles.contactValue}
-                                    style={{
-                                        display: 'block',
-                                        marginTop: '0.5rem',
-                                        fontSize: '1.125rem',
-                                    }}
+                                    style={{ display: 'block', marginBottom: '0.75rem' }}
                                 >
                                     designstudio.vish@gmail.com
                                 </a>
+                                <p style={{ fontSize: '0.875rem', color: '#666', marginTop: '-0.5rem', marginBottom: '1rem' }}>
+                                    For collaboration / inquiries or more
+                                </p>
+
+                                <a
+                                    href="mailto:info@vishdesignstudio.com"
+                                    className={styles.contactValue}
+                                    style={{ display: 'block', marginBottom: '0.75rem' }}
+                                >
+                                    info@vishdesignstudio.com
+                                </a>
+                                <p style={{ fontSize: '0.875rem', color: '#666', marginTop: '-0.5rem', marginBottom: '1rem' }}>
+                                    For new projects / new builds / renovation
+                                </p>
+
+                                <a
+                                    href="mailto:vishdesignstudio.gayathri@gmail.com"
+                                    className={styles.contactValue}
+                                    style={{ display: 'block', marginBottom: '0.75rem' }}
+                                >
+                                    vishdesignstudio.gayathri@gmail.com
+                                </a>
+                                <p style={{ fontSize: '0.875rem', color: '#666', marginTop: '-0.5rem' }}>
+                                    To contact me directly
+                                </p>
                             </div>
                         </div>
 
@@ -341,10 +357,33 @@ export default function ContactPage() {
                         </div>
 
                         {/* Social Media */}
-                        <div className={styles.socialSection}>
-                            <h3 className={styles.socialTitle}>Follow Our Journey</h3>
-                            <div className={styles.socialGrid}>
-                                {socialLinks.map((social, index) => (
+                        <div className={styles.socialGrid}>
+                            {socialLinks.map((social, index) => (
+                                social.name === 'LinkedIn' ? (
+                                    // LinkedIn → open popup
+                                    <motion.button
+                                        key={social.name}
+                                        type="button"
+                                        onClick={() => setIsLinkedinModalOpen(true)}
+                                        className={styles.socialCard}
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        transition={{ delay: index * 0.1, duration: 0.5 }}
+                                        viewport={{ once: true }}
+                                        whileHover={{ y: -5, scale: 1.05 }}
+                                        style={
+                                            {
+                                                '--social-color': social.color,
+                                            } as React.CSSProperties
+                                        }
+                                    >
+                                        <div className={styles.socialIconWrapper}>
+                                            {getSocialIcon(social.icon)}
+                                        </div>
+                                        <span className={styles.socialName}>{social.name}</span>
+                                    </motion.button>
+                                ) : (
+                                    // all other socials → normal links
                                     <motion.a
                                         key={social.name}
                                         href={social.url}
@@ -367,8 +406,8 @@ export default function ContactPage() {
                                         </div>
                                         <span className={styles.socialName}>{social.name}</span>
                                     </motion.a>
-                                ))}
-                            </div>
+                                )
+                            ))}
                         </div>
                     </motion.div>
 
@@ -603,6 +642,67 @@ export default function ContactPage() {
                     </motion.div>
                 </motion.div>
             </div>
+
+            {isLinkedinModalOpen && (
+                <motion.div
+                    className={styles.modalBackdrop}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => setIsLinkedinModalOpen(false)}
+                >
+                    <motion.div
+                        className={styles.modal}
+                        initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.8, y: 50 }}
+                        transition={{ type: 'spring', duration: 0.5 }}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className={styles.modalContent}>
+                            <h3 className={styles.modalTitle}>Choose LinkedIn profile</h3>
+                            <p className={styles.modalText}>
+                                Select which LinkedIn page you’d like to open.
+                            </p>
+
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '1rem',
+                                    marginBottom: '1.5rem',
+                                }}
+                            >
+                                <a
+                                    href="https://www.linkedin.com/in/gayathri-vish-6baab6185/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.modalButton}
+                                >
+                                    Founder LinkedIn
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/company/vish-design-studio/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.modalButton}
+                                >
+                                    Business LinkedIn
+                                </a>
+                            </div>
+
+                            <button
+                                type="button"
+                                className={styles.modalButton}
+                                onClick={() => setIsLinkedinModalOpen(false)}
+                                style={{ background: '#ccc', color: '#000', boxShadow: 'none' }}
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </motion.div>
+                </motion.div>
+            )}
 
             {/* Success/Error Modal */}
             {formStatus !== 'idle' && (
