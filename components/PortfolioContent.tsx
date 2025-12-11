@@ -330,7 +330,7 @@ export default function PortfolioContent() {
 
 
 
-            
+
 
             {/* Image Gallery Section */}
             {/* <motion.section
@@ -367,7 +367,7 @@ export default function PortfolioContent() {
                 className={`${styles.section} ${styles.blogSection}`}
                 {...fadeInUp}
             >
-                <h2 className={styles.sectionTitle}>Latest Insights</h2>
+                <h2 className={styles.sectionTitle}>Blog</h2>
                 <p className={styles.servicesIntro}>
                     Exploring the art and science of interior design through our curated collection of design stories
                 </p>
@@ -410,6 +410,46 @@ export default function PortfolioContent() {
                             </div>
                         </motion.div>
                     </Link>
+
+                    <Link href="/blog/dark-luxury-retreat-guest-bedroom">
+                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
+                            <div className={styles.blogImageWrapper}>
+                                <img src="/blog/blog4/Blog4_1.jpeg" alt="Guest Bedroom Design" />
+                            </div>
+                            <div className={styles.blogPreviewContent}>
+                                <span className={styles.blogCategory}>Guest Bedroom Design</span>
+                                <h3>The Dark Luxury Retreat</h3>
+                                <p>Designing a Dramatic Modern Guest Bedroom</p>
+                            </div>
+                        </motion.div>
+                    </Link>
+
+                    <Link href="/blog/modern-master-bathroom-retreat">
+                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
+                            <div className={styles.blogImageWrapper}>
+                                <img src="/blog/blog5/Blog5_1.jpg" alt="Guest Bedroom Design" />
+                            </div>
+                            <div className={styles.blogPreviewContent}>
+                                <span className={styles.blogCategory}>Guest Bedroom Design</span>
+                                <h3>Beyond Monochromatic</h3>
+                                <p>Designing the Modern Master Bathroom Retreat</p>
+                            </div>
+                        </motion.div>
+                    </Link>
+
+                    <Link href="/blog/jewel-box-powder-bathroom">
+                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
+                            <div className={styles.blogImageWrapper}>
+                                <img src="/blog/blog6/Blog6_1.jpg" alt="Powder Bathroom Design" />
+                            </div>
+                            <div className={styles.blogPreviewContent}>
+                                <span className={styles.blogCategory}>Powder Bathroom Design</span>
+                                <h3>Modern Jewel Box Powder Room</h3>
+                                <p>Crafting a High-Impact Modern Powder Bathroom</p>
+                            </div>
+                        </motion.div>
+                    </Link>
+
                 </div>
                 <div className={styles.viewAllButton}>
                     <Link href="/blog" className={styles.sleekButton2}>
