@@ -50,6 +50,7 @@
 
 .bannerCollageWrapper {
     border-radius: 24px;
+    padding: 1rem;
     overflow: hidden;
     background: #f3f3f3;
     box-shadow:
@@ -66,22 +67,43 @@
 }
 
 .bannerImage {
-    flex: 1;
+  position: relative;
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
+/* For non-rotated images rendered as <img> */
+.bannerImgElement {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Rotated-image strategy: use background-image (no img transform)
+   Adjust background-size to zoom in/out. 90% = slight zoom out. */
+.rotatedBg {
+  background-size: 90%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  min-height: 420px; /* tweak if you want taller banner */
+}
+
+/* legacy img selector kept for other uses (not used for rotatedBg) */
 .bannerImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     display: block;
+    max-width: 100%;
+    height: auto;
 }
-
-.bannerImage.rotated img {
-    transform: rotate(90deg) scale(1.5);
-    object-fit: contain;
-}
-
-
 
 .bannerCollageCaption {
     background: #cfcece;
@@ -489,7 +511,7 @@
 }
 
 .beforeAfterCard .imageContainer {
-    height: 400px;
+    height: 550px;
 }
 
 .beforeAfterLabel {

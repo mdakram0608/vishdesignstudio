@@ -545,6 +545,7 @@ a.contactValue:hover {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(119, 119, 119, 0.3);
+    text-decoration: none;
 }
 
 .modalButton:hover {

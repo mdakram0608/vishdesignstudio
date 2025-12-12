@@ -39,7 +39,7 @@ type ProjectCategory = {
 type ProjectData = {
     title: string;
     bannerCaption: string;
-    bannerImages: { src: string; alt: string }[];
+    bannerImages: { src: string; alt: string; rotate?: boolean }[];
     overview: {
         vision: string[];
         stats: { number: string; label: string }[];
@@ -146,7 +146,7 @@ const projectsData: Record<string, ProjectData> = {
         title: "Artisan's Teak Mandala",
         bannerCaption: 'SACRED SPACE REDEFINED',
         bannerImages: [
-            { src: '/project 2/after 1.JPEG', alt: 'Mandala ceiling view' }
+            { src: '/project 2/after 1.JPEG', alt: 'Mandala ceiling view', rotate: true }
         ],
         overview: {
             vision: [
@@ -226,14 +226,40 @@ export default function ProjectDetailPage({ params }: PageProps) {
                     </motion.h1>
                     <div className={styles.bannerCollageWrapper}>
                         <div className={styles.bannerCollageImages}>
-                            {project.bannerImages.map((img, index) => (
-                                <div key={index} className={`${styles.bannerImage} ${slug === 'artisan-teak-mandala-2024' ? styles.rotated : ''} ${styles.watermarkedImageWrapper}`}>
-                                    <img
-                                        src={img.src}
-                                        alt={img.alt}
-                                    />
-                                </div>
-                            ))}
+                            {project.bannerImages.map((img, index) => {
+                                const isRotated = Boolean(img.rotate);
+                               const bgUrl = `url("${img.src}")`;
+
+                                return (
+                                    <div
+                                        key={index}
+                                        className={`${styles.bannerImage} ${isRotated ? styles.rotatedBg : ''} ${styles.watermarkedImageWrapper}`}
+                                        style={
+                                            isRotated
+                                                ? {
+                                                    backgroundImage: bgUrl,
+                                                    backgroundSize: '80%',
+                                                    backgroundPosition: 'center center',
+                                                    backgroundRepeat: 'no-repeat'
+                                                }
+                                                : undefined
+                                        }
+                                    >
+                                        {/* non-rotated: regular img; rotated: keep an img fallback (vis hidden) to confirm load */}
+                                        {!isRotated ? (
+                                            <img src={img.src} alt={img.alt} className={styles.bannerImgElement} />
+                                        ) : (
+                                            /* fallback img for debugging/SEO - visually hidden but still loads the asset */
+                                            <img
+                                                src={img.src}
+                                                alt={img.alt}
+                                                style={{ width: 1, height: 1, opacity: 0, position: 'absolute', left: -9999 }}
+                                            />
+                                        )}
+                                    </div>
+                                );
+                            })}
+
                         </div>
 
                         <div className={styles.bannerCollageCaption}>

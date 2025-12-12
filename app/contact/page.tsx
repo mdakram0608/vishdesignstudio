@@ -465,7 +465,7 @@ export default function ContactPage() {
 
                             <div className={styles.formGroup}>
                                 <label htmlFor="project" className={styles.formLabel}>
-                                    Project Type
+                                    Project Type/Opportunities
                                 </label>
 
                                 {/* Custom themed dropdown */}
