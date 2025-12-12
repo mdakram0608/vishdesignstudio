@@ -62,6 +62,7 @@
     display: flex;
     width: 100%;
     height: 420px;
+    gap: 1rem;
 }
 
 .bannerImage {
@@ -74,6 +75,12 @@
     object-fit: cover;
     display: block;
 }
+
+.bannerImage.rotated img {
+    transform: rotate(90deg) scale(1.5);
+    object-fit: contain;
+}
+
 
 
 .bannerCollageCaption {
@@ -230,7 +237,8 @@
     color: var(--color-accent);
     font-size: 1.2rem;
 }
-.highlighticontext{
+
+.highlighticontext {
     margin-top: -1.4rem;
 }
 
@@ -439,6 +447,7 @@
     color: var(--color-muted);
     line-height: 1.6;
 }
+
 .watermarkedImageWrapper {
     position: relative;
     overflow: hidden;
@@ -449,14 +458,93 @@
     position: absolute;
     bottom: 3px;
     right: -18px;
-    width: 50px;                /* adjust size here */
-    height: 50px;               /* adjust size here */
+    width: 50px;
+    /* adjust size here */
+    height: 50px;
+    /* adjust size here */
     background-image: url("/logo.png");
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.6;              /* make watermark softer */
-    pointer-events: none;      /* prevent click blocking */
+    opacity: 0.6;
+    /* make watermark softer */
+    pointer-events: none;
+    /* prevent click blocking */
 }
+
+/* Before/After Section */
+.beforeAfterSection {
+    margin-bottom: 8rem;
+}
+
+.beforeAfterGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
+    gap: 2.5rem;
+    margin-top: 3rem;
+    justify-content: center;
+}
+
+.beforeAfterCard {
+    position: relative;
+}
+
+.beforeAfterCard .imageContainer {
+    height: 400px;
+}
+
+.beforeAfterLabel {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text);
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Video Section */
+.videoSection {
+    margin-bottom: 8rem;
+}
+
+.videoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 500px));
+    gap: 2.5rem;
+    margin-top: 3rem;
+    justify-content: center;
+}
+
+.videoCard {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    max-height: 450px;
+}
+
+.videoCard:hover {
+    transform: translateY(-8px);
+}
+
+.videoContainer {
+    position: relative;
+    width: 100%;
+    background: transparent;
+}
+
+.projectVideo {
+    width: 100%;
+    max-height: 450px;
+    display: block;
+    object-fit: contain;
+}
+
 
 @media (max-width: 1024px) {
     .overviewGrid {
@@ -504,6 +592,7 @@
         grid-template-columns: 1fr;
     }
 }
+
 @media (max-width: 768px) {
     .bannerCollageImages {
         height: 260px;

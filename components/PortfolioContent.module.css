@@ -152,9 +152,19 @@
 
 /* FEATURED PROJECTS */
 .projectsGrid {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
     margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.projectsGrid a {
+    text-decoration: none;
+    display: block;
+    color: inherit;
 }
 
 .projectCard {
@@ -164,9 +174,7 @@
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
-    max-width: 600px;
     width: 100%;
-    margin-top: 1rem;
 }
 
 .projectCard:hover {
@@ -193,6 +201,35 @@
 
 .projectCard:hover .projectImage {
     transform: scale(1.08);
+}
+
+.projectInfo {
+    padding: 2rem 1.5rem;
+    background: #ffffff;
+}
+
+.projectInfo h3 {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.projectInfo p {
+    font-size: 1rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .projectsGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .projectImageWrapper {
+        height: 300px;
+    }
 }
 
 /* DESIGN PROCESS */
@@ -716,11 +753,14 @@
     position: absolute;
     bottom: 3px;
     right: -18px;
-    width: 50px;                /* adjust size here */
-    height: 50px;               /* adjust size here */
+    width: 50px;
+    /* adjust size here */
+    height: 50px;
+    /* adjust size here */
     background-image: url("/logo.png");
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.6;              /* make watermark softer */
-    pointer-events: none;     
+    opacity: 0.6;
+    /* make watermark softer */
+    pointer-events: none;
 }
