@@ -19,6 +19,12 @@ const projects = [
         title: 'California USA 2024',
         image: '/project title pic.jpg',
         slug: 'california-usa-2024'
+    },
+    {
+        id: 'artisan-teak-mandala-2024',
+        title: "Artisan's Teak Mandala",
+        image: '/project 2/after 1.JPEG',
+        slug: 'artisan-teak-mandala-2024'
     }
 ];
 

@@ -308,19 +308,39 @@ export default function PortfolioContent() {
                 variants={staggerChildren}
             >
                 <h2 className={styles.sectionTitle}>Featured Projects</h2>
-                <Link href="/projects/california-usa-2024">
-                    <div className={styles.projectsGrid}>
+                <div className={styles.projectsGrid}>
+                    <Link href="/projects/california-usa-2024">
                         <motion.div className={styles.projectCard} variants={fadeInUp}>
                             <div className={`${styles.projectImageWrapper} ${styles.watermarkedImageWrapper}`}>
                                 <img
                                     src="/project title pic.jpg"
-                                    alt="Featured Interior Design Project"
+                                    alt="California USA 2024 - Modern Minimalist Design"
                                     className={styles.projectImage}
                                 />
                             </div>
+                            <div className={styles.projectInfo}>
+                                <h3>California USA 2024</h3>
+                                <p>Modern Minimalist Elegance</p>
+                            </div>
                         </motion.div>
-                    </div>
-                </Link>
+                    </Link>
+
+                    <Link href="/projects/artisan-teak-mandala-2024">
+                        <motion.div className={styles.projectCard} variants={fadeInUp}>
+                            <div className={`${styles.projectImageWrapper} ${styles.watermarkedImageWrapper}`}>
+                                <img
+                                    src="/project 2/after 1.JPEG"
+                                    alt="Artisan's Teak Mandala 2024 - Sacred Space Redefined"
+                                    className={styles.projectImage}
+                                />
+                            </div>
+                            <div className={styles.projectInfo}>
+                                <h3>Artisan's Teak Mandala</h3>
+                                <p>Sacred Space Redefined</p>
+                            </div>
+                        </motion.div>
+                    </Link>
+                </div>
                 <div className={styles.viewAllButton}>
                     <Link href="/projects" className={styles.sleekButton2}>
                         View All Projects
