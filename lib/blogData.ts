@@ -375,6 +375,411 @@ export const blogPosts: BlogPost[] = [
                 'The result is a contemporary bathroom design that is sophisticated, highly functional, and dedicated to creating a daily ritual of uncluttered calm.'
             ]
         }
+    },
+    {
+        slug: 'dark-luxury-retreat-guest-bedroom',
+        title: 'Dark Luxury Guest Suite',
+        subtitle: 'Contemporary glamour, high-contrast palettes, and rich textures for an unforgettable guest retreat',
+        date: '2025-12-11',
+        category: 'Bedroom Design',
+        featuredImage: '/blog/blog4/Blog4_1.jpeg',
+        images: [
+            '/blog/blog4/Blog4_2.jpeg',
+            '/blog/blog4/Blog4_3.jpeg',
+            '/blog/blog4/Blog4_4.jpeg',
+            '/blog/blog4/Blog4_5.jpeg',
+            '/blog/blog4/Blog4_6.jpeg'
+        ],
+        excerpt:
+            'A dramatic modern guest bedroom built on high contrast, rich textures, and contemporary luxury — blending boutique-hotel glamour with residential comfort.',
+        content: {
+            introduction: [
+                "Forget the standard light and airy guest room. This design showcases a sophisticated, modern aesthetic built on dramatic contrast, rich textures, and contemporary luxury. It creates a bold, unforgettable retreat for any guest, blending boutique hotel glamour with residential comfort."
+            ],
+            sections: [
+                {
+                    title: 'The Style: Contemporary Glamour & High Contrast',
+                    content: [
+                        'This style is defined by its deep, moody palette and clean, modern architectural lines. It combines the structured formality of classical detailing (like paneling) with the soft indulgence of contemporary furnishings.'
+                    ],
+                    subsections: [
+                        {
+                            title: 'Color Palette',
+                            content: [
+                                'The foundation is a sophisticated high-contrast scheme: deep charcoals, slate grays, and near-blacks dominate walls and furniture, while crisp white architectural elements and light gray textiles provide sharp, elegant breaks.'
+                            ]
+                        },
+                        {
+                            title: 'Materials & Walls',
+                            content: [
+                                'Walls feature vertical paneled details in dark tones, sometimes with subtle wood grain or textured wallpaper insets to add architectural weight and texture. Mirrored wardrobe panels and selective reflective finishes enhance perceived depth and light.'
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    title: 'Furniture and Soft Furnishings',
+                    content: ['The furniture is low-profile and sleek, allowing architectural details to lead the eye.'],
+                    subsections: [
+                        {
+                            title: 'The Bed',
+                            content: [
+                                'A low, upholstered bed frame in a deep tone anchors the room. Bedding is minimal and layered in cool grays and white to create an inviting, chic composition.'
+                            ]
+                        },
+                        {
+                            title: 'Accent Furniture',
+                            content: [
+                                'Sleek modern pieces — dark console tables with metallic frames, minimalist glass or mirrored side tables — keep the look high-end and uncluttered.'
+                            ]
+                        },
+                        {
+                            title: 'The Fireplace',
+                            content: [
+                                'A compact mantel in dark marble or stone introduces a classic element that reads modern within the palette, offering a focal point for warmth and texture.'
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    title: 'Light, Flooring, and Window Treatments',
+                    content: ['These elements balance the deep colors and maximise the luxurious effect.'],
+                    subsections: [
+                        {
+                            title: 'Lighting',
+                            content: [
+                                'A large sculptural chandelier (clear or frosted glass) provides sparkle and contrast against the dark scheme. Recessed ceiling lights and crystal wall sconces deliver functional and accent illumination.'
+                            ]
+                        },
+                        {
+                            title: 'Window Treatments',
+                            content: [
+                                'Layered drapery: an inner sheer dark panel for a smoky effect and an outer heavy light-gray or white drape for blackout and softness.'
+                            ]
+                        },
+                        {
+                            title: 'Flooring',
+                            content: [
+                                'A light-gray textured area rug adds warmth and a soft visual break from dark walls, grounding the furniture and improving acoustics.'
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    title: 'Accessories and Detail',
+                    content: ['Accessories are intentionally minimal and impactful, favouring glass, metal, and natural elements.'],
+                    subsections: [
+                        {
+                            title: 'Mirrors',
+                            content: [
+                                'Tall vertical mirrors integrated into paneling or wardrobe doors expand perceived space and reflect light to counterbalance the dark palette.'
+                            ]
+                        },
+                        {
+                            title: 'Vases & Botanicals',
+                            content: [
+                                'Simple vases with natural branches or white flowers introduce an organic, delicate contrast to the room’s strong architectural lines.'
+                            ]
+                        }
+                    ]
+                }
+            ],
+            conclusion: [
+                'This design demonstrates that luxury does not always require bright gold and cream; it can be achieved through subtle texture, dramatic contrast, and precise execution of a sophisticated modern palette.'
+            ]
+        }
+    },
+    {
+        slug: 'modern-master-bathroom-retreat',
+        title: 'Monochrome Master Bath Retreat',
+        subtitle: 'A sculptural, high-contrast approach to create a luxurious, spa-like master bathroom',
+        date: '2025-12-11',
+        category: 'Bathroom Design',
+        featuredImage: '/blog/blog5/Blog5_1.jpg',
+        images: [
+            '/blog/blog5/Blog5_1.jpg',
+            '/blog/blog5/Blog5_2.jpg',
+            '/blog/blog5/Blog5_3.jpg'
+        ],
+        excerpt:
+            'A modern master bathroom that merges High-Contrast Minimalism with Sculptural Spa forms — clean geometry, premium materials, and layered lighting for a serene, luxury retreat.',
+        content: {
+            introduction: [
+                'The modern bathroom is elevated from a functional space to a luxurious, spa-like escape. This design showcases two complementary contemporary styles: the sleek High-Contrast Minimalist approach and the Sculptural Spa aesthetic, unified by an uncompromising commitment to clean lines and high-end materials.'
+            ],
+            sections: [
+                {
+                    title: 'Style and Color Palette',
+                    content: [
+                        'The overall philosophy is Modern Minimalism with an architectural focus, balancing stark geometry with soft, sculptural pieces.'
+                    ],
+                    subsections: [
+                        {
+                            title: 'High Contrast',
+                            content: [
+                                'A striking palette of crisp white or light gray walls and ceilings maximizes perceived space and light. Matte black is used selectively for fixtures, cabinetry, and the freestanding tub to create strong visual anchors and deliberate contrast.'
+                            ]
+                        },
+                        {
+                            title: 'Sculptural Form',
+                            content: [
+                                'Sculptural forms—large shallow oval stone tubs and organic curves—introduce a spa-like softness that contrasts the minimal geometry, making the bathing area feel intentionally luxurious and tactile.'
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    title: 'Materials, Flooring, and Walls',
+                    content: [
+                        'The material strategy prioritizes seamless, durable finishes and textural impact while keeping the color language restrained.'
+                    ],
+                    subsections: [
+                        {
+                            title: 'Seamless Finishes',
+                            content: [
+                                'Walls are clad in large-format, light rectangular tiles to minimize grout lines and create a continuous, streamlined surface.'
+                            ]
+                        },
+                        {
+                            title: 'Flooring',
+                            content: [
+                                'A smooth matte grey or concrete-look floor provides a durable, uninterrupted foundation that ties the space together and supports wet-zone continuity.'
+                            ]
+                        },
+                        {
+                            title: 'Textural Impact',
+                            content: [
+                                'A dark geometric patterned tile is used as a shower feature wall to add deep texture and visual interest without introducing competing colors. Frameless glass preserves an open, airy layout.'
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    title: 'Fixtures and Furniture',
+                    content: [
+                        'Fixtures and furnishings follow a disciplined aesthetic: minimal, sculptural, and materially rich.'
+                    ],
+                    subsections: [
+                        {
+                            title: 'Vanity',
+                            content: [
+                                'A sleek floating vanity in glossy matte-black finish emphasizes geometry and frees floor space, while reflective surfaces subtly increase perceived depth.'
+                            ]
+                        },
+                        {
+                            title: 'Tubs',
+                            content: [
+                                'Options include a sculpted matte-black freestanding tub for dramatic monochrome impact or a large oval stone/marble soaking tub for tactile luxury and spa presence.'
+                            ]
+                        },
+                        {
+                            title: 'Storage',
+                            content: [
+                                'Storage remains minimal and purposeful: streamlined cabinets for concealed storage and open dark-toned ladder shelving for curated display and easy access.'
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    title: 'Integrated Lighting and Accessories',
+                    content: [
+                        'Lighting and accessories are curated to reveal the architecture and set the mood while remaining restrained and refined.'
+                    ],
+                    subsections: [
+                        {
+                            title: 'Layered Illumination',
+                            content: [
+                                'Recessed ceiling spotlights provide clean ambient light. Vertical LED bar sconces and targeted accent lighting frame the tub, mirror, or artwork to create depth and focal hierarchy.'
+                            ]
+                        },
+                        {
+                            title: 'Architectural Fixtures',
+                            content: [
+                                'Statement pendants—such as large white rectangular lanterns over an oval tub—or curved linear fixtures above the vanity serve both functional and sculptural roles.'
+                            ]
+                        },
+                        {
+                            title: 'Mirrors',
+                            content: [
+                                'Oversized, frameless or simply framed mirrors expand the sense of space and multiply available light without detracting from the minimal palette.'
+                            ]
+                        },
+                        {
+                            title: 'Accessories',
+                            items: [
+                                'A geometric black-and-white patterned rug to anchor the seating or tub area.',
+                                'Simple greenery or a single sculptural plant for an organic counterpoint.',
+                                'Sleek brass garment racks or minimalist towel hooks to introduce a subtle warm accent.'
+                            ]
+                        }
+                    ]
+                }
+            ],
+            conclusion: [
+                'This modern master bathroom demonstrates how precise execution—through high-contrast materials, seamless surfaces, sculptural forms, and layered lighting—creates a refined, spa-like retreat. The result is a space that is both functional and deeply restorative, where minimalism and materiality combine to deliver quiet luxury.'
+            ]
+        }
+    },
+    {
+        slug: 'jewel-box-powder-bathroom',
+        title: 'Modern Jewel Box Powder Room',
+        subtitle: 'Transforming a compact guest bath into a textural, high-impact jewel box',
+        date: '2025-12-11',
+        category: 'Powder Room',
+        featuredImage: '/blog/blog6/Blog6_1.jpg',
+        images: [
+            '/blog/blog6/Blog6_2.jpg',
+            '/blog/blog6/Blog6_3.jpg',
+            '/blog/blog6/Blog6_4.jpg',
+            '/blog/blog6/Blog6_5.jpg',
+            '/blog/blog6/Blog6_6.jpg'
+        ],
+        excerpt:
+            'A compact powder bathroom reimagined as a sophisticated jewel box — rich textures, focused lighting, and carefully chosen materials create an intimate, unforgettable guest experience.',
+        content: {
+            introduction: [
+                "The powder bathroom, or guest bath, is the perfect space to make a bold, unforgettable statement. Moving away from the typical white box, this design transforms the compact space into a sophisticated, textural jewel box, using dramatic materials and focused lighting to create immediate impact."
+            ],
+            sections: [
+                {
+                    title: 'Style and Palette: Intimate Sophistication',
+                    content: [
+                        "The aesthetic is Contemporary Glamour with a Textural Edge — intimate, luxurious, and deliberately detailed. Muted grays and charcoals form the backdrop while a crisp white marble vanity introduces a refined highlight. The contrast is driven by texture and materiality rather than stark black-and-white color blocking."
+                    ],
+                    subsections: [
+                        {
+                            title: 'Style',
+                            content: [
+                                'Contemporary Glamour with a Textural Edge: the room feels cozy and luxe through layered surfaces and restrained, elegant details.'
+                            ]
+                        },
+                        {
+                            title: 'Color',
+                            content: [
+                                'A palette of light-to-medium greys and charcoals on vertical surfaces, paired with a white marble vanity top with pronounced gray veining to provide a classic, high-end accent.'
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    title: 'Materials and Surfaces',
+                    content: [
+                        'The approach emphasizes texture on every vertical surface to create depth and tactile interest in the small footprint of a powder room.'
+                    ],
+                    subsections: [
+                        {
+                            title: 'Walls',
+                            content: [
+                                'Primary walls: a textured or rough-finish wallpaper/veneer in a light-to-medium grey that reads richly at close range.',
+                                'Feature wall: a darker, contrasting surface (stone cladding or heavily textured plaster) behind the vanity and mirror to frame the focal point and absorb light for depth.'
+                            ]
+                        },
+                        {
+                            title: 'Vanity Countertop',
+                            content: [
+                                'White marble with strong grey veining anchors the scheme with a timeless, high-end material that contrasts the textural wall finishes.'
+                            ]
+                        },
+                        {
+                            title: 'Flooring',
+                            content: [
+                                'A visually minimal, light-toned tile or marble keeps the base clean and unobtrusive so wall textures can dominate the composition.'
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    title: 'Fixtures and Furniture',
+                    content: [
+                        'Furnishings are thoughtfully scaled to the small room — transitional silhouettes paired with modern detailing to balance warmth and contemporary polish.'
+                    ],
+                    subsections: [
+                        {
+                            title: 'Vanity',
+                            content: [
+                                'A standalone vanity in light grey or white with classic drawer fronts and an open bottom shelf introduces a transitional, furniture-like quality into the modern jewel-box context.'
+                            ]
+                        },
+                        {
+                            title: 'Mirror',
+                            content: [
+                                'A decorative mirror with an arched top softens vertical lines and becomes the visual centerpiece above the vanity.'
+                            ]
+                        },
+                        {
+                            title: 'Storage',
+                            content: [
+                                'Minimal floating shelves in a dense dark material provide accessible towel storage and a place for curated accessories without cluttering the space.'
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    title: 'Lighting and Accessories',
+                    content: [
+                        'Lighting is both functional and atmospheric; accessories are lush but curated to maintain the jewel-box elegance.'
+                    ],
+                    subsections: [
+                        {
+                            title: 'Task Lighting',
+                            content: [
+                                'Horizontal or subtly curved wall sconces on either side of the mirror deliver flattering, shadow-free illumination for grooming.'
+                            ]
+                        },
+                        {
+                            title: 'Ambient Lighting',
+                            content: [
+                                'Discrete recessed pot lights supply general ceiling illumination that does not compete with the walls or decorative fixtures.'
+                            ]
+                        },
+                        {
+                            title: 'Accessories',
+                            items: [
+                                'A generous bouquet of white tulips or similar fresh flowers to introduce organic contrast and fragrance.',
+                                'Carefully chosen artwork or a single sculptural object on the floating shelf.',
+                                'Soft, high-quality guest towels and a small tray for essentials to keep surfaces tidy and intentional.'
+                            ]
+                        },
+                        {
+                            title: 'Window Treatment',
+                            content: [
+                                'Where applicable, an opaque grey roller blind maintains privacy while blending seamlessly with the wall tones, preserving the intimate atmosphere.'
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    title: 'Design Principles for Impact',
+                    content: [
+                        'In a small powder room, every detail counts. Prioritise tactile surfaces, a strong framed focal point at the vanity, and layered lighting to sculpt the space. Resist clutter; let a few well-chosen materials and objects define the character.'
+                    ],
+                    subsections: [
+                        {
+                            title: 'Key Moves',
+                            items: [
+                                'Apply texture to vertical surfaces to create richness without large-scale elements.',
+                                'Use a high-quality marble vanity top as the premium counterpoint to textured walls.',
+                                'Frame the vanity with a decorative mirror and focused task lighting to create a strong focal point.',
+                                'Keep floor materials minimal and light to avoid visual heaviness.'
+                            ]
+                        }
+                    ]
+                }
+            ],
+            conclusion: [
+                'This design turns a small, functional space into a beautiful, sophisticated sanctuary that leaves a lasting impression. By combining textured surfaces, refined materials, and focused lighting, the powder bathroom becomes a compact jewel box — intimate, memorable, and entirely intentional.'
+            ]
+        }
     }
 ];
 
