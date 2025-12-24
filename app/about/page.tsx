@@ -20,7 +20,7 @@ export default function AboutPage() {
             <div className={styles.container}>
                 {/* Studio Section */}
                 <motion.section className={styles.section} {...fadeInUp}>
-                    <h1 className={styles.mainTitle}>Vish Design Studio</h1>
+                    <h2 className={styles.mainTitle}>Vish Design Studio</h2>
                     <div className={styles.content}>
                         <p>
                             Our studio, <span className={styles.highlight}>Vish Design Studio</span>, is firmly grounded in Chennai's vibrant cultural tapestry, yet our design philosophy embraces a truly global perspective. We're passionate about transforming spaces into captivating environments, drawing inspiration from diverse aesthetics and innovative trends worldwide.

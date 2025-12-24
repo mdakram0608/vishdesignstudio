@@ -228,7 +228,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
                         <div className={styles.bannerCollageImages}>
                             {project.bannerImages.map((img, index) => {
                                 const isRotated = Boolean(img.rotate);
-                               const bgUrl = `url("${img.src}")`;
+                                const bgUrl = `url("${img.src}")`;
 
                                 return (
                                     <div

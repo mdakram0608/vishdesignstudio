@@ -49,77 +49,80 @@ export default function PortfolioContent() {
             >
                 <h2 className={styles.sectionTitle}>The Design Process</h2>
                 <p className={styles.servicesIntro}>
-                    A streamlined journey from concept to completion, ensuring every detail reflects your vision.
+                    A structured, thoughtful approach that transforms vision into timeless spaces.
                 </p>
 
                 <div className={styles.processTimeline}>
-                    <motion.div className={styles.processStep} {...fadeInUp}>
-                        <div className={styles.stepNumber}>01</div>
-                        <h3 className={styles.stepTitle}>Discovery & Consultation</h3>
-                        <p className={styles.stepDescription}>
-                            We start with an in-depth conversation to understand your vision, lifestyle, and space requirements. After agreement, we formalize our partnership with a design contract.
-                        </p>
-                    </motion.div>
+                    {[
+                        {
+                            no: "01",
+                            title: "Discovery & Consultation",
+                            text: "Understanding your lifestyle, aspirations, and functional needs through focused conversations.",
+                            img: "/processhome/discovery and consultation.png"
+                        },
+                        {
+                            no: "02",
+                            title: "Research & Site Analysis",
+                            text: "Detailed site studies, measurements, and feasibility analysis to define spatial potential.",
+                            img: "/processhome/research and site analysis.png"
+                        },
+                        {
+                            no: "03",
+                            title: "Concept Development",
+                            text: "Mood boards, material palettes, and design narratives shape the creative direction.",
+                            img: "/processhome/concept develpoment.png"
+                        },
+                        {
+                            no: "04",
+                            title: "Design & Specifications",
+                            text: "Precise layouts, drawings, and technical specifications bring clarity to the vision.",
+                            img: "/processhome/design and specification.png"
+                        },
+                        {
+                            no: "05",
+                            title: "Final Design & Approvals",
+                            text: "Final documentation, budgets, and selections are aligned and approved.",
+                            img: "/processhome/final design and approvals.png"
+                        },
+                        {
+                            no: "06",
+                            title: "Procurement & Coordination",
+                            text: "Vendor coordination, material sourcing, and scheduling managed end-to-end.",
+                            img: "/processhome/procurement and coordination.png"
+                        },
+                        {
+                            no: "07",
+                            title: "Construction Oversight",
+                            text: "On-site supervision ensures quality execution true to design intent.",
+                            img: "/processhome/construction oversight.png"
+                        },
+                        {
+                            no: "08",
+                            title: "Installation & Final Styling",
+                            text: "Furniture placement, styling, and finishing touches complete the transformation.",
+                            img: "/processhome/installation and final styling.png"
+                        }
+                    ].map((step, index) => (
+                        <motion.div
+                            key={step.no}
+                            className={`${styles.processRow} ${index % 2 !== 0 ? styles.reverse : ""}`}
+                            {...fadeInUp}
+                        >
+                            <div className={styles.processContent}>
+                                <div className={styles.stepNumber}>{step.no}</div>
+                                <h3 className={styles.stepTitle}>{step.title}</h3>
+                                <p className={styles.stepDescription}>{step.text}</p>
+                            </div>
 
-                    <motion.div className={styles.processStep} {...fadeInUp}>
-                        <div className={styles.stepNumber}>02</div>
-                        <h3 className={styles.stepTitle}>Research & Site Analysis</h3>
-                        <p className={styles.stepDescription}>
-                            Comprehensive site surveys and research help us understand your space's potential. We develop initial budget estimates and preliminary layouts.
-                        </p>
-                    </motion.div>
-
-                    <motion.div className={styles.processStep} {...fadeInUp}>
-                        <div className={styles.stepNumber}>03</div>
-                        <h3 className={styles.stepTitle}>Concept Development</h3>
-                        <p className={styles.stepDescription}>
-                            We create mood boards and design concepts showcasing materials, colors, and styles. This gives you a clear vision of your space's transformation.
-                        </p>
-                    </motion.div>
-
-                    <motion.div className={styles.processStep} {...fadeInUp}>
-                        <div className={styles.stepNumber}>04</div>
-                        <h3 className={styles.stepTitle}>Design & Specifications</h3>
-                        <p className={styles.stepDescription}>
-                            Detailed 2D and 3D floor plans, elevations, and specifications are created. We source materials and furnishings that align with your approved concept.
-                        </p>
-                    </motion.div>
-
-                    <motion.div className={styles.processStep} {...fadeInUp}>
-                        <div className={styles.stepNumber}>05</div>
-                        <h3 className={styles.stepTitle}>Final Design & Approvals</h3>
-                        <p className={styles.stepDescription}>
-                            You receive complete construction documents and a comprehensive shopping list. Final adjustments are made before moving to the procurement phase.
-                        </p>
-                    </motion.div>
-
-                    <motion.div className={styles.processStep} {...fadeInUp}>
-                        <div className={styles.stepNumber}>06</div>
-                        <h3 className={styles.stepTitle}>Procurement & Coordination</h3>
-                        <p className={styles.stepDescription}>
-                            We coordinate construction bids, place orders for all furnishings, and manage deliveries. Every piece is carefully selected and scheduled.
-                        </p>
-                    </motion.div>
-
-                    <motion.div className={styles.processStep} {...fadeInUp}>
-                        <div className={styles.stepNumber}>07</div>
-                        <h3 className={styles.stepTitle}>Construction Oversight</h3>
-                        <p className={styles.stepDescription}>
-                            Regular site visits ensure construction aligns with design plans. We guide execution and resolve any issues to maintain quality standards.
-                        </p>
-                    </motion.div>
-
-                    <motion.div className={styles.processStep} {...fadeInUp}>
-                        <div className={styles.stepNumber}>08</div>
-                        <h3 className={styles.stepTitle}>Installation & Final Styling</h3>
-                        <p className={styles.stepDescription}>
-                            We oversee furniture installation and add finishing touches with curated accessories. Your space is photographed, and we conduct a final walkthrough to ensure your complete satisfaction.
-                        </p>
-                    </motion.div>
+                            <div className={styles.processImage}>
+                                <img src={step.img} alt={step.title} />
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
 
-                <div style={{ textAlign: "center", marginTop: "3rem" }}>
-                    <Link href="/process" className={styles.sleekButton3}>
+                <div style={{ textAlign: "center", marginTop: "4rem" }}>
+                    <Link href="/design-process" className={styles.sleekButton3}>
                         Learn the Full Process
                     </Link>
                 </div>
