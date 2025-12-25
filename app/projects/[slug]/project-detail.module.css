@@ -33,7 +33,7 @@
     font-size: clamp(3rem, 6vw, 5.5rem);
     color: var(--color-text);
     margin-bottom: 2rem;
-    font-weight: 600;
+    font-weight: 100;
     letter-spacing: -0.02em;
 }
 
@@ -90,12 +90,20 @@
 /* Rotated-image strategy: use background-image (no img transform)
    Adjust background-size to zoom in/out. 90% = slight zoom out. */
 .rotatedBg {
-  background-size: 90%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* default (desktop/tablet): keep image filling the container normally */
+.rotatedBg .rotatedImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* center */
+  width: auto;
   height: 100%;
-  min-height: 420px; /* tweak if you want taller banner */
+  object-fit: cover;
+  object-position: center;
 }
 
 /* legacy img selector kept for other uses (not used for rotatedBg) */
@@ -617,7 +625,7 @@
 
 @media (max-width: 768px) {
     .bannerCollageImages {
-        height: 260px;
+        height: 170px;
     }
 
     .bannerCollageCaption {
@@ -625,4 +633,21 @@
         letter-spacing: 0.12em;
         padding: 1.25rem 0.75rem;
     }
+    .bannerImage.watermarkedImageWrapper::after {
+    height: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .rotatedBg {
+    min-height: 260px; /* match banner height on mobile */
+  }
+
+  .rotatedBg .rotatedImg {
+    /* rotate to landscape, keep centered and cover */
+    transform: translate(-50%, -50%) rotate(-90deg);
+    height: 100%;  /* keep the image height equal to container height before rotation */
+    width: auto;
+    object-fit: cover;
+    object-position: center top; /* tweak crop bias if needed */
+  }
 }
