@@ -5,6 +5,8 @@ import Link from 'next/link';
 import styles from './project-detail.module.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import StructuredDataScript from '@/components/StructuredDataScript';
+import { getCreativeWorkSchema, getBreadcrumbSchema } from '@/lib/structured-data';
 import { use } from 'react';
 
 const fadeInUp = {
@@ -194,8 +196,26 @@ export default function ProjectDetailPage({ params }: PageProps) {
             </main>
         );
     }
+
+    // Prepare structured data
+    const breadcrumbItems = [
+        { name: 'Home', url: '/' },
+        { name: 'Projects', url: '/projects' },
+        { name: project.title, url: `/projects/${slug}` },
+    ];
+
+    const creativeWork = getCreativeWorkSchema({
+        name: project.title,
+        description: project.overview.vision[0],
+        image: project.bannerImages[0]?.src || '/logo.png',
+        url: `/projects/${slug}`,
+        dateCreated: project.overview.stats.find(s => s.label === 'Year Completed')?.number,
+        location: project.overview.stats.find(s => s.label === 'Location')?.number,
+    });
+
     return (
         <main className={styles.projectDetailPage}>
+            <StructuredDataScript data={[creativeWork, getBreadcrumbSchema(breadcrumbItems)]} />
             <Navbar />
 
             <div className={styles.container}>

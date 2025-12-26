@@ -5,6 +5,8 @@ import styles from './design-process.module.css';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
+import StructuredDataScript from '@/components/StructuredDataScript';
+import { getBreadcrumbSchema } from '@/lib/structured-data';
 
 const fadeInUp = {
     initial: { opacity: 0, y: 50 },
@@ -62,8 +64,14 @@ const step7Images = [
 ];
 
 export default function DesignProcessPage() {
+    const breadcrumbItems = [
+        { name: 'Home', url: '/' },
+        { name: 'Design Process', url: '/design-process' },
+    ];
+
     return (
         <main className={styles.designProcessPage}>
+            <StructuredDataScript data={getBreadcrumbSchema(breadcrumbItems)} />
             <Navbar />
 
             <div className={styles.container}>
@@ -307,7 +315,7 @@ export default function DesignProcessPage() {
                     </div>
                 </motion.section>
             </div>
-            <Footer/>
+            <Footer />
         </main>
     );
 }

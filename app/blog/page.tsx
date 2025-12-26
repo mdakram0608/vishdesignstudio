@@ -6,6 +6,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { blogPosts } from '@/lib/blogData';
 import styles from './blog.module.css';
+import StructuredDataScript from '@/components/StructuredDataScript';
+import { getBreadcrumbSchema } from '@/lib/structured-data';
 
 const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -22,8 +24,14 @@ const staggerChildren = {
 };
 
 export default function BlogPage() {
+    const breadcrumbItems = [
+        { name: 'Home', url: '/' },
+        { name: 'Blog', url: '/blog' },
+    ];
+
     return (
         <>
+            <StructuredDataScript data={getBreadcrumbSchema(breadcrumbItems)} />
             <Navbar />
             <div className={styles.blogPage}>
                 {/* Hero Section with Parallax */}

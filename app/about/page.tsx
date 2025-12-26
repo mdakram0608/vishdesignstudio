@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import styles from './about.module.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import StructuredDataScript from '@/components/StructuredDataScript';
+import { getPersonSchema, getBreadcrumbSchema } from '@/lib/structured-data';
 
 const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -13,8 +15,14 @@ const fadeInUp = {
 };
 
 export default function AboutPage() {
+    const breadcrumbItems = [
+        { name: 'Home', url: '/' },
+        { name: 'About', url: '/about' },
+    ];
+
     return (
         <main className={styles.aboutPage}>
+            <StructuredDataScript data={[getPersonSchema(), getBreadcrumbSchema(breadcrumbItems)]} />
             <Navbar />
 
             <div className={styles.container}>
@@ -132,8 +140,8 @@ export default function AboutPage() {
                     </div>
                 </motion.section>
             </div>
-            <Footer/>
+            <Footer />
         </main>
-        
+
     );
 }

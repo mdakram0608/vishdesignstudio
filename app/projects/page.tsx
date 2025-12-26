@@ -5,6 +5,8 @@ import Link from 'next/link';
 import styles from './projects.module.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import StructuredDataScript from '@/components/StructuredDataScript';
+import { getBreadcrumbSchema } from '@/lib/structured-data';
 
 const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -29,8 +31,14 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
+    const breadcrumbItems = [
+        { name: 'Home', url: '/' },
+        { name: 'Projects', url: '/projects' },
+    ];
+
     return (
         <main className={styles.projectsPage}>
+            <StructuredDataScript data={getBreadcrumbSchema(breadcrumbItems)} />
             <Navbar />
 
             <div className={styles.container}>
