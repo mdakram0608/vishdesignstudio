@@ -5,6 +5,8 @@ import ScrollVideo from '@/components/ScrollVideo';
 import PortfolioContent from '@/components/PortfolioContent';
 import Footer from '@/components/Footer';
 import LoadingScreen from '@/components/LoadingScreen';
+import StructuredDataScript from '@/components/StructuredDataScript';
+import { getOrganizationSchema, getWebSiteSchema } from '@/lib/structured-data';
 
 export default function Home() {
     // Always initialize to false on server to prevent hydration mismatch
@@ -55,6 +57,7 @@ export default function Home() {
 
     return (
         <>
+            <StructuredDataScript data={[getOrganizationSchema(), getWebSiteSchema()]} />
             <LoadingScreen
                 progress={loadingProgress}
                 isComplete={isLoadingComplete}

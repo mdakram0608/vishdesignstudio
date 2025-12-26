@@ -6,6 +6,8 @@ import { useState, useRef, useEffect, FormEvent } from 'react';
 import styles from './contact.module.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import StructuredDataScript from '@/components/StructuredDataScript';
+import { getBreadcrumbSchema } from '@/lib/structured-data';
 
 const fadeInUp = {
     initial: { opacity: 0, y: 50 },
@@ -133,6 +135,11 @@ function ProjectTypeDropdown({ value, onChange, disabled }: ProjectTypeDropdownP
 }
 
 export default function ContactPage() {
+    const breadcrumbItems = [
+        { name: 'Home', url: '/' },
+        { name: 'Contact', url: '/contact' },
+    ];
+
     const formRef = useRef<HTMLFormElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -220,6 +227,7 @@ export default function ContactPage() {
 
     return (
         <main className={styles.contactPage}>
+            <StructuredDataScript data={getBreadcrumbSchema(breadcrumbItems)} />
             <Navbar />
 
             <div className={styles.container}>

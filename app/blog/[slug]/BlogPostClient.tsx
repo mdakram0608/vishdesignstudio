@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import StructuredDataScript from '@/components/StructuredDataScript';
+import { getArticleSchema, getBreadcrumbSchema } from '@/lib/structured-data';
 import styles from './blogPost.module.css';
 import type { BlogPost } from '@/lib/blogData';
 
@@ -42,8 +44,25 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
             ? allImages.slice(sections.length)
             : [];
 
+    // Structured data
+    const breadcrumbItems = [
+        { name: 'Home', url: '/' },
+        { name: 'Blog', url: '/blog' },
+        { name: post.title, url: `/blog/${post.slug}` },
+    ];
+
+    const articleSchema = getArticleSchema({
+        title: post.title,
+        description: post.excerpt,
+        image: post.featuredImage,
+        url: `/blog/${post.slug}`,
+        datePublished: post.date,
+        author: 'Gayathri Vish',
+    });
+
     return (
         <>
+            <StructuredDataScript data={[articleSchema, getBreadcrumbSchema(breadcrumbItems)]} />
             <Navbar />
             <article className={styles.blogPost}>
                 {/* Parallax Header */}
@@ -219,9 +238,9 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
                                 <div className={styles.galleryGrid}>
                                     {extraImages.map((imgSrc, index) => (
                                         <div className={styles.watermarkedImageWrapper}
-                                        key={`extra-${index}`}>
-                                            
-                                            <ParallaxImage 
+                                            key={`extra-${index}`}>
+
+                                            <ParallaxImage
                                                 src={imgSrc}
                                                 alt={`${post.title} - Extra Image ${sections.length + index + 1
                                                     }`}
