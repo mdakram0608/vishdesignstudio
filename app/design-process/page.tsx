@@ -43,7 +43,7 @@ const step2Images = [
 
 const step3Images = [
     { src: '/design-process/step3i.png', title: 'Interior elevations & millwork planning' },
-    { src: '/processhome/final design and approvals.png', title: 'Material palettes & finish boards' },
+    { src: '/design-process/step3ii.png', title: 'Material palettes & finish boards' },
 ];
 
 const step4Images = [
@@ -354,8 +354,7 @@ function StepSection({ stepNumber, stepLabel, stepTitle, stepTagline, paragraphs
                 </motion.div>
 
                 <motion.div
-                    className={`${styles.stepGallery} ${images.length === 1 ? styles.singleImage : styles.multiImage
-                        }`}
+                    className={styles.stepGallery}
                     variants={staggerContainer}
                 >
                     {images.map((image, index) => (
