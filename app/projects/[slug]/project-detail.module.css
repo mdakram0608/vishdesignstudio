@@ -124,8 +124,8 @@
 }
 
 .overviewSection {
-    margin-bottom: 8rem;
-    margin-top: 8rem;
+    margin-bottom: 4rem;
+    margin-top: 6rem;
 }
 
 .overviewGrid {
@@ -142,7 +142,7 @@
 .sectionHeading {
     font-size: clamp(2.5rem, 4vw, 3.5rem);
     color: var(--color-text);
-    margin-bottom: 2rem;
+    margin-bottom: -1rem;
     font-weight: 600;
     position: relative;
     display: inline-block;
@@ -204,7 +204,7 @@
 }
 
 .floorPlanSection {
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
 }
 
 .floorPlanGrid {
