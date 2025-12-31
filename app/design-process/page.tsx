@@ -43,7 +43,7 @@ const step2Images = [
 
 const step3Images = [
     { src: '/design-process/step3i.png', title: 'Interior elevations & millwork planning' },
-    { src: '/design-process/step3ii.png', title: 'Material palettes & finish boards' },
+    { src: '/processhome/final design and approvals.png', title: 'Material palettes & finish boards' },
 ];
 
 const step4Images = [
