@@ -214,7 +214,7 @@ export default function PortfolioContent() {
                         </div>
                         <div className={styles.serviceContent}>
                             <div className={styles.serviceIcon}>
-                                <img src="/icons/frame_B_Darker.png" alt="Turnkey Solutions" />
+                                <img src="/icons/frame_B_darker.png" alt="Turnkey Solutions" />
                             </div>
                             <h3>Turnkey Solutions</h3>
                             <p>Complete end-to-end services including furniture, lighting, materials, and installation</p>
