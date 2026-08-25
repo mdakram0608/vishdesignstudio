@@ -278,30 +278,6 @@ export default function PortfolioContent() {
                 </div>
             </motion.section>
 
-            {/* Founder Section */}
-            <motion.section
-                className={`${styles.section} ${styles.founder}`}
-                {...fadeInUp}
-            >
-                <h2 className={styles.sectionTitle}>Founder & Principal Designer</h2>
-                <div className={styles.founderContent}>
-                    <motion.div className={styles.founderImage} {...fadeInUp}>
-                        <img src="/founder pic.JPEG" alt="Gayathri Vish - Founder & Principal Designer" />
-                    </motion.div>
-                    <motion.div className={styles.founderText} {...fadeInUp}>
-                        <p className={styles.introText}>
-                            <span className={styles.highlight}>Gayathri Vish</span> leads Vish Design Studio with a unique blend of academic excellence and hands-on expertise. With degrees in Sociology and International Studies from Stella Maris College, plus professional certifications from Harvard University Graduate School of Design and the London School of Trends, she brings a holistic understanding of global dynamics and design.
-                        </p>
-                        <p className={styles.introText}>
-                            Before founding the studio, Gayathri managed over 50 diverse projects across India for five years. Her approach combines global foresight with local soul, drawing inspiration from India's vibrant culture while exploring international trends to craft interiors that feel both authentically rooted and refreshingly modern.
-                        </p>
-                        <Link href="/about" className={styles.sleekButton}>
-                            Know More
-                        </Link>
-                    </motion.div>
-                </div>
-            </motion.section>
-
             {/* Featured Projects */}
             <motion.section
                 className={styles.section}
@@ -355,35 +331,55 @@ export default function PortfolioContent() {
 
 
 
-            {/* Image Gallery Section */}
-            {/* <motion.section
-                className={`${styles.section} ${styles.gallery}`}
+            {/* As Featured In - Magazine Teaser */}
+            <motion.section
+                className={`${styles.section} ${styles.magazineTeaser}`}
                 {...fadeInUp}
             >
-                <h2 className={styles.sectionTitle}>Our Work</h2>
-
-                <div className={styles.galleryGrid}>
-
-                    <Link href="/projects/california-usa-2024">
-                        <motion.div className={styles.galleryItem} {...fadeInUp}>
-                            <img src="/project 1/kitchen/IMG_3270.jpg" alt="Gallery 1" />
+                <h2 className={styles.sectionTitle}>As Featured In</h2>
+                <p className={styles.servicesIntro}>
+                    Bombay FilmFame&apos;s Anniversary Issue sits down with our founder to talk global vision, Indian soul, and the philosophy behind our interiors.
+                </p>
+                <Link href="/magazine" className={styles.magazineTeaserLink}>
+                    <div className={styles.magazineTeaserGrid}>
+                        <motion.div className={styles.magazineTeaserImage} {...fadeInUp}>
+                            <img src="/magazine/cover.jpg" alt="Bombay FilmFame Magazine cover" />
                         </motion.div>
-                    </Link>
-
-                    <Link href="/projects/california-usa-2024">
-                        <motion.div className={styles.galleryItem} {...fadeInUp}>
-                            <img src="/project 1/bathroom/IMG_3276.jpg" alt="Gallery 2" />
+                        <motion.div className={`${styles.magazineTeaserImage} ${styles.magazineTeaserImageSecondary}`} {...fadeInUp}>
+                            <img src="/magazine/page-1.jpg" alt="Bombay FilmFame cover story feature on Vish Design Studio" />
                         </motion.div>
+                    </div>
+                </Link>
+                <div className={styles.viewAllButton}>
+                    <Link href="/magazine" className={styles.sleekButton2}>
+                        Read the Feature
                     </Link>
-
-                    <Link href="/projects/california-usa-2024">
-                        <motion.div className={styles.galleryItem} {...fadeInUp}>
-                            <img src="/project 1/laundry.jpg" alt="Gallery 3" />
-                        </motion.div>
-                    </Link>
-
                 </div>
-            </motion.section> */}
+            </motion.section>
+
+            {/* Founder Section */}
+            <motion.section
+                className={`${styles.section} ${styles.founder}`}
+                {...fadeInUp}
+            >
+                <h2 className={styles.sectionTitle}>Founder & Principal Designer</h2>
+                <div className={styles.founderContent}>
+                    <motion.div className={styles.founderImage} {...fadeInUp}>
+                        <img src="/founder pic.JPEG" alt="Gayathri Vish - Founder & Principal Designer" />
+                    </motion.div>
+                    <motion.div className={styles.founderText} {...fadeInUp}>
+                        <p className={styles.introText}>
+                            <span className={styles.highlight}>Gayathri Vish</span> leads Vish Design Studio with a unique blend of academic excellence and hands-on expertise. With degrees in Sociology and International Studies from Stella Maris College, plus professional certifications from Harvard University Graduate School of Design and the London School of Trends, she brings a holistic understanding of global dynamics and design.
+                        </p>
+                        <p className={styles.introText}>
+                            Before founding the studio, Gayathri managed over 50 diverse projects across India for five years. Her approach combines global foresight with local soul, drawing inspiration from India's vibrant culture while exploring international trends to craft interiors that feel both authentically rooted and refreshingly modern.
+                        </p>
+                        <Link href="/about" className={styles.sleekButton}>
+                            Know More
+                        </Link>
+                    </motion.div>
+                </div>
+            </motion.section>
 
             {/* Latest Insights - Blog Section */}
             <motion.section
