@@ -90,6 +90,15 @@ export default function Navbar() {
                 </li>
                 <li>
                     <Link
+                        href="/magazine"
+                        className={isActive('/magazine') ? styles.active : ''}
+                        onClick={closeMenu}
+                    >
+                        Magazine
+                    </Link>
+                </li>
+                <li>
+                    <Link
                         href="/contact"
                         className={isActive('/contact') ? styles.active : ''}
                         onClick={closeMenu}

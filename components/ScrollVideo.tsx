@@ -18,9 +18,15 @@ const FRAME_COUNT = 300;
 const MAX_DPR = 1;
 const PRELOAD_FRAMES = 100; // Load first 100 frames for faster initial display
 
+// Set NEXT_PUBLIC_ASSET_CDN_URL to serve animation frames from a CDN (e.g. Cloudflare R2)
+// instead of the local /public folder. Falls back to the local path when unset.
+const CDN_BASE_URL = process.env.NEXT_PUBLIC_ASSET_CDN_URL?.replace(/\/$/, '');
+
 const getFrameSrc = (index: number) => {
   const frameNumber = index.toString().padStart(6, '0');
-  return `/9mb/${frameNumber}.webp`;
+  return CDN_BASE_URL
+    ? `${CDN_BASE_URL}/9mb/${frameNumber}.webp`
+    : `/9mb/${frameNumber}.webp`;
 };
 
 export default function ScrollVideo({ onLoadingProgress }: ScrollVideoProps = {}) {
