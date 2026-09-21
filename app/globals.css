@@ -10,6 +10,8 @@
 :root {
   /* Base Colors - Luxury Monochrome Palette */
   --color-bg: #ffffff;
+  --color-bg-secondary: #f6f5f2;
+  --color-bg-tertiary: #eeece7;
   --color-bg-dark: #0a0a0a;
   --color-charcoal: #1a1a1a;
   --color-text: #262626;
