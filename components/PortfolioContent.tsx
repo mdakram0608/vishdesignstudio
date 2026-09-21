@@ -26,105 +26,9 @@ export default function PortfolioContent() {
                 className={`${styles.section} ${styles.intro}`}
                 {...fadeInUp}
             >
-                <h2 className={styles.sectionTitle}>Vish Design Studio</h2>
                 <div className={styles.introContainer}>
-                    <div className={styles.introTextContent}>
-                        <p className={styles.introText}>
-                            Based in Chennai, <span className={styles.highlight}>Vish Design Studio</span> embraces a global design philosophy. We transform spaces into captivating environments by blending traditional Indian craftsmanship with contemporary global design principles, creating distinctive interiors that are both deeply personal and universally appealing.
-                        </p>
-                        <p className={styles.introText}>
-                            Since 2023, we've delivered comprehensive, end-to-end solutions for luxury residential and commercial spaces throughout India and American Cities. From custom furniture to sustainable materials, every element is meticulously curated to create cohesive and inspiring environments.
-                        </p>
-                    </div>
-                    <motion.div className={styles.introLogo} {...fadeInUp}>
-                        <img src="/logo.png" alt="Vish Design Studio Logo" />
-                    </motion.div>
-                </div>
-            </motion.section>
-
-            {/* Design Process Section */}
-            <motion.section
-                className={`${styles.section} ${styles.designProcess}`}
-                {...fadeInUp}
-            >
-                <h2 className={styles.sectionTitle}>The Design Process</h2>
-                <p className={styles.servicesIntro}>
-                    A structured, thoughtful approach that transforms vision into timeless spaces.
-                </p>
-
-                <div className={styles.processTimeline}>
-                    {[
-                        {
-                            no: "01",
-                            title: "Discovery & Consultation",
-                            text: "Understanding your lifestyle, aspirations, and functional needs through focused conversations.",
-                            img: "/processhome/discovery and consultation.png"
-                        },
-                        {
-                            no: "02",
-                            title: "Research & Site Analysis",
-                            text: "Detailed site studies, measurements, and feasibility analysis to define spatial potential.",
-                            img: "/processhome/research and site analysis.png"
-                        },
-                        {
-                            no: "03",
-                            title: "Concept Development",
-                            text: "Mood boards, material palettes, and design narratives shape the creative direction.",
-                            img: "/processhome/concept develpoment.png"
-                        },
-                        {
-                            no: "04",
-                            title: "Design & Specifications",
-                            text: "Precise layouts, drawings, and technical specifications bring clarity to the vision.",
-                            img: "/processhome/design and specification.png"
-                        },
-                        {
-                            no: "05",
-                            title: "Final Design & Approvals",
-                            text: "Final documentation, budgets, and selections are aligned and approved.",
-                            img: "/processhome/final design and approvals.png"
-                        },
-                        {
-                            no: "06",
-                            title: "Procurement & Coordination",
-                            text: "Vendor coordination, material sourcing, and scheduling managed end-to-end.",
-                            img: "/processhome/procurement and coordination.png"
-                        },
-                        {
-                            no: "07",
-                            title: "Construction Oversight",
-                            text: "On-site supervision ensures quality execution true to design intent.",
-                            img: "/processhome/construction oversight.png"
-                        },
-                        {
-                            no: "08",
-                            title: "Installation & Final Styling",
-                            text: "Furniture placement, styling, and finishing touches complete the transformation.",
-                            img: "/processhome/installation and final styling.png"
-                        }
-                    ].map((step, index) => (
-                        <motion.div
-                            key={step.no}
-                            className={`${styles.processRow} ${index % 2 !== 0 ? styles.reverse : ""}`}
-                            {...fadeInUp}
-                        >
-                            <div className={styles.processContent}>
-                                <div className={styles.stepNumber}>{step.no}</div>
-                                <h3 className={styles.stepTitle}>{step.title}</h3>
-                                <p className={styles.stepDescription}>{step.text}</p>
-                            </div>
-
-                            <div className={styles.processImage}>
-                                <img src={step.img} alt={step.title} />
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-
-                <div style={{ textAlign: "center", marginTop: "4rem" }}>
-                    <Link href="/design-process" className={styles.sleekButton3}>
-                        Learn the Full Process
-                    </Link>
+                    <p className={styles.tagline}>Vish Design Studio</p>
+                    <p className={styles.taglineSub}>Timeless interiors, thoughtfully crafted around the world.</p>
                 </div>
             </motion.section>
 
@@ -133,10 +37,35 @@ export default function PortfolioContent() {
                 className={`${styles.section} ${styles.services}`}
                 {...fadeInUp}
             >
-                <h2 className={styles.sectionTitle}>Our Services</h2>
+                <span className={styles.eyebrow}>What We Offer & How We Work</span>
+                <h2 className={styles.sectionTitle}>Our Services &amp; Process</h2>
                 <p className={styles.servicesIntro}>
                     From concept to completion, we offer comprehensive interior design solutions tailored to your vision.
                 </p>
+
+                <div className={styles.processStrip}>
+                    {[
+                        "Discovery & Consultation",
+                        "Research & Site Analysis",
+                        "Concept Development",
+                        "Design & Specifications",
+                        "Final Design & Approvals",
+                        "Procurement & Coordination",
+                        "Construction Oversight",
+                        "Installation & Final Styling",
+                    ].map((title, index) => (
+                        <div className={styles.processStripItem} key={title}>
+                            <span className={styles.processStripNumber}>{String(index + 1).padStart(2, "0")}</span>
+                            <span>{title}</span>
+                        </div>
+                    ))}
+                </div>
+                <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+                    <Link href="/design-process" className={styles.sleekButton3}>
+                        Learn the Full Process
+                    </Link>
+                </div>
+
                 <div className={styles.servicesGrid}>
                     {/* Residential Design */}
                     <motion.div className={styles.serviceCard} {...fadeInUp}>
@@ -369,111 +298,12 @@ export default function PortfolioContent() {
                     </motion.div>
                     <motion.div className={styles.founderText} {...fadeInUp}>
                         <p className={styles.introText}>
-                            <span className={styles.highlight}>Gayathri Vish</span> leads Vish Design Studio with a unique blend of academic excellence and hands-on expertise. With degrees in Sociology and International Studies from Stella Maris College, plus professional certifications from Harvard University Graduate School of Design and the London School of Trends, she brings a holistic understanding of global dynamics and design.
-                        </p>
-                        <p className={styles.introText}>
-                            Before founding the studio, Gayathri managed over 50 diverse projects across India for five years. Her approach combines global foresight with local soul, drawing inspiration from India's vibrant culture while exploring international trends to craft interiors that feel both authentically rooted and refreshingly modern.
+                            <span className={styles.highlight}>Gayathri Vish</span> leads Vish Design Studio with degrees from Stella Maris College and certifications from Harvard University Graduate School of Design, bringing global foresight and local soul to over 50 projects across India and beyond.
                         </p>
                         <Link href="/about" className={styles.sleekButton}>
                             Know More
                         </Link>
                     </motion.div>
-                </div>
-            </motion.section>
-
-            {/* Latest Insights - Blog Section */}
-            <motion.section
-                className={`${styles.section} ${styles.blogSection}`}
-                {...fadeInUp}
-            >
-                <h2 className={styles.sectionTitle}>Blog</h2>
-                <p className={styles.servicesIntro}>
-                    Exploring the art and science of interior design through our curated collection of design stories
-                </p>
-                <div className={styles.blogPreviewGrid}>
-                    <Link href="/blog/walk-in-wardrobe">
-                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
-                            <div className={styles.blogImageWrapper}>
-                                <img src="/blog/blog1/walk_in_wadrobe_view_0.effectsResult.jpg" alt="Walk in Wardrobe" />
-                            </div>
-                            <div className={styles.blogPreviewContent}>
-                                <span className={styles.blogCategory}>Interior Design</span>
-                                <h3>Walk in Wardrobe</h3>
-                                <p>A Serene Sanctuary: Designing a Modern Walk-In Wardrobe</p>
-                            </div>
-                        </motion.div>
-                    </Link>
-
-                    <Link href="/blog/french-style-bedroom">
-                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
-                            <div className={styles.blogImageWrapper}>
-                                <img src="/blog/blog2/11.jpg" alt="French Style Bedroom" />
-                            </div>
-                            <div className={styles.blogPreviewContent}>
-                                <span className={styles.blogCategory}>Bedroom Design</span>
-                                <h3>From Paris, With Love</h3>
-                                <p>Timeless Elegance: Designing Your Dream French-Style Bedroom</p>
-                            </div>
-                        </motion.div>
-                    </Link>
-
-                    <Link href="/blog/modern-monochrome-bathroom">
-                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
-                            <div className={styles.blogImageWrapper}>
-                                <img src="/blog/blog3/bathroom_view_1.effectsResult.jpg" alt="Modern Monochrome Bathroom" />
-                            </div>
-                            <div className={styles.blogPreviewContent}>
-                                <span className={styles.blogCategory}>Bathroom Design</span>
-                                <h3>Black, White, and Intent</h3>
-                                <p>The Monolithic Geometry of Modern Luxury</p>
-                            </div>
-                        </motion.div>
-                    </Link>
-
-                    <Link href="/blog/dark-luxury-retreat-guest-bedroom">
-                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
-                            <div className={styles.blogImageWrapper}>
-                                <img src="/blog/blog4/Blog4_1.jpeg" alt="Guest Bedroom Design" />
-                            </div>
-                            <div className={styles.blogPreviewContent}>
-                                <span className={styles.blogCategory}>Guest Bedroom Design</span>
-                                <h3>The Dark Luxury Retreat</h3>
-                                <p>Designing a Dramatic Modern Guest Bedroom</p>
-                            </div>
-                        </motion.div>
-                    </Link>
-
-                    <Link href="/blog/modern-master-bathroom-retreat">
-                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
-                            <div className={styles.blogImageWrapper}>
-                                <img src="/blog/blog5/Blog5_1.jpg" alt="Guest Bedroom Design" />
-                            </div>
-                            <div className={styles.blogPreviewContent}>
-                                <span className={styles.blogCategory}>Guest Bedroom Design</span>
-                                <h3>Beyond Monochromatic</h3>
-                                <p>Designing the Modern Master Bathroom Retreat</p>
-                            </div>
-                        </motion.div>
-                    </Link>
-
-                    <Link href="/blog/jewel-box-powder-bathroom">
-                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
-                            <div className={styles.blogImageWrapper}>
-                                <img src="/blog/blog6/Blog6_1.jpg" alt="Powder Bathroom Design" />
-                            </div>
-                            <div className={styles.blogPreviewContent}>
-                                <span className={styles.blogCategory}>Powder Bathroom Design</span>
-                                <h3>Modern Jewel Box Powder Room</h3>
-                                <p>Crafting a High-Impact Modern Powder Bathroom</p>
-                            </div>
-                        </motion.div>
-                    </Link>
-
-                </div>
-                <div className={styles.viewAllButton}>
-                    <Link href="/blog" className={styles.sleekButton2}>
-                        View All Articles
-                    </Link>
                 </div>
             </motion.section>
 
