@@ -27,8 +27,8 @@ export default function PortfolioContent() {
                 {...fadeInUp}
             >
                 <div className={styles.introContainer}>
-                    <p className={styles.tagline}>Vish Design Studio</p>
-                    <p className={styles.taglineSub}>Timeless interiors, thoughtfully crafted around the world.</p>
+                    <span className={styles.introBrandMark}>Vish Design Studio</span>
+                    <p className={styles.introTagline}>Timeless interiors, thoughtfully crafted around the world.</p>
                 </div>
             </motion.section>
 
@@ -38,7 +38,7 @@ export default function PortfolioContent() {
                 {...fadeInUp}
             >
                 <span className={styles.eyebrow}>What We Offer & How We Work</span>
-                <h2 className={styles.sectionTitle}>Our Services &amp; Process</h2>
+                <h2 className={styles.sectionTitle}>Our Design Process &amp; Services</h2>
                 <p className={styles.servicesIntro}>
                     From concept to completion, we offer comprehensive interior design solutions tailored to your vision.
                 </p>

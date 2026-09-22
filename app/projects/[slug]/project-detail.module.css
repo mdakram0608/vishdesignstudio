@@ -314,6 +314,16 @@
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+/* Arch-shaped photos for the California project's Kitchen/Bathroom galleries */
+.imageGrid .imageContainer {
+    border-radius: 50% 50% 0 0 / 35% 35% 0 0;
+}
+
+.imageGrid .imageOverlay {
+    top: auto;
+    bottom: 1rem;
+}
+
 .imageContainer:hover {
     box-shadow: 0 25px 50px rgba(159, 153, 153, 0.335),
         0 15px 35px #423f3f2c;
