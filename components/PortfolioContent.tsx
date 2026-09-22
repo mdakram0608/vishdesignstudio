@@ -26,9 +26,110 @@ export default function PortfolioContent() {
                 className={`${styles.section} ${styles.intro}`}
                 {...fadeInUp}
             >
+                <h2 className={styles.sectionTitle}>Vish Design Studio</h2>
                 <div className={styles.introContainer}>
-                    <span className={styles.introBrandMark}>Vish Design Studio</span>
-                    <p className={styles.introTagline}>Timeless interiors, thoughtfully crafted around the world.</p>
+                    <p className={styles.introText}>
+                        Based in Chennai, <span className={styles.highlight}>Vish Design Studio</span> embraces a global design philosophy. We transform spaces into captivating environments by blending traditional Indian craftsmanship with contemporary global design principles, creating distinctive interiors that are both deeply personal and universally appealing.
+                    </p>
+                    <p className={styles.introText}>
+                        Since 2023, we&apos;ve delivered comprehensive, end-to-end solutions for luxury residential and commercial spaces throughout India and American Cities. From custom furniture to sustainable materials, every element is meticulously curated to create cohesive and inspiring environments.
+                    </p>
+                </div>
+            </motion.section>
+
+            {/* Founder Section */}
+            <motion.section
+                className={`${styles.section} ${styles.founder}`}
+                {...fadeInUp}
+            >
+                <h2 className={styles.sectionTitle}>Founder & Principal Designer</h2>
+                <div className={styles.founderContent}>
+                    <motion.div className={styles.founderImage} {...fadeInUp}>
+                        <img src="/founder pic.JPEG" alt="Gayathri Vish - Founder & Principal Designer" />
+                    </motion.div>
+                    <motion.div className={styles.founderText} {...fadeInUp}>
+                        <p className={styles.introText}>
+                            <span className={styles.highlight}>Gayathri Vish</span> leads Vish Design Studio with degrees from Stella Maris College and certifications from Harvard University Graduate School of Design, bringing global foresight and local soul to over 50 projects across India and beyond.
+                        </p>
+                        <Link href="/about" className={styles.sleekButton}>
+                            Know More
+                        </Link>
+                    </motion.div>
+                </div>
+            </motion.section>
+
+            {/* Featured Projects */}
+            <motion.section
+                className={styles.section}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                variants={staggerChildren}
+            >
+                <h2 className={styles.sectionTitle}>Featured Projects</h2>
+                <div className={styles.projectsGrid}>
+                    <Link href="/projects/california-usa-2024">
+                        <motion.div className={styles.projectCard} variants={fadeInUp}>
+                            <div className={`${styles.projectImageWrapper} ${styles.watermarkedImageWrapper}`}>
+                                <img
+                                    src="/project title pic.jpg"
+                                    alt="California USA 2024 - Modern Minimalist Design"
+                                    className={styles.projectImage}
+                                />
+                            </div>
+                            <div className={styles.projectInfo}>
+                                <h3>California USA 2024</h3>
+                                <p>Modern Minimalist Elegance</p>
+                            </div>
+                        </motion.div>
+                    </Link>
+
+                    <Link href="/projects/artisan-teak-mandala-2024">
+                        <motion.div className={styles.projectCard} variants={fadeInUp}>
+                            <div className={`${styles.projectImageWrapper} ${styles.watermarkedImageWrapper}`}>
+                                <img
+                                    src="/project 2/after 1.JPEG"
+                                    alt="Artisan's Teak Mandala 2024 - Sacred Space Redefined"
+                                    className={styles.projectImage}
+                                />
+                            </div>
+                            <div className={styles.projectInfo}>
+                                <h3>Artisan's Teak Mandala</h3>
+                                <p>Sacred Space Redefined</p>
+                            </div>
+                        </motion.div>
+                    </Link>
+                </div>
+                <div className={styles.viewAllButton}>
+                    <Link href="/projects" className={styles.sleekButton2}>
+                        View All Projects
+                    </Link>
+                </div>
+            </motion.section>
+
+            {/* As Featured In - Magazine Teaser */}
+            <motion.section
+                className={`${styles.section} ${styles.magazineTeaser}`}
+                {...fadeInUp}
+            >
+                <h2 className={styles.sectionTitle}>As Featured In</h2>
+                <p className={styles.servicesIntro}>
+                    Bombay FilmFame&apos;s Anniversary Issue sits down with our founder to talk global vision, Indian soul, and the philosophy behind our interiors.
+                </p>
+                <Link href="/magazine" className={styles.magazineTeaserLink}>
+                    <div className={styles.magazineTeaserGrid}>
+                        <motion.div className={styles.magazineTeaserImage} {...fadeInUp}>
+                            <img src="/magazine/cover.jpg" alt="Bombay FilmFame Magazine cover" />
+                        </motion.div>
+                        <motion.div className={`${styles.magazineTeaserImage} ${styles.magazineTeaserImageSecondary}`} {...fadeInUp}>
+                            <img src="/magazine/page-1.jpg" alt="Bombay FilmFame cover story feature on Vish Design Studio" />
+                        </motion.div>
+                    </div>
+                </Link>
+                <div className={styles.viewAllButton}>
+                    <Link href="/magazine" className={styles.sleekButton2}>
+                        Read the Feature
+                    </Link>
                 </div>
             </motion.section>
 
@@ -37,35 +138,11 @@ export default function PortfolioContent() {
                 className={`${styles.section} ${styles.services}`}
                 {...fadeInUp}
             >
-                <span className={styles.eyebrow}>What We Offer & How We Work</span>
-                <h2 className={styles.sectionTitle}>Our Design Process &amp; Services</h2>
+                <span className={styles.eyebrow}>What We Offer</span>
+                <h2 className={styles.sectionTitle}>Our Services</h2>
                 <p className={styles.servicesIntro}>
                     From concept to completion, we offer comprehensive interior design solutions tailored to your vision.
                 </p>
-
-                <div className={styles.processStrip}>
-                    {[
-                        "Discovery & Consultation",
-                        "Research & Site Analysis",
-                        "Concept Development",
-                        "Design & Specifications",
-                        "Final Design & Approvals",
-                        "Procurement & Coordination",
-                        "Construction Oversight",
-                        "Installation & Final Styling",
-                    ].map((title, index) => (
-                        <div className={styles.processStripItem} key={title}>
-                            <span className={styles.processStripNumber}>{String(index + 1).padStart(2, "0")}</span>
-                            <span>{title}</span>
-                        </div>
-                    ))}
-                </div>
-                <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-                    <Link href="/design-process" className={styles.sleekButton3}>
-                        Learn the Full Process
-                    </Link>
-                </div>
-
                 <div className={styles.servicesGrid}>
                     {/* Residential Design */}
                     <motion.div className={styles.serviceCard} {...fadeInUp}>
@@ -207,103 +284,95 @@ export default function PortfolioContent() {
                 </div>
             </motion.section>
 
-            {/* Featured Projects */}
+            {/* Design Process Section */}
             <motion.section
-                className={styles.section}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true }}
-                variants={staggerChildren}
-            >
-                <h2 className={styles.sectionTitle}>Featured Projects</h2>
-                <div className={styles.projectsGrid}>
-                    <Link href="/projects/california-usa-2024">
-                        <motion.div className={styles.projectCard} variants={fadeInUp}>
-                            <div className={`${styles.projectImageWrapper} ${styles.watermarkedImageWrapper}`}>
-                                <img
-                                    src="/project title pic.jpg"
-                                    alt="California USA 2024 - Modern Minimalist Design"
-                                    className={styles.projectImage}
-                                />
-                            </div>
-                            <div className={styles.projectInfo}>
-                                <h3>California USA 2024</h3>
-                                <p>Modern Minimalist Elegance</p>
-                            </div>
-                        </motion.div>
-                    </Link>
-
-                    <Link href="/projects/artisan-teak-mandala-2024">
-                        <motion.div className={styles.projectCard} variants={fadeInUp}>
-                            <div className={`${styles.projectImageWrapper} ${styles.watermarkedImageWrapper}`}>
-                                <img
-                                    src="/project 2/after 1.JPEG"
-                                    alt="Artisan's Teak Mandala 2024 - Sacred Space Redefined"
-                                    className={styles.projectImage}
-                                />
-                            </div>
-                            <div className={styles.projectInfo}>
-                                <h3>Artisan's Teak Mandala</h3>
-                                <p>Sacred Space Redefined</p>
-                            </div>
-                        </motion.div>
-                    </Link>
-                </div>
-                <div className={styles.viewAllButton}>
-                    <Link href="/projects" className={styles.sleekButton2}>
-                        View All Projects
-                    </Link>
-                </div>
-            </motion.section>
-
-
-
-
-
-            {/* As Featured In - Magazine Teaser */}
-            <motion.section
-                className={`${styles.section} ${styles.magazineTeaser}`}
+                className={`${styles.section} ${styles.designProcess}`}
                 {...fadeInUp}
             >
-                <h2 className={styles.sectionTitle}>As Featured In</h2>
+                <span className={styles.eyebrow}>How We Work</span>
+                <h2 className={styles.sectionTitle}>The Design Process</h2>
                 <p className={styles.servicesIntro}>
-                    Bombay FilmFame&apos;s Anniversary Issue sits down with our founder to talk global vision, Indian soul, and the philosophy behind our interiors.
+                    A structured, thoughtful approach that transforms vision into timeless spaces.
                 </p>
-                <Link href="/magazine" className={styles.magazineTeaserLink}>
-                    <div className={styles.magazineTeaserGrid}>
-                        <motion.div className={styles.magazineTeaserImage} {...fadeInUp}>
-                            <img src="/magazine/cover.jpg" alt="Bombay FilmFame Magazine cover" />
-                        </motion.div>
-                        <motion.div className={`${styles.magazineTeaserImage} ${styles.magazineTeaserImageSecondary}`} {...fadeInUp}>
-                            <img src="/magazine/page-1.jpg" alt="Bombay FilmFame cover story feature on Vish Design Studio" />
-                        </motion.div>
-                    </div>
-                </Link>
-                <div className={styles.viewAllButton}>
-                    <Link href="/magazine" className={styles.sleekButton2}>
-                        Read the Feature
+
+                <div className={styles.processStrip}>
+                    {[
+                        "Discovery & Consultation",
+                        "Research & Site Analysis",
+                        "Concept Development",
+                        "Design & Specifications",
+                        "Final Design & Approvals",
+                        "Procurement & Coordination",
+                        "Construction Oversight",
+                        "Installation & Final Styling",
+                    ].map((title, index) => (
+                        <div className={styles.processStripItem} key={title}>
+                            <span className={styles.processStripNumber}>{String(index + 1).padStart(2, "0")}</span>
+                            <span>{title}</span>
+                        </div>
+                    ))}
+                </div>
+                <div style={{ textAlign: "center" }}>
+                    <Link href="/design-process" className={styles.sleekButton3}>
+                        Learn the Full Process
                     </Link>
                 </div>
             </motion.section>
 
-            {/* Founder Section */}
+            {/* Latest Insights - Blog Section */}
             <motion.section
-                className={`${styles.section} ${styles.founder}`}
+                className={`${styles.section} ${styles.blogSection}`}
                 {...fadeInUp}
             >
-                <h2 className={styles.sectionTitle}>Founder & Principal Designer</h2>
-                <div className={styles.founderContent}>
-                    <motion.div className={styles.founderImage} {...fadeInUp}>
-                        <img src="/founder pic.JPEG" alt="Gayathri Vish - Founder & Principal Designer" />
-                    </motion.div>
-                    <motion.div className={styles.founderText} {...fadeInUp}>
-                        <p className={styles.introText}>
-                            <span className={styles.highlight}>Gayathri Vish</span> leads Vish Design Studio with degrees from Stella Maris College and certifications from Harvard University Graduate School of Design, bringing global foresight and local soul to over 50 projects across India and beyond.
-                        </p>
-                        <Link href="/about" className={styles.sleekButton}>
-                            Know More
-                        </Link>
-                    </motion.div>
+                <h2 className={styles.sectionTitle}>Blog</h2>
+                <p className={styles.servicesIntro}>
+                    Exploring the art and science of interior design through our curated collection of design stories
+                </p>
+                <div className={styles.blogPreviewGrid}>
+                    <Link href="/blog/walk-in-wardrobe">
+                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
+                            <div className={styles.blogImageWrapper}>
+                                <img src="/blog/blog1/walk_in_wadrobe_view_0.effectsResult.jpg" alt="Walk in Wardrobe" />
+                            </div>
+                            <div className={styles.blogPreviewContent}>
+                                <span className={styles.blogCategory}>Interior Design</span>
+                                <h3>Walk in Wardrobe</h3>
+                                <p>A Serene Sanctuary: Designing a Modern Walk-In Wardrobe</p>
+                            </div>
+                        </motion.div>
+                    </Link>
+
+                    <Link href="/blog/french-style-bedroom">
+                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
+                            <div className={styles.blogImageWrapper}>
+                                <img src="/blog/blog2/11.jpg" alt="French Style Bedroom" />
+                            </div>
+                            <div className={styles.blogPreviewContent}>
+                                <span className={styles.blogCategory}>Bedroom Design</span>
+                                <h3>From Paris, With Love</h3>
+                                <p>Timeless Elegance: Designing Your Dream French-Style Bedroom</p>
+                            </div>
+                        </motion.div>
+                    </Link>
+
+                    <Link href="/blog/modern-monochrome-bathroom">
+                        <motion.div className={styles.blogPreviewCard} {...fadeInUp}>
+                            <div className={styles.blogImageWrapper}>
+                                <img src="/blog/blog3/bathroom_view_1.effectsResult.jpg" alt="Modern Monochrome Bathroom" />
+                            </div>
+                            <div className={styles.blogPreviewContent}>
+                                <span className={styles.blogCategory}>Bathroom Design</span>
+                                <h3>Black, White, and Intent</h3>
+                                <p>The Monolithic Geometry of Modern Luxury</p>
+                            </div>
+                        </motion.div>
+                    </Link>
+
+                </div>
+                <div className={styles.viewAllButton}>
+                    <Link href="/blog" className={styles.sleekButton2}>
+                        View All Articles
+                    </Link>
                 </div>
             </motion.section>
 

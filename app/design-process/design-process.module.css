@@ -34,13 +34,13 @@
 
 .pageHeader {
     text-align: center;
-    margin-bottom: 6rem;
+    margin-bottom: 3rem;
 }
 
 .pageTitle {
-    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-size: clamp(2.5rem, 5vw, 4rem);
     color: var(--color-text);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-weight: 450;
     letter-spacing: -0.02em;
     position: relative;
@@ -68,15 +68,15 @@
 }
 
 .introSection {
-    margin-bottom: 8rem;
+    margin-bottom: 3rem;
 }
 
 .introGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    gap: 3rem;
     align-items: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .introContent {
@@ -84,9 +84,9 @@
 }
 
 .introBlockTitle {
-    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
     color: var(--color-text);
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
     font-weight: 600;
     line-height: 1.2;
 }
@@ -104,6 +104,7 @@
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
     transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    max-height: 340px;
 }
 
 .introImageWrapper:hover {
@@ -113,13 +114,15 @@
 
 .introImage {
     width: 100%;
-    height: auto;
+    height: 100%;
+    max-height: 340px;
+    object-fit: cover;
     display: block;
 }
 
 .introHighlightCard {
     background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 20px;
     border: 1px solid #423f3f2c;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
@@ -139,9 +142,9 @@
 }
 
 .introHighlightHeading {
-    font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+    font-size: clamp(1.375rem, 2vw, 1.75rem);
     color: var(--color-text);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-weight: 600;
 }
 
@@ -169,7 +172,7 @@
 
 .stepsOverviewSection {
     text-align: center;
-    margin-bottom: 8rem;
+    margin-bottom: 3rem;
     padding: 1rem 0;
 }
 
@@ -187,9 +190,9 @@
 }
 
 .stepsOverviewTitle {
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
     color: var(--color-text);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-weight: 600;
 }
 
@@ -197,116 +200,84 @@
     font-size: clamp(1.125rem, 1.5vw, 1.3rem);
     color: var(--color-muted);
     max-width: 800px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 2rem;
     line-height: 1.8;
 }
 
-.stepsPillRow {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    max-width: 1000px;
+/* ACCORDION */
+.accordion {
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-.stepPill {
+.accordionItem {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordionHeader {
+    width: 100%;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 1.75rem;
-    background: #ffffff;
-    border: 2px solid #423f3f2c;
-    border-radius: 50px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--color-text);
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    gap: 1.5rem;
+    padding: 1.25rem 0.5rem;
+    background: none;
+    border: none;
     cursor: pointer;
+    text-align: left;
+    font: inherit;
 }
 
-.stepPill:hover {
-    border-color: var(--color-accent);
-    background: var(--color-accent);
-    color: #ffffff;
-    box-shadow: 0 5px 20px #423f3f2c;
+.accordionNumber {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    width: 40px;
+    flex-shrink: 0;
 }
 
-.stepPillNumber {
-    width: 28px;
-    height: 28px;
+.accordionHeaderText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.accordionTitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.accordionTagline {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    font-style: italic;
+}
+
+.accordionChevron {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-accent);
-    color: #ffffff;
-    border-radius: 50%;
-    font-size: 0.875rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.stepPill:hover .stepPillNumber {
-    background: #ffffff;
     color: var(--color-accent);
+    transition: transform 0.3s ease;
 }
 
-.stepSection {
-    margin-top: -1.5rem;
-    margin-bottom: 5rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+.accordionChevronOpen {
+    transform: rotate(180deg);
 }
 
-.stepHeader {
-    margin-bottom: 3rem;
-}
-
-.stepLabel {
-    display: inline-block;
-    padding: 0.5rem 1.25rem;
-    background: #423f3f2c;
-    color: var(--color-accent);
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1.5rem;
-}
-
-.stepTitleRow {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 1rem;
-}
-
-.stepNumber {
-    font-size: clamp(4rem, 6vw, 6rem);
-    font-weight: 700;
-    color: #423f3f2c;
-    line-height: 1;
-    font-family: var(--font-serif);
-}
-
-.stepTitle {
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    color: var(--color-text);
-    font-weight: 600;
-    line-height: 1.2;
-}
-
-.stepTagline {
-    font-size: clamp(1.125rem, 1.5vw, 1.3rem);
-    color: var(--color-muted);
-    font-style: italic;
+.accordionBody {
+    padding: 0 0.5rem 2rem 3.5rem;
 }
 
 .stepLayout {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 4rem;
+    gap: 2.5rem;
     align-items: start;
 }
 
@@ -324,21 +295,8 @@
 .stepGallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
-    gap: 2rem;
+    gap: 1.25rem;
 }
-
-.singleImage {
-    margin-left: 100px;
-    grid-template-columns: 6fr;
-    justify-items: center;
-    margin-top: -60px;
-}
-
-/* TWO+ images → balanced */
-.multiImage {
-    grid-template-columns: repeat(2, minmax(1fr, 1fr));
-}
-
 
 .stepImageCard {
     cursor: pointer;
@@ -351,12 +309,12 @@
     justify-content: center;
     position: relative;
     width: 100%;
-    max-width: 700px;
+    max-width: 560px;
     height: auto;
-    aspect-ratio: 14 / 11.8;
+    aspect-ratio: 4 / 3;
     border-radius: 16px;
     overflow: hidden;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -367,45 +325,9 @@
 }
 
 .stepImage {
-      object-fit: contain;
+    object-fit: cover;
     width: 100%;
     height: 100%;
-    /* padding: 1.5rem; */
-      transform: none
-    /* transition: transform 0.4s ease; */
-}
-
-/* .stepImageContainer:hover .stepImage {
-    transform: scale(1.08);
-} */
-
-.stepImageOverlay {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.95);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: all 0.3s ease;
-}
-
-.stepImageContainer:hover .stepImageOverlay {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.stepImageNumber {
-    font-size: 0.875rem;
-    color: var(--color-accent);
-    font-weight: 600;
 }
 
 .stepImageTitle {
@@ -416,8 +338,8 @@
 }
 
 .philosophySection {
-    margin-top: 8rem;
-    margin-bottom: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .philosophyGrid {
@@ -428,9 +350,9 @@
 }
 
 .philosophyHeading {
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
     color: var(--color-text);
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
     font-weight: 600;
 }
 
@@ -443,7 +365,7 @@
 
 .philosophyAccentCard {
     background: linear-gradient(135deg, var(--color-accent) 0%, #42413f 100%);
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 20px 60px #423f3f2c;
 }
@@ -486,37 +408,23 @@
         padding: 6rem 1.5rem 4rem;
     }
 
-    .stepTitleRow {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+    .accordionHeader {
+        gap: 1rem;
     }
 
-    .stepNumber {
-        font-size: 3rem;
+    .accordionBody {
+        padding-left: 0.5rem;
     }
 
     .stepGallery {
         grid-template-columns: 1fr;
-           width: 100%;
+        width: 100%;
         max-width: 100%;
         overflow-x: hidden;
     }
 
     .stepImageContainer {
-        height: 350px;
+        height: 260px;
         max-width: 100%;
-    }
-
-    .stepsPillRow {
-        flex-direction: column;
-        align-items: stretch;
-    }
-}
-@media (max-width: 768px) {
-    .singleImage {
-        margin-left: 0;       /* ✅ remove left gap */
-        margin-top: 0;        /* optional: cleaner flow */
-        justify-items: stretch;
     }
 }
