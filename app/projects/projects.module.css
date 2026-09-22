@@ -54,7 +54,7 @@
 .projectImageWrapper {
     position: relative;
     width: 100%;
-    height: 500px;
+    aspect-ratio: 1 / 1;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -185,9 +185,5 @@
 @media (max-width: 768px) {
     .projectsGrid {
         grid-template-columns: 1fr;
-    }
-
-    .projectImageWrapper {
-        height: 400px;
     }
 }

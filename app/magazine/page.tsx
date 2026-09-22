@@ -80,9 +80,6 @@ export default function MagazinePage() {
                             <p className={styles.introText}>
                                 From her academic roots in Sociology and International Studies to a design philosophy built on listening before designing, the feature traces the ideas that shape every space Vish Design Studio creates.
                             </p>
-                            <Link href="/about" className={styles.sleekButton}>
-                                Meet the Founder
-                            </Link>
                         </div>
                     </div>
                 </motion.section>

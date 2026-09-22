@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './design-process.module.css';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
@@ -32,35 +33,94 @@ const scaleIn = {
     viewport: { once: true, margin: '-100px' },
 };
 
-const step1Images = [
-    { src: '/design-process/sideSofa.png', title: 'Client briefing & inspiration gathering' },
-];
-
-const step2Images = [
-    { src: '/design-process/step2i.png', title: 'Scaled floor plans & layouts' },
-    { src: '/design-process/step2ii.png', title: 'Preliminary material concepts' },
-];
-
-const step3Images = [
-    { src: '/design-process/step3i.png', title: 'Interior elevations & millwork planning' },
-    { src: '/processhome/final design and approvals.png', title: 'Material palettes & finish boards' },
-];
-
-const step4Images = [
-    { src: '/design-process/step4i.png', title: 'Construction tender documentation' },
-    { src: '/design-process/step4ii.png', title: 'Finish schedules & specification lists' },
-];
-
-const step5Images = [
-    { src: '/design-process/whiteSofa.png', title: 'Furniture, rugs and lighting logistics' },
-];
-
-const step6Images = [
-    { src: '/design-process/yellowHelmet.png', title: 'On-site coordination & progress reviews' },
-];
-
-const step7Images = [
-    { src: '/design-process/keyOnTable.png', title: 'Final styling & handover' },
+const steps = [
+    {
+        number: '01',
+        label: 'Step 1',
+        title: 'Research',
+        tagline: 'Building the foundation for everything that follows.',
+        paragraphs: [
+            "We begin with open, detailed conversations to understand how you live, what you love and how you want your home to feel when it's complete.",
+            "This is where we gather your inspiration images, ideas and wish-lists, then translate them into a clear direction that anchors the entire project.",
+        ],
+        images: [{ src: '/design-process/sideSofa.png', title: 'Client briefing & inspiration gathering' }],
+    },
+    {
+        number: '02',
+        label: 'Step 2',
+        title: 'Initial Concept Drawings',
+        tagline: 'Translating your brief into scaled plans and early concepts.',
+        paragraphs: [
+            'We prepare scaled drawings and floor layouts for every key area, showing how rooms connect and how you will move through the home day-to-day.',
+            "Cabinetry, built-ins and decorative elements are outlined, and you'll see preliminary colour and material ideas through inspiration imagery and sample palettes.",
+        ],
+        images: [
+            { src: '/design-process/step2i.png', title: 'Scaled floor plans & layouts' },
+            { src: '/design-process/step2ii.png', title: 'Preliminary material concepts' },
+        ],
+    },
+    {
+        number: '03',
+        label: 'Step 3',
+        title: 'Design Development',
+        tagline: 'Detailing every interior elevation, surface and finish.',
+        paragraphs: [
+            'At this stage, the interior architecture truly comes to life. We refine earlier plans and produce detailed drawings for each elevation and every piece of millwork.',
+            'All hard finishes and fixtures are meticulously sourced, creating a coordinated palette that your builder or contractor will later procure and install.',
+            'You start to see how each choice connects, from flooring and tile to hardware, lighting and bespoke joinery details.',
+        ],
+        images: [
+            { src: '/design-process/step3i.png', title: 'Interior elevations & millwork planning' },
+            { src: '/processhome/final design and approvals.png', title: 'Material palettes & finish boards' },
+        ],
+    },
+    {
+        number: '04',
+        label: 'Step 4',
+        title: 'Construction & Tender Package',
+        tagline: 'Finalising drawings and schedules for accurate pricing and build.',
+        paragraphs: [
+            'We complete the drawing set and compile all specified finishes into a clear schedule that is issued for contractor pricing.',
+            'Hard finishes such as tile, stone, hardwood, plumbing fixtures, millwork and recessed lighting are documented so your builder can procure them with confidence.',
+        ],
+        images: [
+            { src: '/design-process/step4i.png', title: 'Construction tender documentation' },
+            { src: '/design-process/step4ii.png', title: 'Finish schedules & specification lists' },
+        ],
+    },
+    {
+        number: '05',
+        label: 'Step 5',
+        title: 'Sourcing Furniture & Soft Furnishings',
+        tagline: 'Curating the pieces that make the house feel like home.',
+        paragraphs: [
+            'We source all the furniture and layered details that complete your home: sofas and tables, lighting, rugs, art and window treatments.',
+            'Orders are carefully managed and tracked so pieces arrive as efficiently and seamlessly as possible, ready for installation day.',
+        ],
+        images: [{ src: '/design-process/whiteSofa.png', title: 'Furniture, rugs and lighting logistics' }],
+    },
+    {
+        number: '06',
+        label: 'Step 6',
+        title: 'Project Management & Site Visits',
+        tagline: 'Keeping the build aligned with the design intent.',
+        paragraphs: [
+            'We attend key site meetings with your builder and trades to answer questions, review details in person and minimise potential errors.',
+            'Regular walk-throughs help ensure that drawings, specifications and on-site decisions all stay in sync with the original vision.',
+        ],
+        images: [{ src: '/design-process/yellowHelmet.png', title: 'On-site coordination & progress reviews' }],
+    },
+    {
+        number: '07',
+        label: 'Step 7',
+        title: 'Installation & Project Completion',
+        tagline: 'The final reveal — and all the finishing touches.',
+        paragraphs: [
+            'Once construction is complete and your home has been thoroughly cleaned, we oversee the delivery and placement of all soft furnishings.',
+            'From carpets and cushions to the smallest accessories, we style each space, record any issues and resolve them quickly so nothing is overlooked.',
+        ],
+        images: [{ src: '/design-process/keyOnTable.png', title: 'Final styling & handover' }],
+    },
 ];
 
 export default function DesignProcessPage() {
@@ -166,7 +226,7 @@ export default function DesignProcessPage() {
                     </motion.aside>
                 </motion.section>
 
-                {/* Steps Overview */}
+                {/* Steps Accordion */}
                 <motion.section
                     className={styles.stepsOverviewSection}
                     {...fadeInUp}
@@ -174,125 +234,11 @@ export default function DesignProcessPage() {
                     <div className={styles.stepsOverviewLabel}>The Design Journey</div>
                     <h2 className={styles.stepsOverviewTitle}>Seven steps to a finished home</h2>
                     <p className={styles.stepsOverviewText}>
-                        Our time-tested process keeps your project moving smoothly, whether you are refreshing a single level or building a new home from the ground up.
+                        Our time-tested process keeps your project moving smoothly, whether you are refreshing a single level or building a new home from the ground up. Tap a step to see it in detail.
                     </p>
-                    <div className={styles.stepsPillRow}>
-                        {[
-                            'Research',
-                            'Initial Concept Drawings',
-                            'Design Development',
-                            'Construction & Tender Package',
-                            'Furniture & Furnishings',
-                            'Project Management & Site Visits',
-                            'Installation & Completion',
-                        ].map((label, index) => (
-                            <motion.div
-                                className={styles.stepPill}
-                                key={label}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1, duration: 0.5 }}
-                                viewport={{ once: true }}
-                                whileHover={{ scale: 1.05, y: -3 }}
-                            >
-                                <span className={styles.stepPillNumber}>{index + 1}</span>
-                                <span>{label}</span>
-                            </motion.div>
-                        ))}
-                    </div>
                 </motion.section>
 
-                {/* Step 1 - Research */}
-                <StepSection
-                    stepNumber="01"
-                    stepLabel="Step 1"
-                    stepTitle="Research"
-                    stepTagline="Building the foundation for everything that follows."
-                    paragraphs={[
-                        "We begin with open, detailed conversations to understand how you live, what you love and how you want your home to feel when it's complete.",
-                        "This is where we gather your inspiration images, ideas and wish-lists, then translate them into a clear direction that anchors the entire project.",
-                    ]}
-                    images={step1Images}
-                />
-
-                {/* Step 2 - Initial Concept Drawings */}
-                <StepSection
-                    stepNumber="02"
-                    stepLabel="Step 2"
-                    stepTitle="Initial Concept Drawings"
-                    stepTagline="Translating your brief into scaled plans and early concepts."
-                    paragraphs={[
-                        "We prepare scaled drawings and floor layouts for every key area, showing how rooms connect and how you will move through the home day-to-day.",
-                        "Cabinetry, built-ins and decorative elements are outlined, and you'll see preliminary colour and material ideas through inspiration imagery and sample palettes.",
-                    ]}
-                    images={step2Images}
-                />
-
-                {/* Step 3 - Design Development */}
-                <StepSection
-                    stepNumber="03"
-                    stepLabel="Step 3"
-                    stepTitle="Design Development"
-                    stepTagline="Detailing every interior elevation, surface and finish."
-                    paragraphs={[
-                        "At this stage, the interior architecture truly comes to life. We refine earlier plans and produce detailed drawings for each elevation and every piece of millwork.",
-                        "All hard finishes and fixtures are meticulously sourced, creating a coordinated palette that your builder or contractor will later procure and install.",
-                        "You start to see how each choice connects, from flooring and tile to hardware, lighting and bespoke joinery details.",
-                    ]}
-                    images={step3Images}
-                />
-
-                {/* Step 4 - Construction & Tender Package */}
-                <StepSection
-                    stepNumber="04"
-                    stepLabel="Step 4"
-                    stepTitle="Construction & Tender Package"
-                    stepTagline="Finalising drawings and schedules for accurate pricing and build."
-                    paragraphs={[
-                        "We complete the drawing set and compile all specified finishes into a clear schedule that is issued for contractor pricing.",
-                        "Hard finishes such as tile, stone, hardwood, plumbing fixtures, millwork and recessed lighting are documented so your builder can procure them with confidence.",
-                    ]}
-                    images={step4Images}
-                />
-
-                {/* Step 5 - Furniture & Soft Furnishings */}
-                <StepSection
-                    stepNumber="05"
-                    stepLabel="Step 5"
-                    stepTitle="Sourcing Furniture & Soft Furnishings"
-                    stepTagline="Curating the pieces that make the house feel like home."
-                    paragraphs={[
-                        "We source all the furniture and layered details that complete your home: sofas and tables, lighting, rugs, art and window treatments.",
-                        "Orders are carefully managed and tracked so pieces arrive as efficiently and seamlessly as possible, ready for installation day.",
-                    ]}
-                    images={step5Images}
-                />
-
-                {/* Step 6 - Project Management */}
-                <StepSection
-                    stepNumber="06"
-                    stepLabel="Step 6"
-                    stepTitle="Project Management & Site Visits"
-                    stepTagline="Keeping the build aligned with the design intent."
-                    paragraphs={[
-                        "We attend key site meetings with your builder and trades to answer questions, review details in person and minimise potential errors.",
-                        "Regular walk-throughs help ensure that drawings, specifications and on-site decisions all stay in sync with the original vision.",
-                    ]}
-                    images={step6Images}
-                />
-
-                {/* Step 7 - Installation & Completion */}
-                <StepSection
-                    stepNumber="07"
-                    stepLabel="Step 7"
-                    stepTitle="Installation & Project Completion"
-                    stepTagline="The final reveal — and all the finishing touches."
-                    paragraphs={[
-                        "Once construction is complete and your home has been thoroughly cleaned, we oversee the delivery and placement of all soft furnishings.",
-                        "From carpets and cushions to the smallest accessories, we style each space, record any issues and resolve them quickly so nothing is overlooked.",
-                    ]}
-                    images={step7Images}
-                />
+                <StepAccordion steps={steps} />
 
                 {/* Philosophy / Closing */}
                 <motion.section className={styles.philosophySection} {...fadeInUp}>
@@ -320,71 +266,76 @@ export default function DesignProcessPage() {
     );
 }
 
-// Step Section Component with enhanced animations
-function StepSection({ stepNumber, stepLabel, stepTitle, stepTagline, paragraphs, images }: {
-    stepNumber: string;
-    stepLabel: string;
-    stepTitle: string;
-    stepTagline: string;
+type Step = {
+    number: string;
+    label: string;
+    title: string;
+    tagline: string;
     paragraphs: string[];
     images: { src: string; title: string }[];
-}) {
+};
+
+function StepAccordion({ steps }: { steps: Step[] }) {
+    const [openIndex, setOpenIndex] = useState(0);
+
     return (
-        <motion.section
-            className={styles.stepSection}
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-100px' }}
-        >
-            <motion.div className={styles.stepHeader} variants={fadeInUp}>
-                <div className={styles.stepLabel}>{stepLabel}</div>
-                <div className={styles.stepTitleRow}>
-                    <span className={styles.stepNumber}>{stepNumber}</span>
-                    <h2 className={styles.stepTitle}>{stepTitle}</h2>
-                </div>
-                <p className={styles.stepTagline}>{stepTagline}</p>
-            </motion.div>
-
-            <div className={styles.stepLayout}>
-                <motion.div className={styles.stepTextBlock} variants={fadeInUp}>
-                    {paragraphs.map((text, index) => (
-                        <p key={index} className={styles.stepParagraph}>{text}</p>
-                    ))}
-                </motion.div>
-
-                <motion.div
-                    className={styles.stepGallery}
-                    variants={staggerContainer}
-                >
-                    {images.map((image, index) => (
-                        <motion.div
-                            key={image.src}
-                            className={styles.stepImageCard}
-                            variants={{
-                                hidden: { opacity: 0, y: 40 },
-                                show: { opacity: 1, y: 0 },
-                            }}
-                            whileHover={{ y: -8, scale: 1.02 }}
-                            transition={{ duration: 0.3 }}
+        <div className={styles.accordion}>
+            {steps.map((step, index) => {
+                const isOpen = openIndex === index;
+                return (
+                    <div className={styles.accordionItem} key={step.title}>
+                        <button
+                            type="button"
+                            className={styles.accordionHeader}
+                            onClick={() => setOpenIndex(isOpen ? -1 : index)}
+                            aria-expanded={isOpen}
                         >
-                            <div className={styles.stepImageContainer}>
-                                <img
-                                    src={image.src}
-                                    alt={image.title}
-                                    className={styles.stepImage}
-                                />
-                                <div className={styles.stepImageOverlay}>
-                                    <span className={styles.stepImageNumber}>
-                                        {stepNumber}.{index + 1}
-                                    </span>
-                                </div>
-                            </div>
-                            <div className={styles.stepImageTitle}>{image.title}</div>
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </div>
-        </motion.section>
+                            <span className={styles.accordionNumber}>{step.number}</span>
+                            <span className={styles.accordionHeaderText}>
+                                <span className={styles.accordionTitle}>{step.title}</span>
+                                <span className={styles.accordionTagline}>{step.tagline}</span>
+                            </span>
+                            <span className={`${styles.accordionChevron} ${isOpen ? styles.accordionChevronOpen : ''}`}>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </span>
+                        </button>
+                        <AnimatePresence initial={false}>
+                            {isOpen && (
+                                <motion.div
+                                    key="content"
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: 'auto', opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                                    style={{ overflow: 'hidden' }}
+                                >
+                                    <div className={styles.accordionBody}>
+                                        <div className={styles.stepLayout}>
+                                            <div className={styles.stepTextBlock}>
+                                                {step.paragraphs.map((text, i) => (
+                                                    <p key={i} className={styles.stepParagraph}>{text}</p>
+                                                ))}
+                                            </div>
+                                            <div className={styles.stepGallery}>
+                                                {step.images.map((image) => (
+                                                    <div className={styles.stepImageCard} key={image.src}>
+                                                        <div className={styles.stepImageContainer}>
+                                                            <img src={image.src} alt={image.title} className={styles.stepImage} />
+                                                        </div>
+                                                        <div className={styles.stepImageTitle}>{image.title}</div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+                );
+            })}
+        </div>
     );
 }
