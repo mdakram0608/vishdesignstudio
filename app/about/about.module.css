@@ -14,9 +14,9 @@
 }
 
 .mainTitle {
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
     color: var(--color-text);
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
 }
@@ -32,11 +32,12 @@
 }
 
 .content p {
-    font-size: clamp(1.125rem, 2vw, 1.25rem);
-    line-height: 1.9;
+    font-size: clamp(1rem, 1.3vw, 1.1rem);
+    line-height: 1.8;
     color: var(--color-muted);
     margin-bottom: 1.5rem;
-    max-width: 900px;
+    max-width: 1100px;
+    text-align: justify;
 }
 
 .highlight {
@@ -52,9 +53,9 @@
 }
 
 .sectionTitle {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
     color: var(--color-text);
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
 }
@@ -98,10 +99,11 @@
 }
 
 .founderText p {
-    font-size: clamp(1.075rem, 2vw, 1.175rem);
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
     line-height: 1.8;
     color: var(--color-muted);
     margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
 .videoSection {
