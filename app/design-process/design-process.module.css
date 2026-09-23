@@ -84,7 +84,7 @@
 }
 
 .introBlockTitle {
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
     color: var(--color-text);
     margin-bottom: 1.25rem;
     font-weight: 600;
@@ -190,7 +190,7 @@
 }
 
 .stepsOverviewTitle {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
     color: var(--color-text);
     margin-bottom: 1rem;
     font-weight: 600;
@@ -350,7 +350,7 @@
 }
 
 .philosophyHeading {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
     color: var(--color-text);
     margin-bottom: 1.25rem;
     font-weight: 600;

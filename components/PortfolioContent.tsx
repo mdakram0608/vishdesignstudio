@@ -29,10 +29,7 @@ export default function PortfolioContent() {
                 <h2 className={styles.sectionTitle}>Vish Design Studio</h2>
                 <div className={styles.introContainer}>
                     <p className={styles.introText}>
-                        Based in Chennai, <span className={styles.highlight}>Vish Design Studio</span> embraces a global design philosophy. We transform spaces into captivating environments by blending traditional Indian craftsmanship with contemporary global design principles, creating distinctive interiors that are both deeply personal and universally appealing.
-                    </p>
-                    <p className={styles.introText}>
-                        Since 2023, we&apos;ve delivered comprehensive, end-to-end solutions for luxury residential and commercial spaces throughout India and American Cities. From custom furniture to sustainable materials, every element is meticulously curated to create cohesive and inspiring environments.
+                        Based in Chennai, <span className={styles.highlight}>Vish Design Studio</span> blends traditional Indian craftsmanship with contemporary global design to create interiors that are both deeply personal and timeless.
                     </p>
                 </div>
             </motion.section>
@@ -133,16 +130,40 @@ export default function PortfolioContent() {
                 </div>
             </motion.section>
 
-            {/* Services Overview Section */}
+            {/* Services & Design Process Section */}
             <motion.section
                 className={`${styles.section} ${styles.services}`}
                 {...fadeInUp}
             >
-                <span className={styles.eyebrow}>What We Offer</span>
-                <h2 className={styles.sectionTitle}>Our Services</h2>
+                <span className={styles.eyebrow}>What We Offer &amp; How We Work</span>
+                <h2 className={styles.sectionTitle}>Our Design Process &amp; Services</h2>
                 <p className={styles.servicesIntro}>
                     From concept to completion, we offer comprehensive interior design solutions tailored to your vision.
                 </p>
+
+                <div className={styles.processStrip}>
+                    {[
+                        "Discovery & Consultation",
+                        "Research & Site Analysis",
+                        "Concept Development",
+                        "Design & Specifications",
+                        "Final Design & Approvals",
+                        "Procurement & Coordination",
+                        "Construction Oversight",
+                        "Installation & Final Styling",
+                    ].map((title, index) => (
+                        <div className={styles.processStripItem} key={title}>
+                            <span className={styles.processStripNumber}>{String(index + 1).padStart(2, "0")}</span>
+                            <span>{title}</span>
+                        </div>
+                    ))}
+                </div>
+                <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+                    <Link href="/design-process" className={styles.sleekButton3}>
+                        Learn the Full Process
+                    </Link>
+                </div>
+
                 <div className={styles.servicesGrid}>
                     {/* Residential Design */}
                     <motion.div className={styles.serviceCard} {...fadeInUp}>
@@ -281,41 +302,6 @@ export default function PortfolioContent() {
                             </div>
                         </div>
                     </motion.div>
-                </div>
-            </motion.section>
-
-            {/* Design Process Section */}
-            <motion.section
-                className={`${styles.section} ${styles.designProcess}`}
-                {...fadeInUp}
-            >
-                <span className={styles.eyebrow}>How We Work</span>
-                <h2 className={styles.sectionTitle}>The Design Process</h2>
-                <p className={styles.servicesIntro}>
-                    A structured, thoughtful approach that transforms vision into timeless spaces.
-                </p>
-
-                <div className={styles.processStrip}>
-                    {[
-                        "Discovery & Consultation",
-                        "Research & Site Analysis",
-                        "Concept Development",
-                        "Design & Specifications",
-                        "Final Design & Approvals",
-                        "Procurement & Coordination",
-                        "Construction Oversight",
-                        "Installation & Final Styling",
-                    ].map((title, index) => (
-                        <div className={styles.processStripItem} key={title}>
-                            <span className={styles.processStripNumber}>{String(index + 1).padStart(2, "0")}</span>
-                            <span>{title}</span>
-                        </div>
-                    ))}
-                </div>
-                <div style={{ textAlign: "center" }}>
-                    <Link href="/design-process" className={styles.sleekButton3}>
-                        Learn the Full Process
-                    </Link>
                 </div>
             </motion.section>
 

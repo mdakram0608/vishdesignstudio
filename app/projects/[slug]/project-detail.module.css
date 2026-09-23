@@ -35,7 +35,7 @@
 }
 
 .projectTitle {
-    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
     color: var(--color-text);
     margin-bottom: 0.5rem;
     font-weight: 300;
@@ -122,17 +122,18 @@
 }
 
 .sectionHeading {
-    font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
     color: var(--color-text);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     font-weight: 500;
 }
 
 .descriptionText {
-    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
-    line-height: 1.85;
+    font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+    line-height: 1.8;
     color: var(--color-muted);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
+    text-align: justify;
 }
 
 .factsList {
@@ -186,17 +187,18 @@
 }
 
 .floorPlanTitle {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 1.6vw, 1.25rem);
     color: var(--color-text);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     font-weight: 500;
 }
 
 .floorPlanText {
-    font-size: clamp(1rem, 1.25vw, 1.1rem);
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
     color: var(--color-muted);
-    line-height: 1.8;
-    margin-bottom: 1.25rem;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    text-align: justify;
 }
 
 .floorPlanHighlights {
@@ -220,9 +222,9 @@
 }
 
 .categoryTitle {
-    font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
     color: var(--color-text);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     font-weight: 500;
 }
 
@@ -293,16 +295,17 @@
 }
 
 .featureTitle {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 1.6vw, 1.25rem);
     color: var(--color-text);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
 .featureText {
-    font-size: clamp(1rem, 1.25vw, 1.1rem);
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
     color: var(--color-muted);
-    line-height: 1.8;
+    line-height: 1.75;
+    text-align: justify;
 }
 
 .watermarkedImageWrapper {
